@@ -6,7 +6,7 @@
     <body>
       <p>
         <?php
-          $output = "Butts";
+          $output = "Begin";
           
           //for ($i = 1; $i <= 100; $i++) {
               switch (0) {
@@ -18,7 +18,7 @@
               echo $output + "<br />";
           //}
           echo $output;
-          echo "<br />Boobies";
+          echo "<br />End";
         ?>
       </p>
     </body>

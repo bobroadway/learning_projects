@@ -1,0 +1,7 @@
+CREATE TABLE `theblog` (
+  `id` INT AUTO_INCREMENT,
+  `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `title` VARCHAR(32),
+  `body` TEXT,
+  PRIMARY KEY (`id`)
+);
