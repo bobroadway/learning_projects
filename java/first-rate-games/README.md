@@ -16,13 +16,13 @@ year, a video game genre, and the data format they would prefer. This service us
 information. IGDB will return more information than we need so we will filter that information out and only return 
 one of the top rated games for the year the user has entered. 
 
-##[Live Demo](http://138.68.57.130:8080/first-rate-games/)
+## [Live Demo](http://138.68.57.130:8080/first-rate-games/) (defunct)
 
 ## [Project Plan/ Weekly Journal](projectPlan.md)
 
 ## [Documentation](documentation.md)
 
-##[Presentation](First-Rate-Games.pdf)
+## [Presentation](First-Rate-Games.pdf)
 
 ### Team Awesomeness
 - Bao Vue  
