@@ -12,8 +12,8 @@ import random
 
 # CONSTANTS
 COUNT_GENERATED = 5
-LOSING_NUMBER = 5
-FAREWELLS = [
+LOSING_NUMBER   = 5
+FAREWELLS       = [
     'Later, Number Bro! NumBro, if you will!'
   , 'Farewell, Milady. *tips fedora*'
   , 'Fine! Bye!'
@@ -24,8 +24,8 @@ FAREWELLS = [
 
 # VARIABLES
 play_again = 'y'
-result = ''
-farewell = ''
+result     = ''
+farewell   = ''
 
 ########################################
 # FUNCTIONS                            #
@@ -40,30 +40,34 @@ def get_numbers():
     """Places randomly generated numbers in a list, returns that list."""
     numbers = []
     count = 0
+    
     while count < COUNT_GENERATED:
         number = random.randint(1, 6)
         numbers.append(number);
         print(number)
         count += 1
+        
     return numbers
 
-def get_result():
+def get_result(numbers):
     """Checks if the losing number is found in the list, returns result_message."""
     result_message = ''
-    if LOSING_NUMBER in get_numbers():
+    
+    if LOSING_NUMBER in numbers:
         result_message = 'Sorry, you lose!'
     else:
         result_message = 'You win!'
+        
     return result_message
     
 def prompt_play_again():
     """Prompts the user to play again, returns the 'y' or 'n' from the user."""
     play_again = ''
+    
     while play_again not in ('y', 'n'):
         play_again = str(input('Play again? (y/n): ')).lower()
         
     return play_again
-        
         
 ########################################
 # MAIN LINE                            #
@@ -72,7 +76,7 @@ def prompt_play_again():
 while play_again == 'y':
     # Display game and result, ask to play again.
     print_greeting()
-    result = get_result()
+    result = get_result(get_numbers())
     print(result)
     play_again = prompt_play_again()
 
