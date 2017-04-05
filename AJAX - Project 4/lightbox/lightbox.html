@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Project 4 - Lightbox</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" />
+</head>
+<body>
+  
+  <div>
+    <h1>Bo Broadway</h1>
+    <h2>Lightbox</h2>
+    <h4>Image Viewer</h4>
+    <p>Lightbox is a plugin for working with images to create a slideshow and allow 
+    them to pop out of their containers. You simply download a zip from 
+    <a href="http://lokeshdhakar.com/projects/lightbox2/">the lightbox website</a>, 
+    and follow the instructions on the website. The short version of those 
+    instructions is: </p>
+    <ul>
+      <li>place their images in your images folder</li>
+      <li>link to their lightbox.css stylesheet</li>
+      <li>link to their lightbox.js script</li>
+      <li>use the proper attributes in your html elements</li>
+    </ul>
+    <p>See below, you can pop out the images, and navigate through them.</p>
+  </div>
+  
+  <div>
+    <table>
+      <tr>
+        <td>
+          <a href="images/music.jpg" data-lightbox="image" data-title="Music">
+            <img class="imgPreview" src="images/music.jpg" alt="Music" />
+          </a>
+        </td>
+        <td>
+          <a href="images/anime.jpg" data-lightbox="image" data-title="Anime">
+            <img class="imgPreview" src="images/anime.jpg" alt="Anime" />
+          </a>
+        </td>
+        <td>
+          <a href="images/video_games.jpg" data-lightbox="image" data-title="Video Games">
+            <img class="imgPreview" src="images/video_games.jpg" alt="Video Games" />
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h3><a href="../index.html">Home</a></h3>
+  </div>
+  
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/lightbox.js"></script>
+</body>
+
+
+</html>
