@@ -1,0 +1,81 @@
+body {
+    display: block;
+    text-align: center;
+    color: #AAFF8C;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form, #responseJSON {
+    padding: 2em;
+    display: inline-block;
+    margin: 1em;
+    border-radius: 1.5em;
+    background-color: #404040;
+    text-align: center;
+}
+
+#responseJSON {
+    text-align: left;
+    padding: 1em 3em;
+    margin: 1em auto;
+}
+
+h2 {
+    text-align: center;
+    margin: .5em 0 1em 0;
+}
+
+label {
+    width: 4em;
+    display: inline-block;
+    margin-top: .25em;
+}
+
+input {
+    width: 90px;
+    border-radius: .25em;
+    padding-left: .5em;
+}
+
+select {
+    width: 90px;
+}
+
+button {
+    font-weight: bold;
+    color: #404040;
+    margin: 2em 0 0 0;
+}
+
+#fields {
+    text-align: left;
+    display: inline-block;
+}
+
+pre {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0 1em 1em 1em;
+}
+
+#spinner {
+    width: 10em;
+    display: block;
+}
+
+#game {
+    margin: 1em;
+    color: white;
+}
+
+a {
+    color: lightgrey;
+    font-size: .8em;
+    margin: .5em;
+    text-decoration: none;
+}
+
+img {
+    margin-bottom: 1em;
+}
