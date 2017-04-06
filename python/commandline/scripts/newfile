@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "#!/usr/bin/python3.4" >> "$1"
+chmod +x "$1"
+c9 "$1"

@@ -26,11 +26,6 @@ Attributes:
     farewell (str): the chosen string to say goodbye when the program exits
     
 """
-################################################################################
-# Program:       Random Number Game                                            #
-# Created By:    Bo Broadway                                                   #
-# Date:          04/05/2017                                                    #
-################################################################################
 import random
 
 # Constants
@@ -78,7 +73,7 @@ def get_numbers():
     count = 0
     
     while count < COUNT_GENERATED:
-        number = random.randint(1, 6)
+        number = random.randint(1, 9)
         numbers.append(number);
         print(number)
         count += 1
