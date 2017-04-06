@@ -9,10 +9,10 @@ Purpose:
 
 Programmer:
     Bo Broadway
-    
+
 Date:
     04/05/2017
-    
+
 This program will run with the command ./random_number_game.py.
 
 Attributes:
@@ -24,7 +24,7 @@ Attributes:
         defaulted to 'y' so the program begins at least once.ArithmeticError
     result (str): the result of the game
     farewell (str): the chosen string to say goodbye when the program exits
-    
+
 """
 import random
 
@@ -51,7 +51,7 @@ def print_greeting():
     
     Args:
         None
-        
+    
     Returns:
         None
     
@@ -64,7 +64,7 @@ def get_numbers():
     
     Args:
         None
-        
+    
     Returns:
         `list` of `int`: The list of randomly generated numbers.
     
@@ -84,9 +84,9 @@ def get_result(numbers):
     """Checks if the losing number is found in the list, returns result_message.
     
     Args:
-        numbers(`list` of `numbers`): A list of numbers, used to check of the
+        numbers(`list` of `numbers`): A list of numbers, used to check if the
             LOSING_NUMBER is present.
-            
+    
     Returns:
         string: The result message indicated if the player has won or lost.
     
@@ -105,7 +105,7 @@ def prompt_play_again():
     
     Args:
         None
-        
+    
     Returns:
         string: The 'y' or 'n' flag indicating if the player would like to play
             again.
