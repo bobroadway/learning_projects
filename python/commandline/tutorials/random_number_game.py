@@ -84,7 +84,7 @@ def get_result(numbers):
     """Checks if the losing number is found in the list, returns result_message.
     
     Args:
-        numbers(`list` of `numbers`): A list of numbers, used to check if the
+        numbers(`list` of `int`): A list of numbers, used to check if the
             LOSING_NUMBER is present.
     
     Returns:
