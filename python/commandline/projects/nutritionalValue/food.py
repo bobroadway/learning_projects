@@ -19,19 +19,28 @@ class Food:
         self.carbCal = self.carb * 4
         self.proteinCal = self.protein * 4
         self.totalCal = self.fatCal + self.carbCal + self.proteinCal
+        
+    def getPercentage(self, macro):
+        precentage = round((macro / self.totalCal), 2) * 10
+        return precentage
     
     def setMacroRatio(self):
-        self.fatPercent = self.fatCal / self.totalCal
-        self.carbPercent = self.carbCal / self.totalCal
-        self.proteinPercent = self.proteinCal / self.totalCal
+        self.fatPercent = self.getPercentage(self.fatCal)
+        self.carbPercent = self.getPercentage(self.carbCal)
+        self.proteinPercent = self.getPercentage(self.proteinCal)
         
-    def display(self):
+    def displayBasics(self):
         print(self.name)
         print("Serving Size: {} grams".format(self.size))
         print("Fat: {}g".format(self.fat))
         print("Carbs: {}g".format(self.carb))
         print("Protein: {}g".format(self.protein))
         
+    def displayExpanded(self):
+        self.displayBasics()
+        print("Total Calories: {}".format(self.totalCal))
+        print("Macro Ratio (Carb/Protein/Fat): {}/{}/{}".format(self.carbPercent, self.proteinPercent, self.fatPercent))
+        
 ## Main ##
 food = Food()
-food.display()
+food.displayExpanded()
