@@ -3,22 +3,22 @@
 class Food:
     """ Represents a single food item """
     def __init__(self, name, price, servings, fat, carb, protein):
-        self.name = name
-        self.price = price
-        self.servings = servings
+        self.name            = name
+        self.price           = price
+        self.servings        = servings
         self.pricePerServing = self.calculatePricePerServing()
-        self.fat = fat
-        self.carb = carb
-        self.protein = protein
+        self.fat             = fat
+        self.carb            = carb
+        self.protein         = protein
         self.setCals()
         self.setMacroRatio()
         print("New Food, '{}', Created.".format(self.name))
         
     def setCals(self):
-        self.fatCal = self.fat * 9
-        self.carbCal = self.carb * 4
+        self.fatCal     = self.fat * 9
+        self.carbCal    = self.carb * 4
         self.proteinCal = self.protein * 4
-        self.totalCal = self.fatCal + self.carbCal + self.proteinCal
+        self.totalCal   = self.fatCal + self.carbCal + self.proteinCal
         
     def calculatePricePerServing(self):
         pricePerServing = round((self.price / self.servings), 2)
@@ -29,8 +29,8 @@ class Food:
         return precentage
     
     def setMacroRatio(self):
-        self.fatPercent = self.calculatePercentage(self.fatCal)
-        self.carbPercent = self.calculatePercentage(self.carbCal)
+        self.fatPercent     = self.calculatePercentage(self.fatCal)
+        self.carbPercent    = self.calculatePercentage(self.carbCal)
         self.proteinPercent = self.calculatePercentage(self.proteinCal)
         
     def displayBasics(self):
@@ -47,12 +47,12 @@ class Food:
         
 ## Main ##
 print("Welcome to Nutritional Value!")
-name = str(input("What is the name of the food? "))
-price = round(float(input("Price? $")), 2)
-servings = round(float(input("How many servings per container? ")), 1)
-fat = int(input("How many grams of fat per serving? "))
-carb = int(input("How many grams of carbs per serving? "))
-protein = int(input("How many grams of protein per serving? "))
+name     = str(input("What is the name of the food? "))
+price    = float(input("Price? $"))
+servings = float(input("How many servings per container? "))
+fat      = int(input("How many grams of fat per serving? "))
+carb     = int(input("How many grams of carbs per serving? "))
+protein  = int(input("How many grams of protein per serving? "))
 print("Thank you for the information!")
 
 food = Food(name, price, servings, fat, carb, protein)
