@@ -11,6 +11,19 @@ class Food:
         self.protein = int(input("How many grams of protein? "))
         print("Thank you for the information!")
         print("------------------------------")
+        self.setCals()
+        self.setMacroRatio()
+        
+    def setCals(self):
+        self.fatCal = self.fat * 9
+        self.carbCal = self.carb * 4
+        self.proteinCal = self.protein * 4
+        self.totalCal = self.fatCal + self.carbCal + self.proteinCal
+    
+    def setMacroRatio(self):
+        self.fatPercent = self.fatCal / self.totalCal
+        self.carbPercent = self.carbCal / self.totalCal
+        self.proteinPercent = self.proteinCal / self.totalCal
         
     def display(self):
         print(self.name)
