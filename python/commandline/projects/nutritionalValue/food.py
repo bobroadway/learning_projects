@@ -2,17 +2,17 @@
 """ New Project: Food.py """
 class Food:
     """ Represents a single food item """
-    def __init__(self):
-        print("New Food Object Created")
-        self.name = str(input("What is the name of the food? "))
-        self.size = int(input("Size (in grams)? "))
-        self.fat = int(input("How many grams of fat? "))
-        self.carb = int(input("How many grams of carbs? "))
-        self.protein = int(input("How many grams of protein? "))
-        print("Thank you for the information!")
-        print("------------------------------")
+    def __init__(self, name, price, servings, fat, carb, protein):
+        self.name = name
+        self.price = price
+        self.servings = servings
+        self.pricePerServing = self.calculatePricePerServing()
+        self.fat = fat
+        self.carb = carb
+        self.protein = protein
         self.setCals()
         self.setMacroRatio()
+        print("New Food, '{}', Created.".format(self.name))
         
     def setCals(self):
         self.fatCal = self.fat * 9
@@ -20,27 +20,40 @@ class Food:
         self.proteinCal = self.protein * 4
         self.totalCal = self.fatCal + self.carbCal + self.proteinCal
         
-    def getPercentage(self, macro):
-        precentage = round((macro / self.totalCal), 2) * 10
+    def calculatePricePerServing(self):
+        pricePerServing = round((self.price / self.servings), 2)
+        return pricePerServing
+        
+    def calculatePercentage(self, macro):
+        precentage = int(round((macro / self.totalCal) * 100, 0))
         return precentage
     
     def setMacroRatio(self):
-        self.fatPercent = self.getPercentage(self.fatCal)
-        self.carbPercent = self.getPercentage(self.carbCal)
-        self.proteinPercent = self.getPercentage(self.proteinCal)
+        self.fatPercent = self.calculatePercentage(self.fatCal)
+        self.carbPercent = self.calculatePercentage(self.carbCal)
+        self.proteinPercent = self.calculatePercentage(self.proteinCal)
         
     def displayBasics(self):
-        print(self.name)
-        print("Serving Size: {} grams".format(self.size))
+        print("-- {} --".format(self.name))
+        print("Price per Serving: ${}".format(self.pricePerServing))
         print("Fat: {}g".format(self.fat))
         print("Carbs: {}g".format(self.carb))
         print("Protein: {}g".format(self.protein))
         
     def displayExpanded(self):
         self.displayBasics()
-        print("Total Calories: {}".format(self.totalCal))
+        print("Calories: {}".format(self.totalCal))
         print("Macro Ratio (Carb/Protein/Fat): {}/{}/{}".format(self.carbPercent, self.proteinPercent, self.fatPercent))
         
 ## Main ##
-food = Food()
+print("Welcome to Nutritional Value!")
+name = str(input("What is the name of the food? "))
+price = round(float(input("Price? $")), 2)
+servings = round(float(input("How many servings per container? ")), 1)
+fat = int(input("How many grams of fat per serving? "))
+carb = int(input("How many grams of carbs per serving? "))
+protein = int(input("How many grams of protein per serving? "))
+print("Thank you for the information!")
+
+food = Food(name, price, servings, fat, carb, protein)
 food.displayExpanded()
