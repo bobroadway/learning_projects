@@ -19,7 +19,7 @@ Dependencies:
         Meal.py
 
 """
-from food import Food
+from classes.food import Food
 
 ## Main ##
 print("Welcome to Nutritional Value!")
