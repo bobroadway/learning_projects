@@ -21,7 +21,7 @@ class Food:
     and Percents.
     
     Note:
-        When intantiating an object, do not include the `self` parameter. 
+        When instantiating an object, do not include the `self` parameter. 
         
     Args:
         name     (str)   : The name of the Food. 
@@ -35,9 +35,9 @@ class Food:
         name     (str)   : The name of the Food. 
         price    (float) : The float value of the price. ex - 12.95
         servings (float) : The number of servings per container.
-        fat      (int)   : The amount of fat per serving, in grams. 
-        carb     (int)   : The amount of carbs per serving, in grams. 
-        protein  (int)   : The amount of protein per serving, in grams.
+        fat      (float) : The amount of fat per serving, in grams. 
+        carb     (float) : The amount of carbs per serving, in grams. 
+        protein  (float) : The amount of protein per serving, in grams.
         
         pricePerServing (float) : The float value of the price per serving. 
         fatCal          (int)   : Calories from fat, per serving. 
@@ -47,15 +47,16 @@ class Food:
         fatPercent      (int)   : Macro ratio of fat. 
         carbPercent     (int)   : Macro ratio of carb. 
         proteinPercent  (int)   : Macro ratio of protein.
+        
     """
     def __init__(self, name, price, servings, fat, carb, protein):
-        self.name            = name
-        self.price           = price
-        self.servings        = servings
-        self.pricePerServing = self.calculatePricePerServing()
-        self.fat             = fat
-        self.carb            = carb
-        self.protein         = protein
+        self.name            = str(name)
+        self.price           = round(float(price), 2)
+        self.servings        = round(float(servings), 2)
+        self.pricePerServing = round(float(self.calculatePricePerServing()), 2)
+        self.fat             = round(float(fat), 1)
+        self.carb            = round(float(carb), 1)
+        self.protein         = round(float(protein), 1)
         self.setCals()
         self.setMacroRatio()
         print("New Food, '{}', Created.".format(self.name))
@@ -66,9 +67,9 @@ class Food:
         Args:
             None
         """
-        self.fatCal     = self.fat * 9
-        self.carbCal    = self.carb * 4
-        self.proteinCal = self.protein * 4
+        self.fatCal     = int(round((self.fat * 9), 0))
+        self.carbCal    = int(round((self.carb * 4), 0))
+        self.proteinCal = int(round((self.protein * 4), 0))
         self.totalCal   = self.fatCal + self.carbCal + self.proteinCal
         
     def calculatePricePerServing(self):
@@ -99,24 +100,20 @@ class Food:
         self.carbPercent    = self.calculatePercentage(self.carbCal)
         self.proteinPercent = self.calculatePercentage(self.proteinCal)
         
-    def displayBasics(self):
-        """ Basic display of externally received variables.
-        
-        Args:
-            None
-        """
-        print("-- {} --".format(self.name))
-        print("Price per Serving: ${}".format(self.pricePerServing))
-        print("Fat: {}g".format(self.fat))
-        print("Carbs: {}g".format(self.carb))
-        print("Protein: {}g".format(self.protein))
-        
-    def displayExpanded(self):
+    def commandlineDisplay(self):
         """ Full display of the Food object's attributes.
         
         Args:
             None
         """
-        self.displayBasics()
-        print("Calories: {}".format(self.totalCal))
-        print("Macro Ratio (Carb/Protein/Fat): {}/{}/{}".format(self.carbPercent, self.proteinPercent, self.fatPercent))
+        print("**Food Item***************************************")
+        print("*")
+        print("*  -- {} --".format(self.name))
+        print("*  Price per Serving: ${0:.2f}".format(self.pricePerServing))
+        print("*  Fat: {}g".format(self.fat))
+        print("*  Carbs: {}g".format(self.carb))
+        print("*  Protein: {}g".format(self.protein))
+        print("*  Calories: {}".format(self.totalCal))
+        print("*  Macro Ratio (Carb/Protein/Fat): {}/{}/{}".format(self.carbPercent, self.proteinPercent, self.fatPercent))
+        print("*")
+        print("**************************************************")

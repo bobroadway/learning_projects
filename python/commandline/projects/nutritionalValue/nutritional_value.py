@@ -22,14 +22,17 @@ Dependencies:
 from classes.food import Food
 
 ## Main ##
-print("Welcome to Nutritional Value!")
+print("****************************************")
+print("**   Welcome to Nutritional Value!    **")
+print("****************************************")
 name     = str(input("What is the name of the food? "))
 price    = float(input("Price? $"))
 servings = float(input("How many servings per container? "))
-fat      = int(input("How many grams of fat per serving? "))
-carb     = int(input("How many grams of carbs per serving? "))
-protein  = int(input("How many grams of protein per serving? "))
+fat      = float(input("How many grams of fat per serving? "))
+carb     = float(input("How many grams of carbs per serving? "))
+protein  = float(input("How many grams of protein per serving? "))
+print("****************************************")
 print("Thank you for the information!")
-
+print(" ")
 food = Food(name, price, servings, fat, carb, protein)
-food.displayExpanded()
+food.commandlineDisplay()
