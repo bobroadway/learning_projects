@@ -19,9 +19,22 @@ Dependencies:
         Meal.py
 
 """
+import logging
+from datetime import date
+
 from classes.food import Food
 
+# set up logging
+logging.basicConfig(
+    filename='logs/nv-{}.log'.format(str(date.today())), 
+    level=logging.DEBUG,
+    format='%(asctime)s: %(name)s [ %(levelname)s ] : %(message)s',
+    datefmt='%Y-%m-%d %I:%M:%S'
+)
+logger = logging.getLogger("nutritional_value")
+
 ## Main ##
+logger.info("Beginning Main Line.")
 print("****************************************")
 print("**   Welcome to Nutritional Value!    **")
 print("****************************************")
@@ -34,5 +47,9 @@ protein  = float(input("How many grams of protein per serving? "))
 print("****************************************")
 print("Thank you for the information!")
 print(" ")
+
+logger.info("Creating Food.")
 food = Food(name, price, servings, fat, carb, protein)
 food.commandlineDisplay()
+
+logger.info("Program Exiting.")
