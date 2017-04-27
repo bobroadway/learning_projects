@@ -1,0 +1,21 @@
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s: %(name)s [ %(levelname)s ] : %(message)s'
+    datefmt: '%Y-%m-%d %I:%M:%S'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: ERROR
+    formatter: simple
+    stream: ext://sys.stdout
+  log_file:
+    class: logging.handlers.TimedRotatingFileHandler
+    when: midnight
+    level: DEBUG
+    formatter: simple
+    filename: logger/logs/nv.log
+    backupCount: 100
+root:
+  level: DEBUG
+  handlers: [console, log_file]

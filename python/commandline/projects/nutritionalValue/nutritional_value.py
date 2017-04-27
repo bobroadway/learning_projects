@@ -20,17 +20,13 @@ Dependencies:
 
 """
 import logging
+from logger import init_logger
 from datetime import date
 
 from classes.food import Food
 
 # set up logging
-logging.basicConfig(
-    filename='logs/nv-{}.log'.format(str(date.today())), 
-    level=logging.DEBUG,
-    format='%(asctime)s: %(name)s [ %(levelname)s ] : %(message)s',
-    datefmt='%Y-%m-%d %I:%M:%S'
-)
+init_logger.setup()
 logger = logging.getLogger("nutritional_value")
 
 ## Main ##

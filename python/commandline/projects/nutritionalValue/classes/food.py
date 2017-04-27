@@ -14,9 +14,6 @@ Date:
 """
 import logging
 
-# set up logging
-logger = logging.getLogger('nutritional_value.food')
-
 class Food:
     """Represents a single food item.
     
@@ -55,7 +52,7 @@ class Food:
         
     """
     def __init__(self, name, price, servings, fat, carb, protein):
-        self.logger          = logging.getLogger('nutrional_value.food.Food');
+        self.logger          = logging.getLogger('nutritional_value.food')
         self.name            = str(name)
         self.price           = round(float(price), 2)
         self.servings        = round(float(servings), 2)
@@ -65,7 +62,7 @@ class Food:
         self.protein         = round(float(protein), 1)
         self.setCals()
         self.setMacroRatio()
-        logger.info("New Food, '{}', Created.".format(self.name))
+        self.logger.info("New Food, '{}', Created.".format(self.name))
         
     def setCals(self):
         """ Sets the value for all *Cal variables.
