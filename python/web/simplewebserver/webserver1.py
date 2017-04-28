@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+
+## THIS IS USING PYTHON 2 SYNTAX
 import socket
 
 HOST, PORT = '', 8080
