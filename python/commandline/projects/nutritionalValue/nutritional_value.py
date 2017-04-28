@@ -29,22 +29,24 @@ from classes.food import Food
 init_logger.setup()
 logger = logging.getLogger("nutritional_value")
 
-## Main ##
+## main ##
 logger.info("Beginning Main Line.")
+
 print("****************************************")
 print("**   Welcome to Nutritional Value!    **")
 print("****************************************")
+
 name     = str(input("What is the name of the food? "))
 price    = float(input("Price? $"))
 servings = float(input("How many servings per container? "))
 fat      = float(input("How many grams of fat per serving? "))
 carb     = float(input("How many grams of carbs per serving? "))
 protein  = float(input("How many grams of protein per serving? "))
+
 print("****************************************")
 print("Thank you for the information!")
 print(" ")
 
-logger.info("Creating Food.")
 food = Food(name, price, servings, fat, carb, protein)
 food.commandlineDisplay()
 

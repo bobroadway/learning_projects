@@ -63,6 +63,7 @@ class Food:
         self.setCals()
         self.setMacroRatio()
         self.logger.info("New Food, '{}', Created.".format(self.name))
+        self.logger.info("Object: {}".format(self.__dict__))
         
     def setCals(self):
         """ Sets the value for all *Cal variables.
