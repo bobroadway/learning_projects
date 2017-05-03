@@ -19,7 +19,6 @@ Dependencies:
         classes/food.py
         classes/meal.py
         logger/init_logger.py
-
 """
 import gc
 import logging
@@ -119,7 +118,7 @@ def addToFoodsList(foods_list, new_food, servings):
     logger.info('Converting new_food to meal_component...')
     meal_component = Food(name, price, 1, fat, carb, protein)
     foods_list.append(meal_component)
-    return foods_list
+    # return foods_list
         
 def displayFood(food):
     """ Full display of the Food object's attributes.
@@ -155,7 +154,7 @@ def main():
         # determine if this food should be added to the meal
         if prompt('Would you like to add {} to your meal?'.format(currentFood.name)):
             servings = float(input('How many servings will you be consuming? '))
-            foods = addToFoodsList(foods, currentFood, servings)
+            addToFoodsList(foods, currentFood, servings) # foods =
         proceed = prompt('Would you like to create another food?')
     
     # display meal and exit; or if there is no meal, just exit    
@@ -168,7 +167,7 @@ def main():
         print('Goodbye.')
 
     # exit, clean up if needed
-    logger.info('Program Exiting.\n\n\n')
+    logger.info('Program Exiting.\n')
     gc.collect()
 
 # if this file is run as a script, launch the main method
