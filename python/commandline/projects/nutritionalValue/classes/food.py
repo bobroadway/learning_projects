@@ -52,7 +52,7 @@ class Food:
         
     """
     def __init__(self, name, price, servings, fat, carb, protein):
-        self.logger          = logging.getLogger('nutritional_value.food')
+        self.logger          = logging.getLogger('nutritional_value.{}'.format(__name__))
         self.name            = str(name)
         self.price           = round(float(price), 2)
         self.servings        = round(float(servings), 2)
@@ -63,7 +63,11 @@ class Food:
         self.setCals()
         self.setMacroRatio()
         self.logger.info("New Food, '{}', Created.".format(self.name))
-        self.logger.info("Object: {}".format(self.__dict__))
+        self.logger.info(self.__repr__)
+        
+    def __repr__(self):
+        """ The string [repr]esenation of the object, for use in logging. """
+        return '{}({})'.format(self.__class__.__name__, self.__dict__)
         
     def setCals(self):
         """ Sets the value for all *Cal variables.
@@ -81,6 +85,9 @@ class Food:
         
         Args:
             None
+            
+        Returns:
+            pricePerServing (float): The price of the food per a single serving.
         """
         pricePerServing = round((self.price / self.servings), 2)
         return pricePerServing
@@ -90,6 +97,10 @@ class Food:
         
         Args:
             macro (int): the *Cal variable for the macro in question.
+            
+        Returns:
+            percentage (int): The macro's calorie percentage of total calories, 
+                rounded to the nearest percent.
         """
         precentage = int(round((macro / self.totalCal) * 100, 0))
         return precentage
@@ -103,21 +114,3 @@ class Food:
         self.fatPercent     = self.calculatePercentage(self.fatCal)
         self.carbPercent    = self.calculatePercentage(self.carbCal)
         self.proteinPercent = self.calculatePercentage(self.proteinCal)
-        
-    def commandlineDisplay(self):
-        """ Full display of the Food object's attributes.
-        
-        Args:
-            None
-        """
-        print("**Food Item***************************************")
-        print("*")
-        print("*  -- {} --".format(self.name))
-        print("*  Price per Serving: ${0:.2f}".format(self.pricePerServing))
-        print("*  Fat: {}g".format(self.fat))
-        print("*  Carbs: {}g".format(self.carb))
-        print("*  Protein: {}g".format(self.protein))
-        print("*  Calories: {}".format(self.totalCal))
-        print("*  Macro Ratio (Carb/Protein/Fat): {}/{}/{}".format(self.carbPercent, self.proteinPercent, self.fatPercent))
-        print("*")
-        print("**************************************************")

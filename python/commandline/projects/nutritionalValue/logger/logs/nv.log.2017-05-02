@@ -1,0 +1,4 @@
+2017-05-02 06:50:12: __main__ [ INFO ] : Beginning Main Line.
+2017-05-02 06:51:23: classes.food [ INFO ] : New Food, 'Shake', Created.
+2017-05-02 06:51:23: classes.food [ INFO ] : Object: {'fatCal': 198, 'carbCal': 180, 'servings': 1.0, 'price': 4.0, 'protein': 2.0, 'carb': 45.0, 'carbPercent': 47, 'logger': <logging.Logger object at 0x7fbaa2eb8390>, 'fatPercent': 51, 'pricePerServing': 4.0, 'fat': 22.0, 'name': 'Shake', 'proteinPercent': 2, 'totalCal': 386, 'proteinCal': 8}
+2017-05-02 06:51:23: __main__ [ INFO ] : Program Exiting.
