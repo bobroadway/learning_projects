@@ -43,14 +43,18 @@ class Food:
         carb     (float) : The amount of carbs per serving, in grams. 
         protein  (float) : The amount of protein per serving, in grams.
         
-        pricePerServing (float) : The float value of the price per serving. 
-        fatCal          (int)   : Calories from fat, per serving. 
-        carbCal         (int)   : Calories from carbohydrates, per serving. 
-        proteinCal      (int)   : Calories from protein, per serving. 
-        totalCal        (int)   : Total calories, per serving.
-        fatPercent      (int)   : Macro ratio of fat. 
-        carbPercent     (int)   : Macro ratio of carb. 
-        proteinPercent  (int)   : Macro ratio of protein.
+        pricePerServing   (float) : The float value of the price per serving. 
+        fatCal            (int)   : Calories from fat, per serving. 
+        carbCal           (int)   : Calories from carbohydrates, per serving. 
+        proteinCal        (int)   : Calories from protein, per serving. 
+        totalCal          (int)   : Total calories, per serving.
+        fatPercent        (int)   : Macro ratio of fat. 
+        carbPercent       (int)   : Macro ratio of carb. 
+        proteinPercent    (int)   : Macro ratio of protein.
+        caloriesPerDollar (int)   : Total calories per dollar.
+        fatPerDollar      (int)   : Fat calories per dollar.
+        carbPerDollar     (int)   : Carb calories per dollar.
+        proteinPerDollar  (int)   : Protein calories per dollar.
         
     """
     def __init__(self, name, price, portion, servings, fat, carb, protein):
@@ -65,6 +69,7 @@ class Food:
         self.pricePerServing = self.calculatePricePerServing()
         self.setCals()
         self.setMacroRatio()
+        self.setDollarValues()
         self.logger.info("New Food, '{}', Created.".format(self.name))
         self.logger.info(self.__repr__)
         
@@ -117,3 +122,15 @@ class Food:
         self.fatPercent     = self.calculatePercentage(self.fatCal)
         self.carbPercent    = self.calculatePercentage(self.carbCal)
         self.proteinPercent = self.calculatePercentage(self.proteinCal)
+        
+    def setDollarValues(self):
+        """ Sets the amount of calories per dollar for totalCal, fatCal, 
+        carbCal, and proteinCal.
+        
+        Args:
+            None
+        """
+        self.caloriesPerDollar = int(round(float(self.totalCal / self.pricePerServing), 0))
+        self.fatPerDollar      = int(round(float(self.fatCal / self.pricePerServing), 0))
+        self.carbPerDollar     = int(round(float(self.carbCal / self.pricePerServing), 0))
+        self.proteinPerDollar  = int(round(float(self.proteinCal / self.pricePerServing), 0))

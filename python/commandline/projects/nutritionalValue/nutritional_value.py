@@ -135,17 +135,21 @@ def displayFood(food):
     Args:
         food (:obj: Food): The Food object to display.
     """
-    print('**Food Item***************************************')
+    print('**Food Item*************************************************')
     print('*')
     print('*  -- {} --'.format(food.name))
-    print('*  Price per Serving: ${0:.2f}'.format(food.pricePerServing))
-    print('*  Fat: {}g'.format(food.fat))
-    print('*  Carbs: {}g'.format(food.carb))
-    print('*  Protein: {}g'.format(food.protein))
-    print('*  Calories: {}'.format(food.totalCal))
-    print('*  Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(food.carbPercent, food.proteinPercent, food.fatPercent))
+    print('*  Per Serving')
+    print('*    Price: ${0:.2f}'.format(food.pricePerServing))
+    print('*    Calories: {}'.format(food.totalCal))
+    print('*    Macros: Fat: {}g, Carbs: {}g, Protein: {}g'.format(food.fat, food.carb, food.protein))
+    print('*    Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(food.carbPercent, food.proteinPercent, food.fatPercent))
+    print('*  Per Dollar')
+    print('*    Total: {} cals'.format(food.caloriesPerDollar))
+    print('*        Fat: {} cals'.format(food.fatPerDollar))
+    print('*        Carbs: {} cals'.format(food.carbPerDollar))
+    print('*        Protein: {} cals'.format(food.proteinPerDollar))
     print('*')
-    print('**************************************************')
+    print('************************************************************')
 
 def main():
     """ The Main method for nutritional_value.py """
