@@ -1,5 +1,5 @@
 #!/usr/bin/python3.4
-"""Class: Food.py
+""" Class: Food.py
 
 Purpose:
     This is the Food class for nutritional_value.py. It holds all information 

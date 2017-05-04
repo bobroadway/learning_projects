@@ -68,7 +68,7 @@ def prompt(question):
     on y or n.
     
     Args:
-        question (str) : the yes or no question
+        question (str): The yes or no question.
     """
     user_response = ''
     
@@ -128,7 +128,7 @@ def displayFood(food):
     """ Full display of the Food object's attributes.
     
     Args:
-        food (:obj: Food) - The Food object to display.
+        food (:obj: Food): The Food object to display.
     """
     print('**Food Item***************************************')
     print('*')
