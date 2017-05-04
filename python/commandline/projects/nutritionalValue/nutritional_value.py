@@ -60,7 +60,7 @@ def displayGreeting():
     print('**                      | | | |/ _` | | | | |/ _ \        **')
     print('**                      \ \_/ / (_| | | |_| |  __/        **')
     print('**                       \___/ \__,_|_|\__,_|\___|        **')
-    print('**                                                        **')
+    print('**                                       by Bo Broadway   **')
     print('************************************************************')
     
 def prompt(question):
@@ -70,7 +70,7 @@ def prompt(question):
     Args:
         question (str): The yes or no question.
     """
-    user_response = ''
+    user_response = None
     
     while user_response not in ('y', 'n'):
         user_response = str(input('{} (y/n) '.format(question))).lower()
@@ -88,12 +88,12 @@ def createFood():
         food (:obj:`Food`): The newly created Food object.
     """
     name     = str(input('What is the name of the food? '))
-    price    = float(input('Price? $'))
-    portion  = float(input('What is a single serving size, in grams? '))
-    servings = float(input('How many servings per container? '))
-    fat      = float(input('How many grams of fat per serving? '))
-    carb     = float(input('How many grams of carbs per serving? '))
-    protein  = float(input('How many grams of protein per serving? '))
+    price    = round(float(input('Price? $')), 2)
+    portion  = round(float(input('What is a single serving size, in grams? ')), 1)
+    servings = round(float(input('How many servings per container? ')), 1)
+    fat      = round(float(input('How many grams of fat per serving? ')), 1)
+    carb     = round(float(input('How many grams of carbs per serving? ')), 1)
+    protein  = round(float(input('How many grams of protein per serving? ')), 1)
     logger.info('Creating new food...')
     food = Food(name, price, portion, servings, fat, carb, protein)
     return food
@@ -108,21 +108,26 @@ def addToFoodsList(foods_list, new_food, servings):
         new_food (:obj:`Food`): The new Food object to be appended.
         servings (float): The number of servings of this food to be added to the
             meal.
-            
+    
+    Note:
+        When creating the meal_component, the Food.servings value will always be
+        passed in as an :int:`1`. Assignment of a Food.servings value is avoided as
+        the number of servings for this meal_component is passed in through a 
+        `servings` variable.
+        
     Returns:
         foods_list (`list` of :obj:`Food`): The updated list of Food objects.
     """
-    name    = str(new_food.name)
-    price   = float(new_food.pricePerServing * servings)
-    portion = float(new_food.portion * servings)
-    fat     = float(new_food.fat * servings)
-    carb    = float(new_food.carb * servings)
-    protein = float(new_food.protein * servings)
+    name     = str(new_food.name)
+    price    = round(float(new_food.pricePerServing * servings), 2)
+    portion  = round(float(new_food.portion * servings), 1)
+    fat      = round(float(new_food.fat * servings), 1)
+    carb     = round(float(new_food.carb * servings), 1)
+    protein  = round(float(new_food.protein * servings), 1)
     logger.info('Converting new_food to meal_component...')
     meal_component = Food(name, price, portion, 1, fat, carb, protein)
     foods_list.append(meal_component)
     logger.info('Food/meal_component added.')
-    # return foods_list
         
 def displayFood(food):
     """ Full display of the Food object's attributes.
@@ -157,8 +162,8 @@ def main():
         displayFood(current_food)
         # determine if this food should be added to the meal
         if prompt('Would you like to add {} to your meal?'.format(current_food.name)):
-            servings = float(input('How many servings will you be consuming? '))
-            addToFoodsList(foods, current_food, servings) # foods =
+            servings = round(float(input('How many servings will you be consuming? ')), 2)
+            addToFoodsList(foods, current_food, servings)
         proceed = prompt('Would you like to create another food?')
     
     # display meal and exit; or if there is no meal, just exit    

@@ -55,14 +55,14 @@ class Food:
     """
     def __init__(self, name, price, portion, servings, fat, carb, protein):
         self.logger          = logging.getLogger('nutritional_value.{}'.format(__name__))
-        self.name            = str(name)
-        self.price           = round(float(price), 2)
-        self.portion         = round(float(portion), 1)
-        self.servings        = round(float(servings), 2)
-        self.pricePerServing = round(float(self.calculatePricePerServing()), 2)
-        self.fat             = round(float(fat), 1)
-        self.carb            = round(float(carb), 1)
-        self.protein         = round(float(protein), 1)
+        self.name            = name
+        self.price           = price
+        self.portion         = portion
+        self.servings        = servings
+        self.fat             = fat
+        self.carb            = carb
+        self.protein         = protein
+        self.pricePerServing = self.calculatePricePerServing()
         self.setCals()
         self.setMacroRatio()
         self.logger.info("New Food, '{}', Created.".format(self.name))
