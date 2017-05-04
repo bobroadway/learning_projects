@@ -28,6 +28,7 @@ class Food:
     Args:
         name     (str)   : The name of the Food. 
         price    (float) : The float value of the price. ex - 12.95
+        portion  (float) : The size of a single serving, in GRAMS.
         servings (float) : The number of servings per container.
         fat      (int)   : The amount of fat per serving, in grams. 
         carb     (int)   : The amount of carbs per serving, in grams. 
@@ -36,6 +37,7 @@ class Food:
     Attributes:
         name     (str)   : The name of the Food. 
         price    (float) : The float value of the price. ex - 12.95
+        portion  (float) : The size of a single serving, in GRAMS.
         servings (float) : The number of servings per container.
         fat      (float) : The amount of fat per serving, in grams. 
         carb     (float) : The amount of carbs per serving, in grams. 
@@ -51,10 +53,11 @@ class Food:
         proteinPercent  (int)   : Macro ratio of protein.
         
     """
-    def __init__(self, name, price, servings, fat, carb, protein):
+    def __init__(self, name, price, portion, servings, fat, carb, protein):
         self.logger          = logging.getLogger('nutritional_value.{}'.format(__name__))
         self.name            = str(name)
         self.price           = round(float(price), 2)
+        self.portion         = round(float(portion), 1)
         self.servings        = round(float(servings), 2)
         self.pricePerServing = round(float(self.calculatePricePerServing()), 2)
         self.fat             = round(float(fat), 1)

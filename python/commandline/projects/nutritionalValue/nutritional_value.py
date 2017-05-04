@@ -89,11 +89,13 @@ def createFood():
     """
     name     = str(input('What is the name of the food? '))
     price    = float(input('Price? $'))
+    portion  = float(input('What is a single serving size, in grams? '))
     servings = float(input('How many servings per container? '))
     fat      = float(input('How many grams of fat per serving? '))
     carb     = float(input('How many grams of carbs per serving? '))
     protein  = float(input('How many grams of protein per serving? '))
-    food = Food(name, price, servings, fat, carb, protein)
+    logger.info('Creating new food...')
+    food = Food(name, price, portion, servings, fat, carb, protein)
     return food
     
 def addToFoodsList(foods_list, new_food, servings):
@@ -112,12 +114,14 @@ def addToFoodsList(foods_list, new_food, servings):
     """
     name    = str(new_food.name)
     price   = float(new_food.pricePerServing * servings)
+    portion = float(new_food.portion * servings)
     fat     = float(new_food.fat * servings)
     carb    = float(new_food.carb * servings)
     protein = float(new_food.protein * servings)
     logger.info('Converting new_food to meal_component...')
-    meal_component = Food(name, price, 1, fat, carb, protein)
+    meal_component = Food(name, price, portion, 1, fat, carb, protein)
     foods_list.append(meal_component)
+    logger.info('Food/meal_component added.')
     # return foods_list
         
 def displayFood(food):
@@ -149,12 +153,12 @@ def main():
     
     # prompts for food so long as the user wishes to create foods
     while proceed:
-        currentFood = createFood()
-        displayFood(currentFood)
+        current_food = createFood()
+        displayFood(current_food)
         # determine if this food should be added to the meal
-        if prompt('Would you like to add {} to your meal?'.format(currentFood.name)):
+        if prompt('Would you like to add {} to your meal?'.format(current_food.name)):
             servings = float(input('How many servings will you be consuming? '))
-            addToFoodsList(foods, currentFood, servings) # foods =
+            addToFoodsList(foods, current_food, servings) # foods =
         proceed = prompt('Would you like to create another food?')
     
     # display meal and exit; or if there is no meal, just exit    
