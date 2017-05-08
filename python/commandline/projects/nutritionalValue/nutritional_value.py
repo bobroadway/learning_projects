@@ -87,15 +87,15 @@ def create_food():
     Returns:
         food (:obj:`Food`): The newly created Food object.
     """
-    name        = str(input('What is the name of the food? '))
-    total_price = round(float(input('Price? $')), 2)
-    portion     = round(float(input('What is a single serving size, in grams? ')), 1)
-    servings    = round(float(input('How many servings per container? ')), 1)
-    fat         = round(float(input('How many grams of fat per serving? ')), 1)
-    carb        = round(float(input('How many grams of carbs per serving? ')), 1)
-    protein     = round(float(input('How many grams of protein per serving? ')), 1)
+    name          = str(input('What is the name of the food? '))
+    package_price = round(float(input('Price? $')), 2)
+    portion       = round(float(input('What is a single serving size, in grams? ')), 1)
+    servings      = round(float(input('How many servings per container? ')), 1)
+    fat           = round(float(input('How many grams of fat per serving? ')), 1)
+    carb          = round(float(input('How many grams of carbs per serving? ')), 1)
+    protein       = round(float(input('How many grams of protein per serving? ')), 1)
     logger.info('Creating new food...')
-    food = Food(name, total_price, portion, servings, fat, carb, protein)
+    food = Food(name, package_price, portion, servings, fat, carb, protein)
     return food
     
 def add_to_foods_list(foods_list, new_food, servings):
@@ -118,16 +118,17 @@ def add_to_foods_list(foods_list, new_food, servings):
     Returns:
         foods_list (`list` of :obj:`Food`): The updated list of Food objects.
     """
-    name        = str(new_food.name)
-    total_price = round(float(new_food.serving_price * servings), 2)
-    portion     = round(float(new_food.portion * servings), 1)
-    fat         = round(float(new_food.fat * servings), 1)
-    carb        = round(float(new_food.carb * servings), 1)
-    protein     = round(float(new_food.protein * servings), 1)
+    name          = str(new_food.name)
+    package_price = round(float(new_food.serving_price * servings), 2)
+    portion       = round(float(new_food.portion * servings), 1)
+    fat           = round(float(new_food.fat * servings), 1)
+    carb          = round(float(new_food.carb * servings), 1)
+    protein       = round(float(new_food.protein * servings), 1)
     logger.info('Converting new_food to meal_component...')
-    meal_component = Food(name, total_price, portion, 1, fat, carb, protein)
+    meal_component = Food(name, package_price, portion, 1, fat, carb, protein)
     foods_list.append(meal_component)
     logger.info('Food/meal_component added.')
+    print('Added.')
         
 def display_food(food):
     """ Full display of the Food object's attributes.
@@ -137,7 +138,7 @@ def display_food(food):
     """
     print('**Food Item*************************************************')
     print('*')
-    print('*  -- {} --'.format(food.name))
+    print('*  -- {} -- ({} Calories for the whole thing.)'.format(food.name, food.package_cal))
     print('*  Per Serving')
     print('*    Price: ${0:.2f}'.format(food.serving_price))
     print('*    Calories: {}'.format(food.total_cal))
@@ -145,9 +146,9 @@ def display_food(food):
     print('*    Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(food.carb_percent, food.protein_percent, food.fat_percent))
     print('*  Per Dollar')
     print('*    Total: {} cals'.format(food.calories_per_dollar))
-    print('*        Fat: {} cals'.format(food.fat_per_dollar))
+    print('*          Fat: {} cals'.format(food.fat_per_dollar))
     print('*        Carbs: {} cals'.format(food.carb_per_dollar))
-    print('*        Protein: {} cals'.format(food.protein_per_dollar))
+    print('*      Protein: {} cals'.format(food.protein_per_dollar))
     print('*')
     print('************************************************************')
 

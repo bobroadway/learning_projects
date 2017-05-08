@@ -26,29 +26,29 @@ class Food:
         When instantiating an object, do not include the `self` parameter. 
         
     Args:
-        name        (str)   : The name of the Food. 
-        total_price (float) : The float value of the price. ex - 12.95
-        portion     (float) : The size of a single serving, in GRAMS.
-        servings    (float) : The number of servings per container.
-        fat         (int)   : The amount of fat per serving, in grams. 
-        carb        (int)   : The amount of carbs per serving, in grams. 
-        protein     (int)   : The amount of protein per serving, in grams.
+        name          (str)   : The name of the Food. 
+        package_price (float) : The float value of the price. ex - 12.95
+        portion       (float) : The size of a single serving, in GRAMS.
+        servings      (float) : The number of servings per container.
+        fat           (int)   : The amount of fat per serving, in grams. 
+        carb          (int)   : The amount of carbs per serving, in grams. 
+        protein       (int)   : The amount of protein per serving, in grams.
         
     Attributes:
-        name        (str)   : The name of the Food. 
-        total_price (float) : The float value of the price. ex - 12.95
-        portion     (float) : The size of a single serving, in GRAMS.
-        servings    (float) : The number of servings per container.
-        fat         (float) : The amount of fat per serving, in grams. 
-        carb        (float) : The amount of carbs per serving, in grams. 
-        protein     (float) : The amount of protein per serving, in grams.
+        name          (str)   : The name of the Food. 
+        package_price (float) : The float value of the price. ex - 12.95
+        portion       (float) : The size of a single serving, in GRAMS.
+        servings      (float) : The number of servings per container.
+        fat           (float) : The amount of fat per serving, in grams. 
+        carb          (float) : The amount of carbs per serving, in grams. 
+        protein       (float) : The amount of protein per serving, in grams.
         
         serving_price       (float) : The float value of the price per serving.
-        
         total_cal           (int)   : Total calories, per serving.
         fat_cal             (int)   : Calories from fat, per serving. 
         carb_cal            (int)   : Calories from carbohydrates, per serving. 
         protein_cal         (int)   : Calories from protein, per serving. 
+        package_cal         (int)   : Calories per package.
         fat_percent         (int)   : Macro ratio of fat. 
         carb_percent        (int)   : Macro ratio of carb. 
         protein_percent     (int)   : Macro ratio of protein.
@@ -58,22 +58,24 @@ class Food:
         protein_per_dollar  (int)   : Protein calories per dollar.
         
     """
-    def __init__(self, name, total_price, portion, servings, fat, carb, protein):
-        self.logger        = logging.getLogger('nutritional_value.{}'.format(__name__))
+    def __init__(self, name, package_price, portion, servings, fat, carb, protein):
+        self.logger          = logging.getLogger('nutritional_value.{}'.format(__name__))
         
-        self.name          = name
-        self.total_price   = total_price
-        self.portion       = portion
-        self.servings      = servings
-        self.fat           = fat
-        self.carb          = carb
-        self.protein       = protein
+        self.name            = name
+        self.package_price   = package_price
+        self.portion         = portion
+        self.servings        = servings
+        self.fat             = fat
+        self.carb            = carb
+        self.protein         = protein
         
-        self.serving_price = self.calculate_serving_price()
+        self.serving_price   = self.calculate_serving_price()
         
         self.set_cals()
         self.set_macro_ratio()
         self.set_dollar_values()
+        
+        self.package_cal     = self.calculate_package_cal()
         
         self.logger.info("New Food, '{}', Created.".format(self.name))
         self.logger.info(self.__repr__)
@@ -102,8 +104,20 @@ class Food:
         Returns:
             serving_price (float): The price of the food per a single serving.
         """
-        serving_price = round((self.total_price / self.servings), 2)
+        serving_price = round((self.package_price / self.servings), 2)
         return serving_price
+        
+    def calculate_package_cal(self):
+        """ Calculates the total calories from the entire package.Calculates
+        
+        Args:
+            None
+            
+        Returns:
+            package_cal (int): The caloric value of the entire package.
+        """
+        package_cal = int(round((self.total_cal * self.servings), 0))
+        return package_cal
         
     def calculate_percentage(self, macro):
         """ Calculates the macro percentage of total calories.
