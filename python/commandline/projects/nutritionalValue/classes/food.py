@@ -26,50 +26,55 @@ class Food:
         When instantiating an object, do not include the `self` parameter. 
         
     Args:
-        name     (str)   : The name of the Food. 
-        price    (float) : The float value of the price. ex - 12.95
-        portion  (float) : The size of a single serving, in GRAMS.
-        servings (float) : The number of servings per container.
-        fat      (int)   : The amount of fat per serving, in grams. 
-        carb     (int)   : The amount of carbs per serving, in grams. 
-        protein  (int)   : The amount of protein per serving, in grams.
+        name        (str)   : The name of the Food. 
+        total_price (float) : The float value of the price. ex - 12.95
+        portion     (float) : The size of a single serving, in GRAMS.
+        servings    (float) : The number of servings per container.
+        fat         (int)   : The amount of fat per serving, in grams. 
+        carb        (int)   : The amount of carbs per serving, in grams. 
+        protein     (int)   : The amount of protein per serving, in grams.
         
     Attributes:
-        name     (str)   : The name of the Food. 
-        price    (float) : The float value of the price. ex - 12.95
-        portion  (float) : The size of a single serving, in GRAMS.
-        servings (float) : The number of servings per container.
-        fat      (float) : The amount of fat per serving, in grams. 
-        carb     (float) : The amount of carbs per serving, in grams. 
-        protein  (float) : The amount of protein per serving, in grams.
+        name        (str)   : The name of the Food. 
+        total_price (float) : The float value of the price. ex - 12.95
+        portion     (float) : The size of a single serving, in GRAMS.
+        servings    (float) : The number of servings per container.
+        fat         (float) : The amount of fat per serving, in grams. 
+        carb        (float) : The amount of carbs per serving, in grams. 
+        protein     (float) : The amount of protein per serving, in grams.
         
-        pricePerServing   (float) : The float value of the price per serving. 
-        fatCal            (int)   : Calories from fat, per serving. 
-        carbCal           (int)   : Calories from carbohydrates, per serving. 
-        proteinCal        (int)   : Calories from protein, per serving. 
-        totalCal          (int)   : Total calories, per serving.
-        fatPercent        (int)   : Macro ratio of fat. 
-        carbPercent       (int)   : Macro ratio of carb. 
-        proteinPercent    (int)   : Macro ratio of protein.
-        caloriesPerDollar (int)   : Total calories per dollar.
-        fatPerDollar      (int)   : Fat calories per dollar.
-        carbPerDollar     (int)   : Carb calories per dollar.
-        proteinPerDollar  (int)   : Protein calories per dollar.
+        serving_price       (float) : The float value of the price per serving.
+        
+        total_cal           (int)   : Total calories, per serving.
+        fat_cal             (int)   : Calories from fat, per serving. 
+        carb_cal            (int)   : Calories from carbohydrates, per serving. 
+        protein_cal         (int)   : Calories from protein, per serving. 
+        fat_percent         (int)   : Macro ratio of fat. 
+        carb_percent        (int)   : Macro ratio of carb. 
+        protein_percent     (int)   : Macro ratio of protein.
+        calories_per_dollar (int)   : Total calories per dollar.
+        fat_per_dollar      (int)   : Fat calories per dollar.
+        carb_per_dollar     (int)   : Carb calories per dollar.
+        protein_per_dollar  (int)   : Protein calories per dollar.
         
     """
-    def __init__(self, name, price, portion, servings, fat, carb, protein):
-        self.logger          = logging.getLogger('nutritional_value.{}'.format(__name__))
-        self.name            = name
-        self.price           = price
-        self.portion         = portion
-        self.servings        = servings
-        self.fat             = fat
-        self.carb            = carb
-        self.protein         = protein
-        self.pricePerServing = self.calculatePricePerServing()
-        self.setCals()
-        self.setMacroRatio()
-        self.setDollarValues()
+    def __init__(self, name, total_price, portion, servings, fat, carb, protein):
+        self.logger        = logging.getLogger('nutritional_value.{}'.format(__name__))
+        
+        self.name          = name
+        self.total_price   = total_price
+        self.portion       = portion
+        self.servings      = servings
+        self.fat           = fat
+        self.carb          = carb
+        self.protein       = protein
+        
+        self.serving_price = self.calculate_serving_price()
+        
+        self.set_cals()
+        self.set_macro_ratio()
+        self.set_dollar_values()
+        
         self.logger.info("New Food, '{}', Created.".format(self.name))
         self.logger.info(self.__repr__)
         
@@ -77,60 +82,63 @@ class Food:
         """ The string [repr]esenation of the object, for use in logging. """
         return '{}({})'.format(self.__class__.__name__, self.__dict__)
         
-    def setCals(self):
-        """ Sets the value for all *Cal variables.
+    def set_cals(self):
+        """ Sets the value for all *_cal variables.
         
         Args:
             None
         """
-        self.fatCal     = int(round((self.fat * 9), 0))
-        self.carbCal    = int(round((self.carb * 4), 0))
-        self.proteinCal = int(round((self.protein * 4), 0))
-        self.totalCal   = self.fatCal + self.carbCal + self.proteinCal
+        self.fat_cal     = int(round((self.fat * 9), 0))
+        self.carb_cal    = int(round((self.carb * 4), 0))
+        self.protein_cal = int(round((self.protein * 4), 0))
+        self.total_cal   = self.fat_cal + self.carb_cal + self.protein_cal
         
-    def calculatePricePerServing(self):
+    def calculate_serving_price(self):
         """ Calculates the price per serving.
         
         Args:
             None
             
         Returns:
-            pricePerServing (float): The price of the food per a single serving.
+            serving_price (float): The price of the food per a single serving.
         """
-        pricePerServing = round((self.price / self.servings), 2)
-        return pricePerServing
+        serving_price = round((self.total_price / self.servings), 2)
+        return serving_price
         
-    def calculatePercentage(self, macro):
+    def calculate_percentage(self, macro):
         """ Calculates the macro percentage of total calories.
         
         Args:
-            macro (int): the *Cal variable for the macro in question.
+            macro (int): the *_cal variable for the macro in question.
             
         Returns:
             percentage (int): The macro's calorie percentage of total calories, 
                 rounded to the nearest percent.
         """
-        precentage = int(round((macro / self.totalCal) * 100, 0))
-        return precentage
+        if self.total_cal > 0:
+            percentage = int(round((macro / self.total_cal) * 100, 0))
+        else:
+            percentage = 0
+        return percentage
     
-    def setMacroRatio(self):
-        """ Sets the value for all *Percent variables.
+    def set_macro_ratio(self):
+        """ Sets the value for all *_percent variables.
         
         Args:
             None
         """
-        self.fatPercent     = self.calculatePercentage(self.fatCal)
-        self.carbPercent    = self.calculatePercentage(self.carbCal)
-        self.proteinPercent = self.calculatePercentage(self.proteinCal)
+        self.fat_percent     = self.calculate_percentage(self.fat_cal)
+        self.carb_percent    = self.calculate_percentage(self.carb_cal)
+        self.protein_percent = self.calculate_percentage(self.protein_cal)
         
-    def setDollarValues(self):
-        """ Sets the amount of calories per dollar for totalCal, fatCal, 
-        carbCal, and proteinCal.
+    def set_dollar_values(self):
+        """ Sets the amount of calories per dollar for total_cal, fat_cal, 
+        carb_cal, and protein_cal.
         
         Args:
             None
         """
-        self.caloriesPerDollar = int(round(float(self.totalCal / self.pricePerServing), 0))
-        self.fatPerDollar      = int(round(float(self.fatCal / self.pricePerServing), 0))
-        self.carbPerDollar     = int(round(float(self.carbCal / self.pricePerServing), 0))
-        self.proteinPerDollar  = int(round(float(self.proteinCal / self.pricePerServing), 0))
+        self.calories_per_dollar = int(round(float(self.total_cal / self.serving_price), 0))
+        self.fat_per_dollar      = int(round(float(self.fat_cal / self.serving_price), 0))
+        self.carb_per_dollar     = int(round(float(self.carb_cal / self.serving_price), 0))
+        self.protein_per_dollar  = int(round(float(self.protein_cal / self.serving_price), 0))

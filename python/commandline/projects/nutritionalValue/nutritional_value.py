@@ -39,7 +39,7 @@ def clear():
     for i in range(30):
         print ('\n')
 
-def displayGreeting():
+def display_greeting():
     """ Displays the welcome message and banner of nutritional_value.py
     
     Args:
@@ -77,7 +77,7 @@ def prompt(question):
         
     return user_response == 'y'
 
-def createFood():
+def create_food():
     """ Creates a food object by prompting the user for the externally derived 
     attributes.
     
@@ -87,18 +87,18 @@ def createFood():
     Returns:
         food (:obj:`Food`): The newly created Food object.
     """
-    name     = str(input('What is the name of the food? '))
-    price    = round(float(input('Price? $')), 2)
-    portion  = round(float(input('What is a single serving size, in grams? ')), 1)
-    servings = round(float(input('How many servings per container? ')), 1)
-    fat      = round(float(input('How many grams of fat per serving? ')), 1)
-    carb     = round(float(input('How many grams of carbs per serving? ')), 1)
-    protein  = round(float(input('How many grams of protein per serving? ')), 1)
+    name        = str(input('What is the name of the food? '))
+    total_price = round(float(input('Price? $')), 2)
+    portion     = round(float(input('What is a single serving size, in grams? ')), 1)
+    servings    = round(float(input('How many servings per container? ')), 1)
+    fat         = round(float(input('How many grams of fat per serving? ')), 1)
+    carb        = round(float(input('How many grams of carbs per serving? ')), 1)
+    protein     = round(float(input('How many grams of protein per serving? ')), 1)
     logger.info('Creating new food...')
-    food = Food(name, price, portion, servings, fat, carb, protein)
+    food = Food(name, total_price, portion, servings, fat, carb, protein)
     return food
     
-def addToFoodsList(foods_list, new_food, servings):
+def add_to_foods_list(foods_list, new_food, servings):
     """ Takes the current foods list and appends a new meal_component onto it. 
     This meal_component is derived from the food to add, with refactored values 
     based on the amount of servings used.
@@ -110,26 +110,26 @@ def addToFoodsList(foods_list, new_food, servings):
             meal.
     
     Note:
-        When creating the meal_component, the Food.servings value will always be
-        passed in as an :int:`1`. Assignment of a Food.servings value is avoided as
-        the number of servings for this meal_component is passed in through a 
+        When creating the meal_component Food, the Food.servings value will always 
+        be passed in as an int:`1`. Assignment of a Food.servings value is avoided 
+        as the number of servings for this meal_component is passed in through a 
         `servings` variable.
         
     Returns:
         foods_list (`list` of :obj:`Food`): The updated list of Food objects.
     """
-    name     = str(new_food.name)
-    price    = round(float(new_food.pricePerServing * servings), 2)
-    portion  = round(float(new_food.portion * servings), 1)
-    fat      = round(float(new_food.fat * servings), 1)
-    carb     = round(float(new_food.carb * servings), 1)
-    protein  = round(float(new_food.protein * servings), 1)
+    name        = str(new_food.name)
+    total_price = round(float(new_food.serving_price * servings), 2)
+    portion     = round(float(new_food.portion * servings), 1)
+    fat         = round(float(new_food.fat * servings), 1)
+    carb        = round(float(new_food.carb * servings), 1)
+    protein     = round(float(new_food.protein * servings), 1)
     logger.info('Converting new_food to meal_component...')
-    meal_component = Food(name, price, portion, 1, fat, carb, protein)
+    meal_component = Food(name, total_price, portion, 1, fat, carb, protein)
     foods_list.append(meal_component)
     logger.info('Food/meal_component added.')
         
-def displayFood(food):
+def display_food(food):
     """ Full display of the Food object's attributes.
     
     Args:
@@ -139,15 +139,15 @@ def displayFood(food):
     print('*')
     print('*  -- {} --'.format(food.name))
     print('*  Per Serving')
-    print('*    Price: ${0:.2f}'.format(food.pricePerServing))
-    print('*    Calories: {}'.format(food.totalCal))
+    print('*    Price: ${0:.2f}'.format(food.serving_price))
+    print('*    Calories: {}'.format(food.total_cal))
     print('*    Macros: Fat: {}g, Carbs: {}g, Protein: {}g'.format(food.fat, food.carb, food.protein))
-    print('*    Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(food.carbPercent, food.proteinPercent, food.fatPercent))
+    print('*    Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(food.carb_percent, food.protein_percent, food.fat_percent))
     print('*  Per Dollar')
-    print('*    Total: {} cals'.format(food.caloriesPerDollar))
-    print('*        Fat: {} cals'.format(food.fatPerDollar))
-    print('*        Carbs: {} cals'.format(food.carbPerDollar))
-    print('*        Protein: {} cals'.format(food.proteinPerDollar))
+    print('*    Total: {} cals'.format(food.calories_per_dollar))
+    print('*        Fat: {} cals'.format(food.fat_per_dollar))
+    print('*        Carbs: {} cals'.format(food.carb_per_dollar))
+    print('*        Protein: {} cals'.format(food.protein_per_dollar))
     print('*')
     print('************************************************************')
 
@@ -155,19 +155,19 @@ def main():
     """ The Main method for nutritional_value.py """
     logger.info('Beginning Main Line.-----------------------------------------')
     foods = []
-    displayGreeting()
+    display_greeting()
     
     # user participation
     proceed = prompt('Would you like to create a new food?')
     
     # prompts for food so long as the user wishes to create foods
     while proceed:
-        current_food = createFood()
-        displayFood(current_food)
+        current_food = create_food()
+        display_food(current_food)
         # determine if this food should be added to the meal
         if prompt('Would you like to add {} to your meal?'.format(current_food.name)):
             servings = round(float(input('How many servings will you be consuming? ')), 2)
-            addToFoodsList(foods, current_food, servings)
+            add_to_foods_list(foods, current_food, servings)
         proceed = prompt('Would you like to create another food?')
     
     # display meal and exit; or if there is no meal, just exit    
