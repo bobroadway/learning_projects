@@ -89,13 +89,13 @@ def create_food():
     """
     name          = str(input('What is the name of the food? '))
     package_price = round(float(input('Price? $')), 2)
-    portion       = round(float(input('What is a single serving size, in grams? ')), 1)
+    serving_size  = round(float(input('What is a single serving size, in grams? ')), 1)
     servings      = round(float(input('How many servings per container? ')), 1)
     fat           = round(float(input('How many grams of fat per serving? ')), 1)
     carb          = round(float(input('How many grams of carbs per serving? ')), 1)
     protein       = round(float(input('How many grams of protein per serving? ')), 1)
     logger.info('Creating new food...')
-    food = Food(name, package_price, portion, servings, fat, carb, protein)
+    food = Food(name, package_price, serving_size, servings, fat, carb, protein)
     return food
     
 def add_to_foods_list(foods_list, new_food, servings):
@@ -120,15 +120,15 @@ def add_to_foods_list(foods_list, new_food, servings):
     """
     name          = str(new_food.name)
     package_price = round(float(new_food.serving_price * servings), 2)
-    portion       = round(float(new_food.portion * servings), 1)
+    serving_size  = round(float(new_food.serving_size * servings), 1)
     fat           = round(float(new_food.fat * servings), 1)
     carb          = round(float(new_food.carb * servings), 1)
     protein       = round(float(new_food.protein * servings), 1)
     logger.info('Converting new_food to meal_component...')
-    meal_component = Food(name, package_price, portion, 1, fat, carb, protein)
+    meal_component = Food(name, package_price, serving_size, 1, fat, carb, protein)
     foods_list.append(meal_component)
     logger.info('Food/meal_component added.')
-    print('Added.')
+    print('{} Added.'.format(meal_component.name))
         
 def display_food(food):
     """ Full display of the Food object's attributes.
@@ -154,7 +154,7 @@ def display_food(food):
 
 def main():
     """ The Main method for nutritional_value.py """
-    logger.info('Beginning Main Line.-----------------------------------------')
+    logger.info('Beginning Main Line...')
     foods = []
     display_greeting()
     
@@ -176,7 +176,7 @@ def main():
         # TODO: Set meal to actual Meal object, call meal display method.
         meal = [food.name for food in foods]
         logger.info('Meal Created: {}'.format(meal))
-        print('Enjoy your meal. {}'.format(meal))
+        print('Enjoy your meal: {}'.format(meal))
     else:
         print('Goodbye.')
 

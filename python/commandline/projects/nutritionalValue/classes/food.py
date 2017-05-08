@@ -50,9 +50,9 @@ class Food:
         self._protein         = protein
         
         self.__logger.info("New Food, '{}', Created.".format(self.name))
-        self.__logger.info(self.__repr__)
+        self.__logger.info(str(self))
      
-    # Externally Derived Attributes    
+    # Read/Write Attributes    
     @property
     def name(self):
         """ str: The name of the Food. """
@@ -116,7 +116,7 @@ class Food:
     def protein(self, protein):
         self._protein = protein
     
-    # Caculated Attributes
+    # Read Only, Caculated Attributes
     @property
     def serving_price(self):
         """ float: The float value of the price per serving. """
@@ -150,17 +150,17 @@ class Food:
     @property
     def fat_percent(self):
         """ int: Macro ratio of fat. """
-        return self.calculate_percentage(self.fat_cal)
+        return self.calculate_macro_percentage(self.fat_cal)
     
     @property
     def carb_percent(self):
         """ int: Macro ratio of carb. """
-        return self.calculate_percentage(self.carb_cal)
+        return self.calculate_macro_percentage(self.carb_cal)
     
     @property
     def protein_percent(self):
         """ int: Macro ratio of protein. """
-        return self.calculate_percentage(self.protein_cal)
+        return self.calculate_macro_percentage(self.protein_cal)
         
     @property
     def calories_per_dollar(self):
@@ -181,12 +181,9 @@ class Food:
     def protein_per_dollar(self):
         """ int: Protein calories per dollar. """
         return int(round(float(self.protein_cal / self.serving_price), 0))
-        
-    def __repr__(self):
-        """ The string [repr]esenation of the object, for use in logging. """
-        return '{}({})'.format(self.__class__.__name__, self.__dict__)
-        
-    def calculate_percentage(self, macro):
+    
+    # Methods
+    def calculate_macro_percentage(self, macro):
         """ Calculates the macro percentage of total calories.
         
         Args:
@@ -196,8 +193,11 @@ class Food:
             percentage (int): The macro's calorie percentage of total calories, 
                 rounded to the nearest percent.
         """
+        percentage = 0
         if self.total_cal > 0:
             percentage = int(round((macro / self.total_cal) * 100, 0))
-        else:
-            percentage = 0
         return percentage
+    
+    def __repr__(self):
+        """ The string [repr]esenation of the object, for use in logging. """
+        return '{}({})'.format(self.__class__.__name__, self.__dict__)
