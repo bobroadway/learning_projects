@@ -174,9 +174,10 @@ def main():
     # display meal and exit; or if there is no meal, just exit    
     if len(foods) > 0:
         # TODO: Set meal to actual Meal object, call meal display method.
-        meal = [food.name for food in foods]
+        name = str(input('What would you like to name this meal? (ex. "Breakfast") '))
+        meal = Meal(name, foods)
         logger.info('Meal Created: {}'.format(meal))
-        print('Enjoy your meal: {}'.format(meal))
+        print('Enjoy your meal: {} {}'.format(meal.name, [food.name for food in foods]))
     else:
         print('Goodbye.')
 

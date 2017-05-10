@@ -18,9 +18,8 @@ class Food:
     """Represents a single food item.
     
     The __init__ method sets all externally derived variables from the arguments 
-    passed in, uses calculate methods on any single variable that gets it's value 
-    internally, and calls set methods on variables of the same category. ie Cals 
-    and Percents.
+    passed in, holds these as attributes and returns calculated attributes when 
+    needed.
     
     Note:
         When instantiating an object, do not include the `self` parameter. 
@@ -28,7 +27,7 @@ class Food:
     Args:
         name          (str)   : The name of the Food. 
         package_price (float) : The float value of the price. ex - 12.95
-        serving_size       (float) : The size of a single serving, in GRAMS.
+        serving_size  (float) : The size of a single serving, in GRAMS.
         servings      (float) : The number of servings per package.
         fat           (int)   : The amount of fat per serving, in grams. 
         carb          (int)   : The amount of carbs per serving, in grams. 
@@ -39,7 +38,7 @@ class Food:
         
     """
     def __init__(self, name, package_price, serving_size, servings, fat, carb, protein):
-        self.__logger          = logging.getLogger('nutritional_value.{}'.format(__name__))
+        self.__logger         = logging.getLogger('nutritional_value.{}'.format(__name__))
         
         self._name            = name
         self._package_price   = package_price
