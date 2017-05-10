@@ -98,6 +98,21 @@ def create_food():
     food = Food(name, package_price, serving_size, servings, fat, carb, protein)
     return food
     
+def create_meal(foods):
+    """ Creates a meal object by prompting the user for a name, and passing in 
+    the user created foods_list.
+    
+    Args:
+        None
+        
+    Returns:
+        meal (:obj:`Meal`): The newly created Meal object.
+    """
+    name = str(input('What would you like to name this meal? (ex. "Breakfast") '))
+    logger.info('Creating meal...')
+    meal = Meal(name, foods)
+    return meal
+    
 def add_to_foods_list(foods_list, new_food, servings):
     """ Takes the current foods list and appends a new meal_component onto it. 
     This meal_component is derived from the food to add, with refactored values 
@@ -151,6 +166,28 @@ def display_food(food):
     print('*      Protein: {} cals'.format(food.protein_per_dollar))
     print('*')
     print('************************************************************')
+    
+def display_meal(meal):
+    """ Full display of the Meal object's attributes.
+    
+    Args:
+        food (:obj: Meal): The Meal object to display.
+    """
+    print('**Enjoy Your Meal*******************************************')
+    print('*')
+    print('*  -- {} -- '.format(meal.name))
+    print('*  For This Meal:')
+    print('*    Price: ${0:.2f}'.format(meal.price))
+    print('*    Calories: {}'.format(meal.total_cal))
+    print('*    Macros: Fat: {}g, Carbs: {}g, Protein: {}g'.format(meal.fat, meal.carb, meal.protein))
+    print('*    Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(meal.carb_percent, meal.protein_percent, meal.fat_percent))
+    print('*  Per Dollar')
+    print('*    Total: {} cals'.format(meal.calories_per_dollar))
+    print('*          Fat: {} cals'.format(meal.fat_per_dollar))
+    print('*        Carbs: {} cals'.format(meal.carb_per_dollar))
+    print('*      Protein: {} cals'.format(meal.protein_per_dollar))
+    print('*')
+    print('************************************************************')
 
 def main():
     """ The Main method for nutritional_value.py """
@@ -173,11 +210,8 @@ def main():
     
     # display meal and exit; or if there is no meal, just exit    
     if len(foods) > 0:
-        # TODO: Set meal to actual Meal object, call meal display method.
-        name = str(input('What would you like to name this meal? (ex. "Breakfast") '))
-        meal = Meal(name, foods)
-        logger.info('Meal Created: {}'.format(meal))
-        print('Enjoy your meal: {} {}'.format(meal.name, [food.name for food in foods]))
+        meal = create_meal(foods)
+        display_meal(meal)
     else:
         print('Goodbye.')
 

@@ -38,15 +38,15 @@ class Food:
         
     """
     def __init__(self, name, package_price, serving_size, servings, fat, carb, protein):
-        self.__logger         = logging.getLogger('nutritional_value.{}'.format(__name__))
+        self.__logger      = logging.getLogger('nutritional_value.{}'.format(__name__))
         
-        self._name            = name
-        self._package_price   = package_price
-        self._serving_size    = serving_size
-        self._servings        = servings
-        self._fat             = fat
-        self._carb            = carb
-        self._protein         = protein
+        self.name          = name
+        self.package_price = package_price
+        self.serving_size  = serving_size
+        self.servings      = servings
+        self.fat           = fat
+        self.carb          = carb
+        self.protein       = protein
         
         self.__logger.info("New Food, '{}', Created.".format(self.name))
         self.__logger.info(str(self))
@@ -115,7 +115,7 @@ class Food:
     def protein(self, protein):
         self._protein = protein
     
-    # Read Only, Caculated Attributes
+    # Read Only, Calculated Attributes
     @property
     def serving_price(self):
         """ float: The float value of the price per serving. """
