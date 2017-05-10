@@ -114,7 +114,7 @@ class Food:
     @protein.setter
     def protein(self, protein):
         self._protein = protein
-    
+        
     # Read Only, Calculated Attributes
     @property
     def serving_price(self):

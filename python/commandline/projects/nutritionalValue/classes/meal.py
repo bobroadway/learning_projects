@@ -66,8 +66,8 @@ class Meal:
         
         for food in foods:
             self.__logger.info('Adding Food:{} to meal.'.format(food.name))
-            self.price += food.package_price
-            self.size       += food.serving_size
+            self.price += food.package_price 
+            self.size       += food.serving_size 
             self.fat        += food.fat 
             self.carb       += food.carb 
             self.protein    += food.protein 
@@ -75,7 +75,7 @@ class Meal:
         self.__logger.info("New Meal, '{}', Created.".format(self.name))
         self.__logger.info(str(self))
         
-    # Attributes Calculated from Foods
+    # Read/Write Attributes
     @property
     def name(self):
         """ str: The name of the Meal. (Breakfast, Lunch, Dinner, Day) """
@@ -139,7 +139,7 @@ class Meal:
     def protein(self, protein):
         self._protein = protein
     
-    # Calculated Attributes
+    # Read Only, Calculated Attributes
     @property
     def serving_price(self):
         """ float: The float value of the price per serving. """
@@ -147,28 +147,28 @@ class Meal:
         
     @property
     def fat_cal(self):
-        """ int: Calories from fat, per serving. """
+        """ int: Calories from fat. """
         return int(round((self.fat * 9), 0))
         
     @property
     def carb_cal(self):
-        """ int: Calories from carbohydrates, per serving. """
+        """ int: Calories from carbohydrates. """
         return int(round((self.carb * 4), 0))
         
     @property
     def protein_cal(self):
-        """ int: Calories from protein, per serving. """
+        """ int: Calories from protein. """
         return int(round((self.protein * 4), 0))
         
     @property
     def total_cal(self):
-        """ int: Total calories, per serving. """
+        """ int: Total calories. """
         return self.fat_cal + self.carb_cal + self.protein_cal
         
-    @property
-    def package_cal(self):
-        """ int: Total calories per package. """
-        return int(round((self.total_cal * self._servings), 0))
+    # @property
+    # def package_cal(self):
+    #     """ int: Total calories per package. """
+    #     return int(round((self.total_cal * self._servings), 0))
         
     @property
     def fat_percent(self):
