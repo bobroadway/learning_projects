@@ -16,6 +16,7 @@ import logging
 from classes.food import Food
 
 class Meal:
+    # TODO: Convert to subclass of Food
     """Represents a Meal, which is a collection of Food items, with the addition 
     of its own unique stats based on the meal as a whole.
     
@@ -85,13 +86,13 @@ class Meal:
         self._name = name
         
     @property
-    def price(self):
+    def total_price(self):
         """ float: The total retail cost of this meal. ex - 12.95 """
-        return self._price
+        return self._total_price
         
-    @price.setter
-    def price(self, price):
-        self._price = price
+    @total_price.setter
+    def total_price(self, total_price):
+        self._total_price = total_price
         
     @property
     def size(self):

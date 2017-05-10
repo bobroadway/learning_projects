@@ -62,13 +62,13 @@ class Food:
         self._name = name
         
     @property
-    def package_price(self):
+    def total_price(self):
         """ float: The float value of the price. ex - 12.95 """
         return self._package_price
         
-    @package_price.setter
-    def package_price(self, package_price):
-        self._package_price = package_price
+    @total_price.setter
+    def total_price(self, total_price):
+        self._total_price = total_price
         
     @property
     def serving_size(self):
