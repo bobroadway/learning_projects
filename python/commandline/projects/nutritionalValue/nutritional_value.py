@@ -177,7 +177,7 @@ def display_meal(meal):
     print('*')
     print('*  -- {} -- '.format(meal.name))
     print('*  For This Meal:')
-    print('*    Price: ${0:.2f}'.format(meal.price))
+    print('*    Price: ${0:.2f}'.format(meal.total_price))
     print('*    Calories: {}'.format(meal.total_cal))
     print('*    Macros: Fat: {}g, Carbs: {}g, Protein: {}g'.format(meal.fat, meal.carb, meal.protein))
     print('*    Macro Ratio (Carb/Protein/Fat): {}/{}/{}'.format(meal.carb_percent, meal.protein_percent, meal.fat_percent))

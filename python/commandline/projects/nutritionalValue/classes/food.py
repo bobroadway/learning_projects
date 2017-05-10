@@ -119,7 +119,7 @@ class Food:
     @property
     def serving_price(self):
         """ float: The float value of the price per serving. """
-        return round((self.package_price / self.servings), 2)
+        return round((self.total_price / self.servings), 2)
         
     @property
     def fat_cal(self):
@@ -196,7 +196,7 @@ class Food:
         if self.total_cal > 0:
             percentage = int(round((macro / self.total_cal) * 100, 0))
         return percentage
-    
+        
     def __repr__(self):
         """ The string [repr]esenation of the object, for use in logging. """
         return '{}({})'.format(self.__class__.__name__, self.__dict__)
