@@ -26,7 +26,7 @@ class Food:
         
     Args:
         name          (str)   : The name of the Food. 
-        package_price (float) : The float value of the price. ex - 12.95
+        total_price   (float) : The float value of the price. ex - 12.95
         serving_size  (float) : The size of a single serving, in GRAMS.
         servings      (float) : The number of servings per package.
         fat           (int)   : The amount of fat per serving, in grams. 
@@ -37,11 +37,11 @@ class Food:
         See Properties.
         
     """
-    def __init__(self, name, package_price, serving_size, servings, fat, carb, protein):
+    def __init__(self, name, total_price, serving_size, servings, fat, carb, protein):
         self.__logger      = logging.getLogger('nutritional_value.{}'.format(__name__))
         
         self.name          = name
-        self.package_price = package_price
+        self.total_price   = total_price
         self.serving_size  = serving_size
         self.servings      = servings
         self.fat           = fat
@@ -64,7 +64,7 @@ class Food:
     @property
     def total_price(self):
         """ float: The float value of the price. ex - 12.95 """
-        return self._package_price
+        return self._total_price
         
     @total_price.setter
     def total_price(self, total_price):

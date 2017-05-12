@@ -33,7 +33,7 @@ class Meal:
         
     Attributes:
         name          str: The name of the meal. (Breakfast, Lunch, Dinner, Day).
-        meal_price    float: The total retail cost of this meal. ex - 12.95
+        total_price   float: The total retail cost of this meal. ex - 12.95
         size          float: The full size, in grams.
         servings      float: The number of servings for this meal to be divided into.
         fat           float: The amount of fat, in grams.
@@ -54,23 +54,23 @@ class Meal:
         
     """
     def __init__(self, name, foods):
-        self.__logger   = logging.getLogger('nutritional_value.{}'.format(__name__))
+        self.__logger    = logging.getLogger('nutritional_value.{}'.format(__name__))
         
-        self.name       = name
-        self.price      = 0.0
-        self.size       = 0.0
-        self.servings   = 1   # default, only option, for now
-        self.fat        = 0.0
-        self.carb       = 0.0
-        self.protein    = 0.0
+        self.name        = name
+        self.total_price = 0.0
+        self.size        = 0.0
+        self.servings    = 1   # default, only option, for now
+        self.fat         = 0.0
+        self.carb        = 0.0
+        self.protein     = 0.0
         
         for food in foods:
             self.__logger.info('Adding Food:{} to meal.'.format(food.name))
-            self.price += food.package_price 
-            self.size       += food.serving_size 
-            self.fat        += food.fat 
-            self.carb       += food.carb 
-            self.protein    += food.protein 
+            self.total_price += food.total_price 
+            self.size        += food.serving_size 
+            self.fat         += food.fat 
+            self.carb        += food.carb 
+            self.protein     += food.protein 
 
         self.__logger.info("New Meal, '{}', Created.".format(self.name))
         self.__logger.info(str(self))
@@ -143,7 +143,7 @@ class Meal:
     @property
     def serving_price(self):
         """ float: The float value of the price per serving. """
-        return round((self.price / self.servings), 2)
+        return round((self.total_price / self.servings), 2)
         
     @property
     def fat_cal(self):
