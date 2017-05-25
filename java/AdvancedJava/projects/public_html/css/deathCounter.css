@@ -1,0 +1,86 @@
+body {
+    text-align: center;
+    background-color: black;
+    background-image: url("../images/grim.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+form {
+    margin: 0 auto;
+    width: 25em;
+    background-color: #1A1D1F;
+    color: white;
+    padding: 1em;
+    border-radius: .5em;
+    font-variant: small-caps;
+}
+
+#varTitle {
+    text-align: center;
+}
+
+table {
+    background-color: #1A1D1F;
+    margin: 1em auto;
+    color: white;
+    text-align: left;
+    width: 28em;
+}
+
+p {
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+td {
+    padding: .1em .5em;
+}
+
+input {
+    margin: .25em 0;
+}
+
+label {
+    width: 5em;
+}
+
+.checkbox {
+    width: 10em;
+}
+
+#name {
+    width: 15em;
+}
+
+#age {
+    width: 5em;
+}
+
+h1 {
+    font-size: 3.5em;
+    margin: .8em;
+    color: white;
+    text-shadow: 3px 3px black;
+}
+
+.button {
+    font-size: 1.15em;
+}
+
+.button:hover {
+    background-color: lightgrey;
+    color: black;
+}
+
+label {
+    display: inline-block;
+}
+
+fieldset {
+    text-align: left;
+    margin: .5em;
+}
+
+
+

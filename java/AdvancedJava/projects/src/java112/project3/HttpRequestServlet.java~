@@ -1,0 +1,75 @@
+package java112.project3;
+
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+
+/**
+ *  HTTP Request Servlet for Project 3.
+ *
+ *  @author  bbroadway
+ */
+@WebServlet(
+    name = "requestServlet", 
+    urlPatterns = { "/request-servlet" }
+)
+public class HttpRequestServlet extends HttpServlet {
+
+    // create load method for properties and call from init()
+
+    /**
+     *  Handles HTTP GET requests.
+     *
+     *@param  request                   the HttpServletRequest object
+     *@param  response                   the HttpServletResponse object
+     *@exception  ServletException  if there is a Servlet failure
+     *@exception  IOException       if there is an IO failure
+     */
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        HttpRequestData hrd = new HttpRequestData();
+        hrd.setRemoteHost(request.getRemoteHost());
+        hrd.remoteHostAddress = request.getRemoteAddr();
+        hrd.httpMethod = request.getMethod();
+        hrd.requestURI = request.getRequestURI();
+        hrd.requestURL = request.getRequestURL().toString();
+        hrd.requestProtocol = request.getProtocol();
+        hrd.serverName = request.getServerName();
+        hrd.serverPort = Integer.toString(request.getServerPort());
+        hrd.serverLocale = request.getLocale().toString();
+        hrd.queryString = request.getQueryString();
+        hrd.queryParameterValue = request.getParameter("queryParameter");
+        hrd.requestHeaderUserAgentValue = request.getHeader("User-Agent");
+
+        // testing /////////////
+        /*
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+            out.println("<html><body>");
+    
+                out.println("<h1>Test</h1>");        
+        
+                out.println("<pre>");
+                out.println("Host: " + hrd.remoteHost);
+                out.println("Host Address: " + hrd.remoteHostAddress);
+                out.println("</pre>");
+    
+            out.println("</body></html>");
+        out.close();
+        */
+        /////////////////////////
+        
+        request.setAttribute("httpRequestData", hrd);
+        String url = "/httpRequestData.jsp";
+ 
+        RequestDispatcher dispatcher 
+                = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+        
+    }
+
+}
+

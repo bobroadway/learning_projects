@@ -1,0 +1,12 @@
+author=Bo Broadway
+email=bbroadway@madisoncollege.edu
+course.title=Advanced Java
+course.schedule=M/W 2:30-4:20
+course.instructor=Paula Waite
+project.description=CaptainCruncher is a file analyzing program that currently \
+    will analyze a file and produce four reports pertaining to the file: a Summary \
+    Report, a Unique Tokens List, a Big Words List, and a Unique Tokens Count List.
+driver=driver
+url=jdbc:mysql://localhost/student
+username=student
+password=student

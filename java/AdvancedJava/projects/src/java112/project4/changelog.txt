@@ -1,0 +1,24 @@
+# Project 4 Changelog
+All notable changes to this project will be documented in this file.
+
+##  2016-03-13
+### Added
+
+-ApplicationStartup.java
+-employeeSearchResults.jsp
+    -Conditional to search results to only display the table if there are results
+
+### Changed
+
+-employeeSearchResults.jsp
+    -Formatted an actual table display for employeeSearchResults.jsp
+-addEmployee.jsp
+    -added command to destroy session variable "project4Message" after used
+
+### Known Issues
+
+-could not get ApplicationStartup.java working properly, had 0 patience for it
+    -properties hardcoding still in place
+    -EmployeeDirectory initialization workaround still in place
+-refactoring could still be done on the EmployeeDirectory class
+    -it's late, and I'm so done with this semester :)

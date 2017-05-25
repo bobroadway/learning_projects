@@ -1,0 +1,19 @@
+# Project 2 Changelog
+All notable changes to this project will be documented in this file.
+
+##  2016-03-13
+### Added
+
+-link to home page on the properties demo servlet
+-theme image on the home page
+
+### Changed
+
+-Removed the instance variables for all four analyzers
+-Placed the four analyzers into an ArrayList
+-instantiateAnalyzers() now instantiates the ArrayList and .adds the analyzers
+-passTokenToAnalyzer() rewritten to utilize ArrayList iterating
+-writeAllOutputFiles() rewritten to utilize ArrayList iterating
+-SummaryReport info now uses Properties for its info
+-All analyzers use the properties file to determine output path
+-Single argument constructors now point to no-argument constructor where applicable
