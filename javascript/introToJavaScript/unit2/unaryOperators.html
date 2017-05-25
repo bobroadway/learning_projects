@@ -1,0 +1,293 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Unary Operators  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen, print" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushCss.js"></script>
+  <script type="text/javascript" src="resources/shBrushJava.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 2</a>
+                    <img src="resources/arrow_right_small.png" />Unary Operators</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Unary Operators</h1>
+
+<h4>File: unit2/unaryOperators.html</h4>
+
+<blockquote><p><em>These are really handy and we'll use them all the time.</em></p></blockquote>
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 5 - Using Operators and Expressions</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>The Unary Operators</h3>
+
+<table style="text-align:left; margin-left: 4em;" cellspacing="0"><tr><td style="background:#ccc; font-weight:bold;">Operator</td><td style="background:#ccc; font-weight:bold;">Function</td></tr><tr><td style="text-align:center;"><code>++</code></td><td>Increments a Number by 1</td></tr><tr><td style="text-align:center;"><code>--</code></td><td>Decrements a Number by 1</td></tr><tr><td style="text-align:center;"><code>typeof</code></td><td>Returns a string representing the data type</td></tr></table>
+
+<h3>Using the Unary Operators</h3>
+
+<blockquote><p><em>These are a few handy shorcuts.</em></p></blockquote>
+
+<blockquote><p>Unary means that there is only one variable or value involved with the operator. Usually we have to have something on either side of the operator, like the plus sign. But, these just have one.</p></blockquote>
+
+
+<ul>
+<li>Here's the first way we've seen to add one to a number<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Addition with the +
+    var myCount = 5;
+    
+    document.write("myCount: " + myCount + "<br />");
+    
+    myCount = myCount + 1;
+    
+    document.write("myCount: " + myCount);
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Addition with the +
+    var myCount = 5;
+    
+    document.write("myCount: " + myCount + "<br />");
+    
+    myCount = myCount + 1;
+    
+    document.write("myCount: " + myCount);
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<ul>
+<li>But this is too much typing!</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+    myCount = myCount + 1;
+</pre>
+
+
+
+<ul>
+<li>Fortunately, we have a shortcut. This does the same thing.</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+    myCount++; // Increment by one, aka add one, to myCount
+</pre>
+
+
+
+<ul>
+<li>We use it like this.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Incrementing with ++
+    var myCount = 5;
+    
+    document.write("myCount: " + myCount + "<br />");
+    
+    myCount++;
+    
+    document.write("myCount: " + myCount);
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Incrementing with ++
+    var myCount = 5;
+    
+    document.write("myCount: " + myCount + "<br />");
+    
+    myCount++;
+    
+    document.write("myCount: " + myCount);
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<ul>
+<li>I bet you can guess what this one does!</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+    myCount--; // ???
+</pre>
+
+
+
+<ul>
+<li>That's right, it subtracts one from myCount<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Decrementing with --
+    var myCount = 5;
+    
+    document.write("myCount: " + myCount + "<br />");
+    
+    myCount--;
+    
+    document.write("myCount: " + myCount);
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Decrementing with --
+    var myCount = 5;
+    
+    document.write("myCount: " + myCount + "<br />");
+    
+    myCount--;
+    
+    document.write("myCount: " + myCount);
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<ul>
+<li>We're only going to look at one other unary operator: <code>typeof()</code>. It looks like a call to a function with parentheses. It tells us what type of data we have. It actually returns the strings "<code>number</code>", "<code>string</code> ", and "<code>boolean</code> ".</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+    typeof(5) &lt;-- this will be &quot;number&quot;
+</pre>
+
+
+
+<ul>
+<li>Using <code>typeof</code><br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Demo of typeof()
+    document.write("The type of 10 is: \"" + typeof(10) + "\"");
+    document.write("<br />");
+    document.write("The type of \"10\" is: \"" + typeof("10") + "\"");
+    document.write("<br />");
+    document.write("The type of (5 == 5) is: \"" + typeof(5 == 5) + "\"");
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Demo of typeof()
+    document.write("The type of 10 is: \"" + typeof(10) + "\"");
+    document.write("<br />");
+    document.write("The type of \"10\" is: \"" + typeof("10") + "\"");
+    document.write("<br />");
+    document.write("The type of (5 == 5) is: \"" + typeof(5 == 5) + "\"");
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<h3>A Lab is Next:</h3>
+
+<blockquote><p>Here's some unary practice: <a href="labs/lab-08-unaryOperators.html">Lab 8: Unary Operators</a></p></blockquote>
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

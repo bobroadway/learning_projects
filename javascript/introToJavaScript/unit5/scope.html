@@ -1,0 +1,128 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Variable Scope  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/scope.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Variable Scope</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Variable Scope</h1>
+
+<h4>File: unit5/scope.html</h4>
+
+
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 7 - Working with Functions</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Where am I?</h3>
+
+
+<ul>
+<li>Global scope was discussed in the introduction to modularization. It's been around for a long time. A global variable is declared in a JavaScript file outside of any functions. The standard is to put them at the top of the file and not indented.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+var date;
+var city;
+]]></script></li>
+<li>Global variables look like this:<br />
+<div style="text-align: center;padding-right:50px;"><br />
+  <img src="resources/global.jpg" alt="" height="628" width="882" /><br />
+</div></li>
+<li>If it's not <code>Global</code> it's <code>local</code>.</li>
+<li>Local Variables are declared inside of functions and that's where they live:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function calculateSalesTax() {
+    var salesTax; //<-- local variable
+    ...
+}
+]]></script></li>
+<li>A local variable can't be seen from any other function. It has <code>local scope</code>.</li>
+<li>Here's what local variables look like:<br />
+<div style="text-align: center;"><br />
+  <img src="resources/local.jpg" alt="" height="633" width="860" /><br />
+</div></li>
+</ul>
+
+
+
+<h3>A Lab sounds good right about now.</h3>
+
+
+<ul>
+<li><a href="labs/lab02localGlobal.html">Lab 2: Local and Global Variables</a></li>
+</ul>
+
+
+
+
+
+
+<p><br /><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

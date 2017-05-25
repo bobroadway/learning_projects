@@ -1,0 +1,191 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Lab 7: First Arrays  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/lab07firstArrays.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 5</a>
+                <img src="../resources/arrow_right_small.png" />Lab 7: First Arrays          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Lab 7: First Arrays</h1>
+
+
+
+<h4>File: unit5/labs/lab07firstArrays.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+
+
+<h3>Lab Specifications</h3>
+
+<h4>Lab Overview</h4>
+
+<p style="margin-left: 2em;">In this lab you will be writing a JavaScript program that, each time the submit button on the form is clicked, will accept a string from a text box on a form, and save the string into an array.  The array will increase by one string each time the submit button is clicked, thus gradually increasing the number of 'slots' in the array (each 'slot' holding a string).  In addition to acquiring another string, also each time the submit button clicked, the entire contents of the array as it exists at that point in time must be displayed on the Web page. &nbsp;Note: There is just <i>one</i> function involved with this lab, namely the main function named:&nbsp; <code>lab07firstArrays()</code>.
+</p>
+
+<h4 style="margin-bottom: 0em;">Lab 07 Set Up</h4>
+<ul>
+<li>Open this HTML file for Lab 07 in both Firefox and jEdit.</li>
+<li>Add your name, section, and email to the Lab 07 HTML file as usual.</li>
+<li>Note that there should NOT be a script block within the HTML file source code, because the JavaScript program for this lab will be run (aka executed, aka invoked, aka &quot;fired&quot;) by clicking the submit button on the form. (Note: you will be setting up this form as the first Lab step below.).</li>
+<li>Open the file <code>/unit5/jsFiles/lab07firstArrays.js</code> in jEdit.</li><li>(To avoid confusion, have no other tabs open in jEdit other than the source code for the HTML Lab 07 page, and the source code for the JavaScript library file associated with this Lab 07).</li>
+</ul>
+
+
+
+
+
+<h4 style="margin-bottom: 0em; margin-top: 2em;">Lab 07 Steps</h4>
+<ol>
+<li>In the HTML file, create a form with one input text box field and a submit button. <br /><br/><span style="font-size: small">[Note: While definitely not in general a good way to proceed, if the CSS style sheet for a Web page is unavailable, an embedded style sheet could be set up in the Head element of the Web page itself as kind of "quick and dirty" way to place CSS rules into effect.  We could do that here to make the form more presentable, but it is not required.  And to repeat: in a well-organized Web site, <em>all</em> CSS rules belong in the usual <em>external</em> style sheet file(s), and should <em>not</em> be set up within HTML files themselves.]</span></li><li>Give the form an &nbsp; <code>id</code> &nbsp; attribute, or, give the text box field itself an&nbsp; <code>id</code> &nbsp;attribute (which one depends upon how you later wish to generate a <i>reference</i> to the string keyed into the text box).</li>
+<li>Within the output <code>&lt;div&gt;</code> tag set already present in the HTML source code, add an HTML  <code>&lt;ol&gt;</code>  element (aka  an <code>&lt;ol&gt;</code> tag set) to allow line items to be inserted later by the program, and thus displayed on the web page. </li>  <li>Give the  <code>&lt;ol&gt;</code>  element an  <code>id</code>  attribute, with a value of something like "theOrderedList".   &nbsp;     <span style="font-size: small;"> <br /><br /> [Note: The purpose of this <code>id</code> attribute is to later be able to reference the   <code> &lt;ol&gt;</code> element via use of the   <code>getElementById()</code> method.]</span></li> 
+<li>Give an <code>onsubmit</code> attribute (aka event handler) to the form, an attribute which calls the  <code>lab07firstArrays()</code> function..  Remember from course 10-152-120 that this attribute goes on the opening <code>&lt;form&gt;</code> tag, and not the submit button (i.e. the <code>&lt;input&gt;</code> element that creates the submit button).</li>
+<li>Now working with <em>both</em> the source code in the HTML file <em>and</em> the source code in the JavaScript file   <code>/unit5/jsFiles/lab07firstArrays.js</code>. test to see if a click of the submit button does in &quot;fire&quot; the function &quot;<code>lab07firstArrays()</code>&quot;. And furthermore, note that, as currently coded, the function is <em>supposed</em> to be displaying a message on the web page. &nbsp;If it does <em>not</em> do this (and the chances are that it does in fact not do this), <span style="background-color: #FF9">debug this situation <strong><em>right now</em></strong></span>, before beginning to change the function to accomplish Step #8 below. <br/><br />
+  <span style="font-size: small">[Note: What is needed here is similar to what was required in Lab 06: namely, having the function return a value of   <code>false</code> , and then having that value passed on into the programming code underlying the <code>onsubmit</code> event.] </span></li><li>Create a global array variable to hold the strings that will be entered by the viewer. Note that it must be global so that it will preserve the array elements that have already been added by previous clicks of the submit button.  If it was local <em>within</em> the function, it would be wiped back to empty every time the viewer ran the function.  Initialize it when you declare it as follows, using one of the two suggested names below:
+  <ul>
+  <li style="margin-bottom: .5em;"><code>var enteredStrings = [];</code> </li> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or
+  <li><code>var enteredStringsArray = [];</code> </li>
+    
+  </ul><br />
+  <span style="font-size: small">[Note: &nbsp;Arrays can be named using <em>any</em> characters. The word "<span style="font-family: monospace">Array</span>" need not be  a part of the name of  arrays, and its presence or absence has no meaning to any software.&nbsp;However, including it might be a useful convention for programmer comprehension when later writing code involving arrays. If you decide to include it as part of the name, just make sure that you  don't come to believe that it <em>must</em> be used when naming arrays, or become psychologically dependent on its presence.]</span> </li>
+
+<li>When the form is submitted, get the value in the text field and insert it at the end of the array. <span style="font-size: small"><br /><br />
+  [Note: When accomplishing this Step #8, make liberal use of the <code>alert()</code> method to verify to what any given variable or expression is referring. Also, note that this placement at the end of the array can be accomplished either by working with the <code>length</code> property of the array, or, by employing the <code>push()</code> function.]</span></li>
+<li>In the <code>lab07firstArrays()</code> function, create a local variable to hold a reference to the HTML display element (the <code>&lt;ol&gt;</code>) set up in Step #3 above.</li>
+
+
+<li>Get a reference to the HTML display element (the <code>&lt;ol&gt;</code>) and assign it to the local variable  created in Step #9 just above.</li>
+<li>Create a loop that goes through the array and outputs the content of each array element as a line item (an <code>&lt;li&gt;</code>) into  the HTML display element. This will require use of the <code>innerHTML</code> property.  <span style="font-size: small"> <br />
+  <br />
+  [Note:  Two approaches to accomplishing this suggest themselves.  One would be to place via the plus asign operator (+=) <em>all</em> the line items into a variable, and then when the looping has finished, assign that variable's content into the <code>&lt;ol&gt;</code>.  Since the asign operator (=) is an "erase/replace" operation, any previous content within the <code>&lt;ol&gt;</code> would be automatically wiped away.  The other approach would be to clear away any previous display on the web page within the <code>&lt;ol&gt;</code> <em>before</em> running this loop. And then using the plus asign operator (+=), place the line items into the <code>&lt;ol&gt;</code> one at a time within the loop itself.</span>]</li>
+<li>Run a final test of your code by inputting several strings, and see if they are showing up on the web page.</li> 
+
+</ol>
+<p style="margin-left: 2em;"><b>Note:</b>&nbsp; Keep in mind that when a Web page is <i>refreshed</i> (by a press of F5), not only is a fresh copy of the HTML source code for the Web page employed to re-render the Web page, but also, <i>a fresh copy of any external JavaScript file source code referenced by that Web page is picked up at that point.</i> &nbsp;Thus, so long as the Web page for Lab 07 is NOT refreshed, the array building up within the JavaScript library file associated with Lab 07 will remain in existence. &nbsp; It is important to realize that clicking the submit button on a rendered Web page only runs the JavaScript program associated with the <code>onsubmit</code> event handler--it does NOT refresh the Web page (like a press of F5 would do).</p>
+
+
+
+
+
+
+<h3>Your Form and Output:</h3>
+
+<!--
+  Add your form after here.
+-->
+<div class="output">
+<form id="stringForm"
+      action="lab07firstArrays.html#"
+      onSubmit="return lab07firstArrays();">
+      
+  <label for="enteredString">Enter a string, click submit.</label>
+  <br />
+  <input type="text"
+         name="enteredString"
+         id="enteredString" />      
+      
+  <input type="submit"
+         name="submit"
+         value="Submit" />      
+</form>
+</div>
+
+<!--
+  Add a display element to the following div.
+-->
+
+
+
+<div id="outputDiv" class="output">
+
+  <ol id="outputList">
+  
+  </ol>
+
+</div>
+
+
+<br />
+<h2>&nbsp;Lab Exercises</h2>
+
+
+
+
+<ul>
+<li>Here are the exercises that go with this lab. &nbsp;If you choose to do this, have the JavaScript file printed and ready to turn in on the first day of class next week.
+<ul>
+<li><a href="exercises-7.html">Lab 7 Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

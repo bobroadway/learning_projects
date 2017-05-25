@@ -1,0 +1,308 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Function To Function - How Functions Communicate  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/functionToFunction.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Function To Function - How Functions Communicate</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Function To Function - How Functions Communicate</h1>
+
+<h4>File: unit5/functionToFunction.html</h4>
+
+<blockquote><p>Functions can communicate with each other in several ways.</p></blockquote>
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 7 - Working with Functions</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+<h3>What's the problem?</h3>
+
+
+<ul>
+<li><em>The problem is that <b>global</b> variables are wide open for access by any function in their javaScript library file, and hence it is hard to keep track off from where their content arises, and to where it goes.  If not handled carefully, they can be a cause of 'bugs' in systems, particularly when enhancements are made to the system, and a programmer doesn't realize that changing the value of a global variable in one function will have unintended consequences over in other parts of the system. Global variables reduce the water-tight modularization that is a hallmark of a well-designed programming solution.  In short, global variables need to be handled with care, and only very deliberately used when they simplify some data movement situation.</em><br />
+<br /></li>
+<li>We've been using global variables so far in this learning unit. We will still use them for some things, since sometimes they are perfectly appropriate. However, all modern programming has the concepts of function parameters and arguments, which involve the use of <b>local</b> variables. </li>
+<li>Functions routinely need to use data from another function. This is what is meant when we say that functions communicate with each other. </li>
+<li>We have to communicate in two directions. 
+<ol>
+<li>When a function calls another function, it sometimes needs to transfer data <strong style="color:red;">TO</strong> the function it is calling.</li>
+<li>When a called function is done processing, sometimes the calling function needs to get data back <strong style="color:red;">FROM</strong> the called function.</li>
+</ol>
+</li>
+<li>These two concepts are called:
+<ul>
+<li>Passing Parameters</li>
+<li>Returning a Value</li>
+</ul>
+</li>
+<li>Let's look at how this work with pictures first.</li>
+</ul>
+
+
+
+<h3>Sharing Data With Global Variables</h3>
+
+
+<ul>
+<li>This is the way the global variable approach works. We have to use global variables to get work done.<br />
+<div style="text-align: center;padding-right:50px"><br />
+  <img src="resources/globalVariableClouds.jpg" alt="" height="645" width="836" /><br />
+</div></li>
+<li>Sometimes we have to do this but there can be problems. The global variables will be accessible to every function, even those written by others.</li>
+<li>In large applications, the code and the global variables can be very far apart. This can lead to confusion and mistakes.</li>
+<li>The next technique helps with these problems.</li>
+</ul>
+
+
+
+<h3>Parameters and Arguments</h3>
+
+<div class="define">pa&#8226;ram&#8226;e&#8226;ter</div><br />
+<div class="define2">noun</div><br />
+<div class="define3">&#8226;&nbsp;&nbsp;a numerical or other measurable factor forming one of a set that defines a system or sets the conditions of its operation : the transmission will not let you downshift unless your speed is within the lower gear's parameters.</div><br />    
+<div class="define3">&#8226;&nbsp;&nbsp;Mathematics a quantity whose value is selected for the particular circumstances and in relation to which other variable quantities may be expressed.</div>
+<br /><br /><br />
+<div class="define">ar&#8226;gu&#8226;ment</div><br />
+<div class="define2">noun technical</div><br />
+<div class="define3">&#8226;&nbsp;&nbsp;Mathematics: an independent variable associated with a function and determining the value of the function. For example, in the expression <strong>y = F(x 1 , x 2 )</strong>, the arguments of the function F are x 1 and x 2, and the value is y.</div><br />
+<div class="define3">&#8226;&nbsp;&nbsp;Computing: a value or address passed to a procedure or function at the time of call.</div>
+
+
+<ul>
+<li>So far, we have been writing functions like this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function printHeaders() {
+    ...
+}
+]]></script></li>
+<li>There is nothing between the left and right parentheses. But, we can put things in there! What we put between the parentheses are variables:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function addTwoNumbers(numberOne, numberTwo) {
+    ...
+}
+]]></script></li>
+<li>These variables are called <code>Parameters</code>. They are a special kind of local variable. Just like normal local variables, they can't be accessed by other functions. But, other functions can set the value of parameters in one specific way.</li>
+<li>You can have as many Parameters as you like, all separated by commas. However, if you have lots of them it can get confusing. There are better ways to pass lots of data as we'll see soon.</li>
+<li>Here's how we call the above function:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Function call
+    addTwoNumbers(2, 3);
+]]></script></li>
+<li>The numbers 2 and 3 are <code>Arguments</code>. Arguments are data that will be sent or "passed" to the function that is about to be called. (Note: In this example, the arguments are literals used for the sake of illustration--normally variables would be used for arguments.)</li>
+<li>When this line of code is run, the <code>2</code> will be copied into the variable <strong>numberOne</strong>, and the <code>3</code> will be copied into <strong>numberTwo</strong>.</li>
+<li>When the addTwoNumbers function starts to run it can access the parameters to do the calculation.</li>
+<li>Let's look at how this works in a few different ways. First, just the code:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/* The function that is receiving parameters */
+function addTwoNumbers(numberOne, numberTwo) {
+    var total;
+    var output;
+    output = document.getElementById("output");
+    
+    total = numberOne + numberTwo;
+    
+    output.innerHTML = "Total: " + total;
+}
+
+/* The function that is sending parameters */
+function passingParametersDemo() {
+    
+    addTwoNumbers(2, 3);
+    
+}
+]]></script></li>
+</ul>
+
+
+
+
+<ul>
+<li><strong>Line 13:</strong> The program starts running here. This function gets called from somewhere else, like an <span class="caps">HTML </span>page.</li>
+<li><strong>Line 15:</strong> This is the function call. The <code>2</code> will be copied and pasted into the variable <code>numberOne</code>. The <code>3</code> will be copied and pasted into the variable <code>numberTwo</code>.  (Note that a function call does not use any kind of verb.  Rather, it is just the name of the function to be called, and the parentheses.  Thus, when reading javaScript statements, one's eye needs to slide over to the right and notice the parentheses, in order to realize that this is a function being called.)</li>
+<li><strong>Line 2:</strong> This function now starts running. The parameters, numberOne and numberTwo, already have the values 2 and 3.</li>
+<li><strong>Lines 3 and 4:</strong> Here are some plain old local variables.</li>
+<li><strong>Line 5:</strong> Get the display element from the <span class="caps">HTML </span>page.</li>
+<li><strong>Line 7:</strong> Here's the calculation. The total variable will be assigned to <code>5</code>.</li>
+<li><strong>Line 9:</strong> Output the total.</li>
+<li>Here's a picture:<br />
+<div style="text-align: center;"><br />
+  <img src="resources/parametersArguments.jpg" alt="" height="592" width="852" /><br />
+</div></li>
+<li>Here's another demo to help understand this.
+<ul>
+<li><a href="passingParams.html">Animated Passing Parameters Demo</a></li>
+</ul>
+</li>
+<li>And here's a lab to practice.
+<ul>
+<li><a href="labs/lab03firstPassing.html">Lab 3: Passing Parameters</a>
+<ul>
+<li><a href="labs/exercises-3.html">Lab 3 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<h3>Returning Data From a Function</h3>
+
+
+<ul>
+<li>Look at the example we just went over. Do you think that a function named <code>addTwoNumbers()</code> would just display the result to the screen? I don't either! It would be much handier if the function just did the calculation and gave us the answer. Then we could do anything we wanted with the results.</li>
+<li>Functions can do this. It's called returning a value. Here's what it looks like.<br />
+<div style="text-align: center;"><br />
+  <img src="resources/passingReturnData.jpg" alt="" height="582" width="764" /><br />
+</div></li>
+<li>A function calls another function and sends parameters to it. The called function performs a calculation and returns the results. Very nice! This is very flexible and we could use this function is other circumstances. Code Reuse!</li>
+<li>In JavaScript the syntax for returning data is the word <code>return</code>. When you want to return something from a function you just do this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Returning a value
+    ...
+    return total;
+    ...
+]]></script></li>
+<li>When the <code>return</code> keyword is reached, the function stops running and whatever is after the return will be sent back to the calling function.</li>
+<li>Remember, after the return, <strong>the function stops running!</strong></li>
+<li>The <code>return</code> statement has to be the last statement in the function or the last statement in some logic, like an <code>if</code> statement.</li>
+<li>How does the calling function get the data back? Usually, the function with the return will be assigned to a variable. We've been doing this all semester with this function:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Passing data as an argument
+    var name;
+    name = prompt("Enter your name:");
+]]></script></li>
+<li>The <strong>"Enter your name:"</strong> part of the call is the argument.</li>
+<li>We get the data back when it is assigned to the <strong>name</strong> variable.</li>
+<li>Let's redo the above example and add a return to it.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/* The function that is receiving parameters */
+function addTwoNumbers(numberOne, numberTwo) {
+    var total;
+    total = numberOne + numberTwo;
+    return total;
+}
+
+/* The function that is sending parameters */
+function passingParametersDemo() {
+    var results;
+    var output;
+    output = document.getElementById("output");
+    
+    results = addTwoNumbers(2, 3);
+    
+    output.innerHTML = "Total: " + results;
+}
+]]></script></li>
+<li><strong>Line 9:</strong> The program starts here.</li>
+<li><strong>Line 10:</strong> Here's the variable that will get the returned data.</li>
+<li><strong>Lines 11 and 12:</strong> Here's the right place for this code. We get to process the data returned from the function the way we want to.</li>
+<li><strong>Line 14:</strong> The function is called and we send it parameters. When <code>addTwoNumbers()</code> finishes it will return the results to this function. We can do what we want with it, here we are assigning it to the variable <code>total</code>.</li>
+<li><strong>Line 2:</strong> Parameters have been passed to this function and it now starts running.</li>
+<li><strong>Line 3:</strong> Declare a local variable to hold our calculation.</li>
+<li><strong>Line 4:</strong> Perform the calculation on the arguments that were assigned to the parameters. Assign the results to the variable <code>total</code>.</li>
+<li><strong>Line 5:</strong> Return the total variable to the calling function.</li>
+<li><strong>Line 14:</strong> We're back!</li>
+<li><strong>Line 16:</strong> Display the results to the page.</li>
+<li>Here's another picture of this:<br />
+<div style="text-align: center;"><br />
+  <img src="resources/returningData.jpg" alt="" height="605" width="874" /><br />
+</div></li>
+<li>You asked for it! Here's the animated version:
+<ul>
+<li><a href="passAndReturnData.html">Animated Passing and Returning Data Demo</a></li>
+</ul>
+</li>
+<li>Here's a much bigger example with a new thing: <strong>A Form!</strong>
+<ul>
+<li><a href="example5_3.html">Example 5.3 - Calculate Percentage Value</a></li>
+</ul>
+</li>
+<li>And now, yet again, here's a lab
+<ul>
+<li><a href="labs/lab04passingReturning.html">Lab 4: Passing Parameters And Returning Data</a>
+<ul>
+<li><a href="labs/exercises-4.html">Lab 4 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<p><br /><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

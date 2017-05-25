@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Array Examples  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/arrayExamples.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Array Examples</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Array Examples</h1>
+
+<h4>File: unit5/arrayExamples.html</h4>
+
+
+<ul>
+<li><em>Here are some examples of processing arrays.</em></li>
+</ul>
+
+
+
+<h3>Find the Sum of the elements of an array.</h3>
+
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+FindArraySum
+    set sum to zero
+    declare average
+    declare array of number
+    FOR index 0 to length of array
+        sum += array[index]
+    ENDFOR
+    output sum
+END
+*/
+function findArraySum() {
+    // Declare variables
+    var sum = 0;
+    var average;
+    var numbers;
+    var sumOutput;
+    var averageOutput;
+    var index;
+    
+    // Populate the array
+    numbers = [402, 107, 8, 183, 517, 577, 688, 945, 141, 194, 613, 966, 928, 
+               700, 818, 749, 862, 130, 573, 676, 115, 539, 113, 690, 704, 83, 
+               433, 863, 885, 32, 114, 329, 186, 123, 485, 930, 449, 430, 74, 
+               543, 87, 916, 562, 622, 841, 533, 635, 83, 183, 989, 959, 158, 
+               882, 901, 78, 343, 727, 532, 287, 817, 380, 578, 637, 966, 479, 
+               302, 295, 36, 835, 266, 768, 160, 174, 322, 779, 201, 899, 724, 
+               685, 57, 369, 533, 345, 190, 628, 952, 38, 924, 917, 607, 424, 
+               773, 62, 625, 160, 875, 671, 757, 469, 240, 506, 392, 716, 983, 
+               769, 654, 587, 432, 423, 760, 610, 881, 687, 397, 339, 459, 279, 
+               729, 44, 916, 858, 803, 422, 84, 341, 860, 567, 354, 82, 833, 
+               841, 464, 733, 120, 260, 496, 465, 897, 287, 189, 749, 14, 545, 
+               647, 870, 923, 41, 846, 985, 154, 776, 762, 195, 63, 778, 383, 
+               701, 888, 835, 69, 59, 500, 731, 431, 341, 945, 447, 838, 922, 
+               496, 886, 570, 110, 86, 38, 950, 922, 595, 274, 464, 138, 853, 
+               251, 289, 306, 834, 302, 620, 154, 130, 155, 116, 696, 550, 138, 
+               33, 58, 431, 516, 28];
+               
+    // Calculate the sum
+    for (index = 0; index < numbers.length; index++) {
+        sum += numbers[index];
+    }
+
+    average = sum / numbers.length;
+    
+    // Get access to the output HTML element
+    sumOutput = document.getElementById('findArraySumOutput');
+    averageOutput = document.getElementById('findArrayAverageOutput');
+
+    // Output the sum to the element
+    sumOutput.innerHTML += sum;
+    averageOutput.innerHTML += average.toFixed(2);
+    
+}
+]]></script>
+
+<div id="outputDiv" class="output">
+  <h4 id="findArraySumOutput">Sum: </h4>
+  <h4 id="findArrayAverageOutput">Average: </h4>
+</div>
+
+
+<script language="JavaScript" type="text/javascript">findArraySum();</script>
+
+<h3>Find the range of the elements of an array.</h3>
+
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+FindRangeOfNumbers
+    set smallest to first array element
+    set largest to first array element
+    declare array of numbers
+    FOR index 0 to length of array
+        IF array[index] < smallest THEN
+            smallest = array[index]
+        ELSE IF array[index] > largest THEN
+            largest = array[index]
+        ENDIF
+    ENDFOR
+    output smallest and largest
+END
+*/
+function findRangeOfNumbers() {
+    // Declare variables
+    var sum = 0;
+    var average;
+    var numbers;
+    var smallestOutput;
+    var largestOutput;
+    var index;
+    
+    // Populate the array
+    numbers = [402, 107, 8, 183, 517, 577, 688, 945, 141, 194, 613, 966, 928, 
+               700, 818, 749, 862, 130, 573, 676, 115, 539, 113, 690, 704, 83, 
+               433, 863, 885, 32, 114, 329, 186, 123, 485, 930, 449, 430, 74, 
+               543, 87, 916, 562, 622, 841, 533, 635, 83, 183, 989, 959, 158, 
+               882, 901, 78, 343, 727, 532, 287, 817, 380, 578, 637, 966, 479, 
+               302, 295, 36, 835, 266, 768, 160, 174, 322, 779, 201, 899, 724, 
+               685, 57, 369, 533, 345, 190, 628, 952, 38, 924, 917, 607, 424, 
+               773, 62, 625, 160, 875, 671, 757, 469, 240, 506, 392, 716, 983, 
+               769, 654, 587, 432, 423, 760, 610, 881, 687, 397, 339, 459, 279, 
+               729, 44, 916, 858, 803, 422, 84, 341, 860, 567, 354, 82, 833, 
+               841, 464, 733, 120, 260, 496, 465, 897, 287, 189, 749, 14, 545, 
+               647, 870, 923, 41, 846, 985, 154, 776, 762, 195, 63, 778, 383, 
+               701, 888, 835, 69, 59, 500, 731, 431, 341, 945, 447, 838, 922, 
+               496, 886, 570, 110, 86, 38, 950, 922, 595, 274, 464, 138, 853, 
+               251, 289, 306, 834, 302, 620, 154, 130, 155, 116, 696, 550, 138, 
+               33, 58, 431, 516, 28];
+               
+    smallest = numbers[0];
+    largest  = numbers[0];
+    
+    
+    for (index = 0; index < numbers.length; index++) {
+        if (numbers[index] < smallest) {
+            smallest = numbers[index];
+        } else if (numbers[index] > largest){
+            largest = numbers[index];
+        }
+    }
+    
+    // Get access to the output HTML element
+    smallestOutput = document.getElementById('findRangeSmallest');
+    largestOutput  = document.getElementById('findRangeLargest');
+
+    // Output the sum to the element
+    smallestOutput.innerHTML += smallest;
+    largestOutput.innerHTML += largest;
+    
+}
+
+]]></script>
+
+<div id="outputDiv" class="output">
+  <h4 id="findRangeSmallest">Smallest: </h4>
+  <h4 id="findRangeLargest">Largest: </h4>
+</div>
+
+
+<script language="JavaScript" type="text/javascript">findRangeOfNumbers();</script>
+
+
+
+
+<p><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

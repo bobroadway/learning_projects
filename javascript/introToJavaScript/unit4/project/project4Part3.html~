@@ -1,0 +1,296 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 4 - Part 3, Inventory Histogram  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/project4Part3.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 4</a>
+                <img src="../resources/arrow_right_small.png" />Project 4 - Part 3, Inventory Histogram          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 4 - Part 3, Grade Report</h1>
+
+<h4>File: unit4/project/project4Part3.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name:</li>
+<li>Section:</li>
+<li>Email:</li>
+</ul>
+
+
+
+<h3>Specifications</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit.</li>
+<li>Add your name, section, and email.</li>
+<li>Open the file <code>jsFile/project4Part3.js</code> in jEdit.</li>
+<li>Your JavaScript code must go in the <code>jsFile/project4Part3.js</code> file.</li>
+<li>Read the following problem statement and complete all steps in the development process.</li>
+<li>Make sure your JavaScript code conforms to the course coding standards.</li>
+</ul>
+
+
+
+
+
+<h3>Problem Statement</h3>
+
+
+
+<blockquote><p>Write a program that reads the 
+<a href="../studentExamRecords.html">Student Exam Records</a>. &nbsp;The program must output an <span class="caps">HTML </span><b>table</b>, a table with a row for each student who had an exam score with a grade of &quot;A&quot;.  &nbsp;(An &quot;A&quot; is defined for this program as a score that is greater than or equal to 90.) &nbsp;The table will be preceded by an <span class="caps">HTML </span>header tag identifying the table. <br /><br />Following the table, two total lines must appear: one which gives the number of records found in the file that had &quot;A&quot; exam scores, and two, the total number of records found in the file. <br /><br /><span style="background-color: yellow">NOTE:</span> &nbsp;<span style="background-color: yellow">The program <b>must</b> be written so that it doesn't know in advance how many students had an exam score of &quot;A&quot;</span> nor can it know in advance who they are or their relative position within the record set. &nbsp;<span style="color: red;">(If the program logic is written in this prohibited fashion, the Learning Unit is worth zero (0) points, and must be re-written and resubmitted.)</span></blockquote>
+
+
+
+<blockquote><p>The program must be broken up into reasonable functions, although no set number of functions is required. Suggested functions are documented in the following section. The controller (aka mainline) function <strong>project4Part3()</strong> already exists in the JavaScript file (the js library file.) You will need to create all the other functions. <br /><br />It may help you if, prior to programming, you consult the structure chart from class as a guide for the overall structure of this program.  Also, see the example structure chart passed out in class for the 4.6 example regarding Gas Supply Billing.</p></blockquote>
+
+
+
+<h4>Functions</h4>
+
+
+<ol>
+<li><code>function project4Part3()</code>
+<ul>
+<li>The function will perform the following.
+<ol>
+<li>Output a heading that says <b>A Exams </b>.</li>
+<li>Initialize the exam records by calling the <strong>initializeExamRecords()</strong> function.</li>
+<li>Call the <strong>startTable()</strong> function to begin the <span class="caps">HTML </span>table.</li>
+<li>Loop through the Student Exam Records. For each record with a score greater than or equal to 90, output the record by calling the <strong>printRecord()</strong> function. &nbsp;&nbsp;<i>Note: The loop is located right in the controller module.  &nbsp;This loop is a major feature of the program, and belongs right in the controller module. </i></li>
+<li>After the loop has finished, call the <strong>endTable()</strong> function to end the <span class="caps">HTML</span> Table.</li>
+<li>As the final activity, call the <strong>printTotals()</strong> function to place the totals beneath the table.</li></ol>
+</li>
+</ul>
+</li>
+<li><code>function initializeExamRecords()</code>
+<ul>
+<li>This function will open the Student Exam Records.</li>
+</ul>
+</li>
+<li><code>function startTable()</code>
+<ul>
+<li>This function will output a beginning <span class="caps">HTML </span>table tag and a table header row. The header row will contain two table header tags, one with the content, "Student Name", and other with, "Exam Score". </li>
+</ul>
+</li>
+<li><code>function printRecord()</code>
+<ul>
+<li>This function will print <strong>one</strong> Student Exam Record. It must output a full <span class="caps">HTML </span>row with two table data tags. The first data tag will contain the student name and the second will contain the exam score. &nbsp;<strong>Note:</strong><i> The verb 'print' here means to place on the Web page.</i></li>
+</ul>
+</li>
+<li><code>function endTable()</code>
+<ul>
+<li>This function will output an <span class="caps">HTML </span>table end tag.</li>
+</ul>
+</li>
+
+<li><code>function printTotals()</code>
+<ul>
+<li>This function will print the totals beneath the table. &nbsp;<i><strong>Note:</strong><em> The verb 'print' here means to place on the Web page.</em></li>
+</ul>
+</li></ol>
+
+
+
+
+..
+<h4 style="margin-bottom: 0em;">The Structure as a Hierarchy Chart</h4>
+
+<ul>
+<li><a href="../Part3_Struc_Chart.html">Part 3 Suggested Structure Chart</a></li>
+</ul>
+
+
+
+<br />
+
+
+<h4>Variables</h4>
+
+
+<p style="margin-left: 2em;">
+The program will use global variables for the Student Exam Records record set, the fields in the record set, and counters.
+</p>
+
+<br />
+
+<h3>The Program OverView Statement:</h3>
+<p style="display: inline-block; margin-bottom: 0em;">Before writing the program, within the following pre tag (the green lettering with dark background area), complete each overview statement in accordance with the following directions:</p>
+<ol>
+<li>(see below) Fill in the blank with a <strong>noun </strong>or<strong> a noun prceeded by an adjective.</strong>.</li>
+<li>(see below) Of the two choices provided, erase the one that does not apply, leaving only the correct one.</li>
+<li>(see below) Fill in the blank with a <strong>short phrase</strong>, not to exceed seven (7) words.</li>
+<li>(see below) Of the four choices provided, erase the one(s) that do/does not apply, leaving only the correct one(s).</li>
+</ol>
+
+
+
+
+<pre class="blackGreen">
+
+1. Overall, this program processes data about: ______s
+
+2. Overall, this program obtains its input from: a file/the viewer
+
+3. Overall, this program produces as output: _________
+
+4. Overall, this program delivers this output to: a file/a pop up box/the printer/the Web page
+
+</pre>
+
+
+
+
+
+
+
+
+<h3>The Test Plan</h3>
+
+
+
+<pre class="blackGreen">
+TEST PLAN:
+
+(Only) Test Case:
+    Input:&nbsp;The Exam Records file   
+       
+    Expected Results:
+
+     &bull; <i>manually search the file; write down here the names and scores for those records with A's</i>
+     <br /><br /><br /><br />
+</pre>
+
+
+
+<h3>Example Output</h3>
+
+<div style="margin-left:50px; margin-right:50px; background-color:lightgray; color:darkred;">
+  <h3>A Exams</h3>
+  <table>
+    <tbody><br />
+      <tr>
+        <th>
+          Student Name<br />
+        </th>
+        <th>
+          Exam Score<br />
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Dan Bristol<br />
+        </td>
+        <td>
+          99<br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Brian Smith<br />
+        </td>
+        <td>
+          91<br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Nancy Hagman<br />
+        </td>
+        <td>
+          90<br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Seth Olson<br />
+        </td>
+        <td>
+          100<br />
+        </td>
+      </tr>
+    </tbody><br />
+  </table>
+  <br /><div style="margin-left: 4em; font-family: serif; font-style: oblique;">the two total lines will be here; they can be in the form of an HTML table if desired, but they do not have to be in the form of an HTML table</div><br /><br /></div>
+
+<h3>5. JavaScript Output</h3>
+
+<blockquote><p>Write the JavaScript code based on everything you've done. Your code must follow the course coding standards. You should add good comments about the different parts of your solution.</p></blockquote>
+
+
+<ul>
+<li><strong>Project 4 - Part 3 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+    project4Part3();
+</script>
+</pre>
+
+
+
+<p><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

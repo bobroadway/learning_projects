@@ -1,0 +1,472 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Lab 5 Exercises  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 3</a>
+                <img src="../resources/arrow_right_small.png" />Lab 5 Exercises          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Lab 5 Exercises</h1>
+
+<h4>File: /unit3/labs/exercises-5.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<div class="noprint">
+
+<h2>Exercise Part 1</h2>
+
+
+<ol>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ol>
+
+
+
+<h3>Part 1 Problem Statement</h3>
+
+<blockquote><p>Write a JavaScript program that asks the user how many kids were in their family when growing up and how many bedrooms there were in the house. For the sake of simplicity let's only code for 1, 2, or 3 or more kids, and 1, 2, 3 or more bedrooms. Look at the following chart and output a message for every combination of kids and bedrooms.</p></blockquote>
+
+<table style="text-align:left; margin-left: 4em;" cellspacing="0"><tr><td>&nbsp;</td><td colspan="4"><strong>Bedrooms</strong></td></tr><tr><td rowspan="4"><strong>K</strong><br /><strong>i</strong><br /><strong>d</strong><br /><strong>s</strong></td><td>&nbsp;</td><td><strong>1</strong></td><td><strong>2</strong></td><td><strong>&gt;=</strong> <strong>3</strong></td></tr><tr><td><strong>1</strong></td><td>Lucky</td><td>Spacious</td><td>Empty Feeling</td></tr><tr><td><strong>2</strong></td><td>Cozy</td><td>Lucky</td><td>Spacious</td></tr><tr><td><strong>&gt;=</strong> <strong>3</strong></td><td>Crowded</td><td>Cozy</td><td>Lucky</td></tr></table>
+
+</div>
+
+<h3>Part 1 Program Planning Lists</h3>
+
+<div class='noprint'>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+</div>
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    numberOfKids
+    numberOfRooms
+
+The List of Output Variables:
+    outputMessage
+
+The Process Checklist:
+    Declare Variables
+    Prompt for # of kids and # of rooms, convert to numbers
+    Analyze variable relationships
+    Display Output
+
+</pre>
+
+
+
+
+<h3>Part 1 Test Plan</h3>
+
+
+
+<pre class="blackGreen">
+TEST PLAN:
+
+Test Case 1:
+    Inputs:
+    2, 2
+    
+    Expected Results:
+    With 2 kids and 2 rooms, everyone had their own room! Lucky!
+    
+Test Case 2:
+    Inputs:
+    3, 1
+    
+    Expected Results:
+    With 3 kids and 1 room, you must have been crowded!
+    
+Test Case 3:
+    Inputs:
+    3, 2
+    
+    Expected Results:
+    With 3 kids and 2 rooms, life must have been cozy!
+
+Test Case 4:
+    Inputs:
+    2, 3
+    
+    Expected Results:
+    With 2 kids and 3 rooms, it must have been spacious!
+
+Test Case 5:
+    Inputs:
+    1, 3
+    
+    Expected Results:
+    With 1 kid and 3 rooms, you must be a lonely empty shell of human being. And I pity you.
+
+</pre>
+
+
+
+<div class='noprint'>
+
+
+<ul>
+<li><strong>Sample Part 1 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+With 1 kid and 3 bedrooms you must have an empty feeling!
+</pre>
+
+
+
+<ul>
+<li><strong>OR</strong></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+With 3 kids and 1 bedroom you must be crowded!
+</pre>
+
+
+
+<ul>
+<li><strong>OR</strong></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+With 2 kids and 2 bedrooms you must feel lucky!
+</pre>
+
+
+
+</div>
+
+<h3>Your Part 1 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 1: YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var numberOfKids;
+    var numberOfRooms; 
+    var numberOfKidsString;
+    var numberOfRoomsString;
+    var outputMessage;
+    
+    // Prompt for # of kids and # of rooms, convert to numbers
+    numberOfKids = Number(prompt("How many kids were in your family growing up?"));
+    numberOfRooms = Number(prompt("And how many rooms were there?"));
+    
+    if (numberOfKids.length < 1 || numberOfRooms.length < 1) {
+        alert("Invalid input(s), please try again.");
+    }
+    
+    // Check values to apply proper plural or singular usage
+    if (numberOfKids === 1) {
+        numberOfKidsString = "1 kid";
+    } else {
+        numberOfKidsString = numberOfKids + " kids";
+    }
+    if (numberOfRooms === 1) {
+        numberOfRoomsString = "1 room";
+    } else {
+        numberOfRoomsString = numberOfRooms + " rooms";
+    }
+    
+    // Analyze variable relationships
+    if (numberOfKids - numberOfRooms === 1) { // One more kid than total rooms
+        outputMessage = "With " + numberOfKidsString + " and " + numberOfRoomsString
+            + ", life must have been cozy!";
+    } else if (numberOfRooms - numberOfKids === 1) { // One more room than total kids
+        outputMessage = "With " + numberOfKidsString + " and " + numberOfRoomsString
+            + ", it must have been spacious!";
+    } else if (numberOfKids - numberOfRooms >= 2) { // Two or more kids than total rooms
+        outputMessage = "With " + numberOfKidsString + " and " + numberOfRoomsString
+            + ", you must have been crowded!";
+    } else if (numberOfRooms - numberOfKids >= 2) { // Two or more rooms than total kids
+        outputMessage = "With " + numberOfKidsString + " and " + numberOfRoomsString
+            + ", you must be a lonely empty shell of human being. And I pity you.";       
+    } else { // only remaining option: kids and rooms were equal
+        outputMessage = "With " + numberOfKidsString + " and " + numberOfRoomsString
+            + ", everyone had their own room! Lucky!";
+    }
+  
+    // Display Output
+    document.write(outputMessage);  
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+
+<h2>Exercise Part 2</h2>
+
+<div class='noprint'>
+
+<h3>Part 2 Problem Statement</h3>
+
+<blockquote><p>Write a program that asks a user for the weight of a package. Determine the shipping cost of the package with the following chart.</p></blockquote>
+
+<table style="text-align:left; margin-left: 4em;" cellspacing="0"><tr><td style="background:#ccc"><strong>Package Weight</strong></td><td style="background:#ccc"><strong>Shipping Cost</strong></td></tr><tr><td align="center">2 lbs. or less</td><td align="right">$2.25</td></tr><tr><td align="center">&gt; 2 lbs. to &lt;= 5 lbs.</td><td align="right">$3.50</td></tr><tr><td align="center">&gt; 5 lbs. to &lt;= 10 lbs.</td><td align="right">$5.00</td></tr><tr><td align="center">&gt; 10 lbs. to &lt;= 20 lbs.</td><td align="right">$7.50</td></tr><tr><td align="center">&gt; 20 lbs.</td><td align="right">$10.00</td></tr></table>
+
+<blockquote><p>Output the weight of the package and the shipping cost to the page.</p></blockquote>
+
+</div>
+
+<h3>Part 2 Program Planning Lists</h3>
+
+<div class='noprint'>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+</div>
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    packageWeight
+    
+The List of Output Variables:
+    outputMessage
+
+The Process Checklist:
+    Declare Variables
+    Prompt for weight, convert to number
+    Assign output message based on weight range
+    Display Output
+
+</pre>
+
+
+
+<h3>Part 2 Test Plan</h3>
+
+
+
+<pre class="blackGreen">
+TEST PLAN:
+
+Test Case 1:
+    Inputs:
+    1
+    
+    Expected Results:
+    Your package that weighs 1 lb. will cost $2.25 to ship.
+
+Test Case 2:
+    Inputs:
+    2
+    
+    Expected Results:
+    Your package that weighs 2 lbs. will cost $10.00 to ship.
+
+Test Case 3:
+    Inputs:
+    6
+    
+    Expected Results:
+    Your package that weighs 6 lbs. will cost $5.00 to ship.
+    
+Test Case 4:
+    Inputs:
+    11
+    
+    Expected Results:
+    Your package that weighs 11 lbs. will cost $7.50 to ship.
+
+Test Case 5:
+    Inputs:
+    21
+    
+    Expected Results:
+    Your package that weighs 21 lbs. will cost $10.00 to ship.
+
+</pre>
+
+
+
+<div class='noprint'>
+
+
+<ul>
+<li><strong>Sample Part 2 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+Your package that weighs 3.5 lbs. will cost $3.50 to ship.
+</pre>
+
+
+
+</div>
+
+<h3>Your Part 2 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 2: YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var packageWeight;
+    var shippingCost;
+    var outputMessage;
+    
+    // Prompt for weight, convert to number
+    packageWeight = Number(prompt("What is the weight of your package? *wink wink*"
+        + "\n (In Pounds)"));
+    if (packageWeight.length < 1) {
+        alert("Invalid input, please try again.");
+    }
+    
+    // Assign shippingCost based on weight range
+    if (packageWeight < 2) {
+        shippingCost = 2.25;
+    } else if (packageWeight > 2 && packageWeight <= 5) {
+        shippingCost = 3.5;
+    } else if (packageWeight > 5 && packageWeight <= 10) {
+        shippingCost = 5;
+    } else if (packageWeight > 10 && packageWeight <= 20) {
+        shippingCost = 7.5;
+    } else {
+        shippingCost = 10;
+    }
+    
+    // Build outputMessage
+    if (packageWeight === 1) {
+        outputMessage = "Your package that weighs " + packageWeight
+            + " lb. will cost $" + shippingCost.toFixed(2) + " to ship.";
+    } else {
+        outputMessage = "Your package that weighs " + packageWeight
+            + " lbs. will cost $" + shippingCost.toFixed(2) + " to ship.";
+    }
+
+    // Display Output
+    document.write(outputMessage); 
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<div class="noprint">
+
+<h3>Submitting your work</h3>
+
+
+<ul>
+<li>Exercises are due the first class session of the following week of school.</li>
+<li>Print out your exercise and place it on the instructor's table at the beginning of class.</li>
+</ul>
+
+
+
+</div>
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    JavaScript Coding Standards  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/javascriptCodingStandards.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />JavaScript Coding Standards</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+     
+<br />
+<div id="main" style="border-top:1px solid black;">
+        <h1>JavaScript Coding Standards for 152-119 </h1>
+
+
+<ul>
+<li>Here are the coding standards for this course, now enhanced to include loops and functions. Your projects and labs will be graded partially on conformance to these rules.</li>
+</ul>
+
+
+
+
+<ul>
+<li>One of the most important aspects of modern programming is <strong>readability</strong>. To be able to read code written by other people and understand it when performing subsequent maintenance to it,  has become much more important than having condensed, "clever" code. Modern programming languages can optimize your code better than you can. So, the number one criteria for the way we write is for other human beings to read it. These standards are about <strong>readability</strong>, thus enhancing the maintainablity of your code when making future changes to it.</li>
+</ul>
+
+
+
+
+
+<br /><h3>1. Indentation</h3>
+
+
+<ul>
+<li>The unit of indentation of JavaScript source code will be <strong>four (4) spaces</strong>. This can be done by simply pressing the space bar four times. The course editor (jEdit) has been configured so that when you press the tab key it will insert 4 spaces instead of a tab. Keep this setting.  However, if you use another text editor make sure you are not inserting tab characters into your code. And note: If for some reason the jedit tab key is not causing proper indentation, then don't use it.</li>
+<li>If a line of code is too long to fit on one line of the text editor (see Line Length standard below), the continuation of the line must be indented in by <strong>eight (8) spaces</strong> to visually emphasize that this line is a continuation.</li>
+</ul>
+
+
+
+
+
+<br /><h3>2. Line Length</h3>
+
+
+<ul>
+<li>Avoid making any line of JavaScript code more than 80 characters. This improves readability. Sometimes this can't be avoided but when possible it is required to have 80 or fewer characters in a line of code. The course editor has been configured to show a vertical line at column 80 to help you with this standard:</li>
+</ul>
+
+
+
+<br /><div style="text-align: center;">
+  <img src="resources/column80.jpg" alt="" height="354" width="877" /><br />
+</div>
+
+
+
+<br /><h3>3. Comments</h3>
+
+<blockquote><p>Good documentation will be required in your labs and projects files. Here is a minimal list of what the instructor will be looking for. Quality counts!</p></blockquote>
+
+
+<ol>
+<li>The student's name, section, and email at the top of lab and project files.</li>
+<li>All functions that you write must have a comment block just above them describing what the function does. More details later when we get to functions.</li>
+
+<li>All difficult or confusing sections of code should have a preceding comment which explains the code.</li>
+</ol>
+
+
+
+
+
+<h3>4. Constant Declarations</h3>
+
+
+<ul>
+<li>Constants must be declared before variables. If the name of the constant is not completely self-explanatory, use a comment on the right side of that line.</li><li>Other than the number 1, numeric literals may not be used in any processing or calculation.  Instead, place the numbers in constants, and use the name of the constant to reveal the signficance of the number within the context of the application.</li>
+<li>Constants use the <code>var</code> statement like variables.</li>
+<li>Constants names will consist of uppercase letters only, with words separated by an underscore <code>(_)</code>.</li>
+
+<li>Constants are always assigned their values when they declared.</li>
+<li>Each constant must be defined on a separate line.</li><li>Examples:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Constants
+
+    // Declare Constants
+    var LOOP_MAXIMUM = 75;
+    var SALES_TAX = 0.05;
+    
+    //Declare Variables
+    ...
+
+]]></script></li>
+<li>All labs and projects must use constants for any values that are fixed and don't change while the program runs. Examples of these include:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Constants
+    var ZERO = 0;      // your instructor may make an exception for zero
+    var DAYS_IN_YEAR = 365;
+    var UPPER_BOUND = 100;
+]]></script></li>
+<li>An example of a loop controlled by a constant for the loop maximum value:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Loops
+    for (counter = ZERO; counter < LOOP_MAXIMUM; counter++) {
+        // code
+    }
+]]></script></li>
+</ul>
+
+
+
+
+
+<h3>5. Variable Declarations</h3>
+
+<blockquote><p>Good variable naming and usage is very important when learning to program computers.</p></blockquote>
+
+
+<ol>
+<li>Variable names must follow the naming conventions outlined in Part 8 below.</li>
+<li>All variables must be declared before they are used. Many programming languages require this as part of their syntax. However, JavaScript does not require this so you need do this intentionally.</li>
+<li><strong><code>var</code></strong> statements must be at the top of your JavaScript code and functions, right after the constant declarations.</li>
+<li>Every variable must be declared on its own line.  That is, one <strong><code>var</code></strong> statement per line, and only one variable declared on each <strong><code>var</code></strong> statement.</li>
+</ol>
+
+
+
+<p><a name="part6" /></a></p>
+
+
+
+<h3>6. Calculations and Variables</h3>
+
+
+<ul>
+<li>The results of all calculations must be assigned to a variable. <span style="color:red;"><b>No calculations may be performed inside a document.write() method.</b> &nbsp; Other than text and variable names, only the concatenation operator and <code>typeof</code> function can be present within the parentheses of a document.write() method.</span>. &nbsp;Here's an example:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Calculate into variables
+    var numberOne = 20;
+    var numberTwo = 30;
+    var adjustedTotal;
+    
+    adjustedTotal = numberOne - numberTwo;
+    
+    document.write("The total after adjustment is " + adjustedTotal);
+    
+    // NOT THIS!
+    //  document.write("The total after adjustment is " + numberOne - numberTwo);
+]]></script></li>
+<li>All calculations must be performed with variables (or constants) only. No hard-coded numbers (other than 1) are allowed in calculations. <br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// WRONG Example
+    var total;       // also note: poor variable name  
+    total = 12 * 3;  //<-- Literals not allowed!
+]]></script>
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+//CORRECT Example
+
+    //Declare Constants
+    var MONTHS_IN_YEAR = 12;  // <-- a constant
+    
+    // Declare Variables
+    var totalAgeInMonths;     // <-- also note: better name
+    var yearsOld = 3;         // <-- Input from user from a prompt (not shown)
+    
+    totalAgeInMonths = MONTHS_IN_YEAR * yearsOld;  // <-- Now it's clear!
+]]></script></li>
+</ul>
+
+
+
+<p><a name="part7" /></a></p>
+
+
+
+<br /><h3>7. Function Declarations</h3>
+
+<blockquote>
+  <p>Here are the coding standards for functions. (See also 8. below).</p></blockquote>
+
+
+<ul>
+<li>All functions must be declared in a javaScript library file (i.e. a file with an extension of .js). No functions are allowed in the <span class="caps">HTML </span>document.</li>
+
+<li>All new functions created by students must have names that begin with a <b>verb</b>. These names must be in <b>camel case</b>, and contain no abbreviated words.</li>
+<li>All functions must be preceded by a comment block. The comment itself must begin with the phrase: "The purpose of this function is to " and then followed with a one or two sentence statement of what the function accomplishes.</li>
+<li>Functions may not be set up within other functions.</li>
+<li>All functions must be declared before they are used, i.e. when a function calls another function, the called function must be physically located <em>above</em> it in the js library file.  (REMEMBER: To meet this standard, the "mainline" aka "main" aka "controller" function must be located at the very <em>bottom</em> of the js library file.) &nbsp;This is an important performance standard. Your code will run without conformance with this standard so care must be taken to follow it.</li>
+<li>There should be no space between the name of a function and the &quot;(&quot; (left parenthesis) of its parameter list. There should be one space between the &quot;)&quot; (right parenthesis) and the &quot;{&quot; (left curly brace) that begins the body of the function. &nbsp;The statements comprising the body of the function itself are indented four spaces. &nbsp;The &quot;}&quot; (right curly brace) is vertically aligned with the line containing the beginning of the declaration of the function (i.e. with the &quot;f&quot; in the word &quot;function&quot;.)<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function multiplyTwoNumbers(firstNumber, secondNumber) {
+    var result = firstNumber * secondNumber;
+
+    return result;
+}
+]]></script></li>
+<li><code>return</code> Statement (used in LU#5)
+<ul>
+<li>If used, a return statement with a value must not use <code>( )</code> (parentheses) around the value. The return value expression must start on the same line as the return keyword in order to avoid semicolon insertion.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Correct
+    return result;
+]]></script>
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Incorrect!
+    return (result);
+]]></script>
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Incorrect!
+    return
+    result;
+]]></script></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+<br /><h3>8. Naming Conventions</h3>
+
+<blockquote><p>How things are named in a computer program is very important. In the early days of programming names were very short and cryptic to save on <span class="caps">RAM </span>usage. You may have seen variables with names like "i", "fnme", and "cal_prc". These days our computers all have lots and lots of <span class="caps">RAM </span>and we can stop this old confusing habit. Here are the course rules for naming things:</p></blockquote>
+
+
+<ol>
+<li>Variable and function names must be created with the 26 upper and lower case letters (A..Z, a..z) and the 10 digits (0..9).</li><li>( Remember: As stated above: The names of constants must be in <span class="caps">ALL CAPS. </span>)</li>
+<li>Do not use the underscore "_", the dollar sign "$", or slashes "/ \" in variable and function names. (Remember: constants, however,  do use the underscore "_" to separate words.)</li>
+<li>Names of variables and functions must start with a lower case letter.</li>
+
+
+
+<li>Any new functions created by students must have names that begin with a <b>verb</b>.</li><li>Names in general must NOT contain abbreviations.  Instead, use complete words wherever possible, which is the vast majority of the time.   Consider: What does "cal_prc" mean? Calculate Price? Calculate Percentage? Calender Perfection? Names need to be very clear, for others and for you. You won't remember your own cryptic names in the future. &nbsp;(There is one exception when controlling a loop, where "i" <i>could</i> stand for the word "index" and is a fairly well-known convention.  However, use of the full word "index" is preferable to the single-letter "i".  Check with your instructor prior to using the letter "i" as a variable name, to determine if he/she is permitting this one abbreviation to be used.)</li>
+<li>Names, other than constants, that have more than one word should use the "camel case" convention. With this convention, the name starts with a lower case letter and then each new word in the name starts with an upper case letter. Examples:<br /><br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Good Names
+    var firstName;
+    var totalPrice;
+	
+    calculateTotalPrice();
+	
+    getUserInputAndCalculateUnitPriceAndTotalPrice(); // do programmers really do this?
+    // yes, we do
+]]></script></li>
+Remember:  the names of functions that you create should always begin with a verb, as shown in the above examples.
+And remember that in this course, the mainline function does not begin with a verb, but rather its name reflects the name of the javaScript file that contains it.
+</ol>
+
+
+
+
+
+
+<br /><h3>9. Semicolons</h3>
+
+
+<ul>
+<li>Semicolons are used in JavaScript to end simple statements. Most of the time they are not required by JavaScript. However, they are required in a few places.  So as a course standard, one that is also a convention in  industry, the use of semicolons at the end of simple statements is required to meet course standards.</li>
+<li>Examples<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Use semicolons on all simple statements
+    var lastName = "Smith";
+    
+    totalSales = inStoreSales + onlineSales;
+    
+    return lastName;
+]]></script></li>
+<li>Exceptions to the rule
+<ul>
+<li>There are some statements that should not have semicolons. These are usually compound statements like this: <br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// No semicolons at the very end of an if statement
+    if (something === 1) {
+        // some good code here
+    } else {
+        // some really good code here!
+    }
+]]></script></li>
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(note that the curly brace that ends the entire IF-ELSE structure is written with no semicolon following it)</li>
+</ul>
+
+
+
+
+
+<h3>10. Statements</h3>
+
+<blockquote><p>The way we write statements is critical for code that is readable and easy to understand. Here is how we're going to write JavaScript statements.</p></blockquote>
+
+
+<ul>
+<li>Every simple statement must end with a semicolon.</li>
+<li>Every simple statement must be on it own line. The code below will work, but it fails the course standards in a couple of ways:<br />
+<br /><script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Don't do this:
+    var firstName = "Fred"; var city = "Madison";
+
+    document.write(firstName + ", " + city) 
+
+]]></script></li>
+<li>On <strong>line 2</strong> above there are two statements. JavaScript doesn't care but your instructor and future professional teammates will.</li>
+<li>On <strong>line 4</strong> above the statement is missing the semicolon at the end. JavaScript won't remind you to put them there. You will just have to get in the habit.</li>
+<li>Here's the correct version:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Do this instead:
+    var firstName = "Fred";
+    var city = "Madison";
+    
+    document.write(firstName + ", " + city);
+]]></script></li>
+<li>Compound statements are different than simple statements. They are statements that contain lists of other statements enclosed in curly braces "{&nbsp;}".
+<ul>
+<li>Enclosed statements should be indented. (Review the standards for IF statements in LU#3).</li>
+<li>The left &nbsp;<strong>{</strong>&nbsp; should be at the end of the line that starts the compound statement.</li>
+<li>The right &nbsp;<strong>}</strong>&nbsp; should begin a line and should match the beginning of the compound statement.</li>
+<li>Braces ( <strong>{&nbsp;}</strong> ) should be used on all enclosed statements, even if there is only one enclosed statement.</li>
+<li>Here's an example using <strong>if</strong> statements:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// if statements
+    if (condition) {
+        // statements
+    }
+    
+    if (condition) {
+        // statements
+    } else {
+        // statements
+    }
+    
+    if (condition) {
+        // statements
+    } else if (condition) {
+        // statements
+    } else {
+        //statements
+    }
+]]></script></li>
+<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// while loop
+    while (counter < LOOP_MAXIMUM) &nbsp;{
+        // code
+    }
+]]></script></ul>
+</li>
+</ul>
+
+
+
+
+
+<br /><br /><h3>11. Whitespace</h3>
+
+<blockquote><p>Whitespace can improve the readability of code. Here are the course standards for whitespace.</p></blockquote>
+
+
+<ul>
+<li>Use blank lines liberally--your code shouldn't be all bunched together.</li>
+<li>Blank spaces should be use like this:
+<ul>
+<li>A keyword followed by a left parenthesis "(" should be separated by a space.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// There's a space after the "if" and the "while"
+    if (condition) {
+        ...
+    
+    while (true) {
+        ...
+]]></script></li>
+</ul>
+</li>
+<li>Most operators should have a space on either side.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Operators are surrounded by spaces
+    var firstName = "Fred";
+    var BONUS_POINTS = 5;
+    
+    monthPointCount += BONUS_POINTS;
+    
+    if (firstName === "Fred") {
+        ...
+    }
+]]></script></li>
+<li>A space should follow every comma ","</li>
+<li>The dot operator (<code>.</code>) must <span style="color: red; font-weight: 900;"> NOT</span> have spaces on either side of it.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Dot operator
+    var userName;
+    var userNameLength;
+    
+    userNameLength = userName.length;  // <-- No spaces on either side of the .
+]]></script></li>
+<li>Unary operators must <span style="color: red; font-weight: 900;">NOT</span> have spaces around them.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Unary operators
+
+    var loopCount = 0;
+    
+    loopCount++;  // <-- No spaces on either side of the ++ ]]></script></li>
+</ul>
+
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 2 -- Part 4  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 2</a>
+                <img src="../resources/arrow_right_small.png" />Project 2 -- Part 4          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 2 -- Part 4</h1>
+
+<h4>File: unit2/project/project2Part4.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<h3>Specifications</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+<li>Read the following problem statement and complete all the  steps in the development process.</li>
+</ul>
+
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote>
+  <p>Write a program that calculates several possible tips to give to a waiter at a restaurant. Ask the user to enter the original cost of the meal and then calculate a tip at 10%, 12.5%, 15%, 17.5%, and 20%. Write the original cost of the meal to the page. Write all the possible tips and the new final cost to the page. &nbsp;Note that a meal cost may have a dollars <b>and cents</b> value, i.e. do not assume that only whole numbers will be entered by the user. </p></blockquote>
+
+
+<h3>The Program Planning Lists</h3>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    costOfMeal
+
+The List of Output Variables:
+    costOfMeal
+    tip10
+    tip12
+    tip15
+    tip17
+    tip20
+    finalCost10
+    finalCost12
+    finalCost15
+    finalCost17
+    finalCost20
+
+The Process Checklist:
+    Declare Variables
+    Prompt the user for the cost of their meal
+    Calculate the various tip values
+    Calculate the various final costs
+    Display the original cost, with the various tip options, and their final costs
+
+</pre>
+
+
+
+<h3>JavaScript Output:</h3>
+
+
+<ul>
+<li><strong>Sample Output:</strong></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+Cost of meal: 50
+
+Tip%	Tip	    Final Cost
+10	5	    $55
+12.5	6.25	    $56.25
+15	7.5	    $57.5
+17.5	8.75	    $58.75
+20	10	    $60  
+
+</pre>
+
+
+
+<ul>
+<li><strong>Project 2 - Part 4 Output:</strong></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var costOfMeal;
+    var tip10;
+    var tip12;
+    var tip15;
+    var tip17;
+    var tip20;
+    var finalCost10;
+    var finalCost12;
+    var finalCost15;
+    var finalCost17;
+    var finalCost20;   
+    
+    // Prompt the user for the cost of their meal
+    costOfMeal = Number(prompt("What is the cost of your meal?"));
+    
+    // Calculate the various tip values
+    tip10 = costOfMeal * .10;
+    tip12 = costOfMeal * .125;
+    tip15 = costOfMeal * .15;
+    tip17 = costOfMeal * .175;
+    tip20 = costOfMeal * .20;
+    
+    // Calculate the various final costs
+    finalCost10 = costOfMeal + tip10;
+    finalCost12 = costOfMeal + tip12;
+    finalCost15 = costOfMeal + tip15;
+    finalCost17 = costOfMeal + tip17;
+    finalCost20 = costOfMeal + tip20;
+    
+    // Display the original cost, with the various tip options, and their final costs
+    document.write("Cost of meal: " + costOfMeal
+        + "\n\nTip%\tTip\t    Final Cost" 
+        + "\n10\t" + tip10.toFixed(2) + "\t    $" + finalCost10.toFixed(2)
+        + "\n12.5\t" + tip12.toFixed(2) + "\t    $" + finalCost12.toFixed(2)
+        + "\n15\t" + tip15.toFixed(2) + "\t    $" + finalCost15.toFixed(2)
+        + "\n17.5\t" + tip17.toFixed(2) + "\t    $" + finalCost17.toFixed(2)
+        + "\n20\t" + tip20.toFixed(2) + "\t    $" + finalCost20.toFixed(2));
+    
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+
+    </div>
+  </div>
+</body>
+</html>

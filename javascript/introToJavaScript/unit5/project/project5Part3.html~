@@ -1,0 +1,296 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 5, Part 3 - Student Report  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/project5Part3.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript Madison College 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 5</a>
+                <img src="../resources/arrow_right_small.png" />Project 5, Part 3 - Item Inventory Report          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 5, Part 3 - Item Inventory Report</h1>
+
+<h4>File: unit5/project/project5Part3.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<h3>Specifications</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+<li>Open the file <code>jsFile/project5Part3.js</code> in jEdit</li>
+<li>Your JavaScript code must go in the <code>jsFile/project5Part3.js</code> file.</li>
+<li>Read the following problem statement and begin by first planning very carefully what you will do to accomplish this task.  &nbsp;&nbsp;<i>Do nothing until you have made a plan</i>.</li>
+</ul>
+
+
+
+
+<h3>Problem Statement</h3>
+
+
+
+<blockquote>  
+
+<p>Begin by executing the program already present in the Part 3 JavaScript library file, a program that currently accesses the <a href="../../unit5/inventoryItemsRecords.html">Item Inventory Records</a> and lists out records with item stock amounts of 100 or more.<br /><br />
+
+Then, <b>accomplish maintenance to the program</b>.  <br /><br />After the modification, the program must still output rows within the HTML <b>table</b>, a table with rows consisting of the item number, the item description, and the item stock amount.<br /><br />  But after modification, the table must have rows only for items that had an item stock amount that fell within the range specified by the user (more on the range below). And at the end of the table, the program must still have the two total lines, but now showing the number of items that had stock amounts within the specified range, as well as the total number of records found in the file. <br /><br />
+
+As mentioned above, the modified program must now no longer be hard-coded to look for items with stock amounts of 100 or more.  Rather, the program must now <b>ask the viewer</b> to enter in a lower range boundary, and, an upper range boundary. This acquiring of the two boundary numbers from the viewer must be done via either an HTML form, or via use of the prompt method. Then, the modified program must find all the records in the file with item stock amounts that are equal to or greater than the lower range boundary for stock amount, and, less than or equal to the upper range boundary for stock amount.
+
+<br /><br />
+Before using the viewer-entered range boundaries to process against the Item Inventory file, the modified program must first <b>validate</b> the two entered range boundary numbers as follows:  &nbsp;the <b>first number</b> entered by the user (the lower range boundary) must be numeric, and greater than or equal to zero.  The <b>second number</b> entered by the user (the upper range boundary) must be numeric, AND, it must be greater than or equal to the first number entered. 
+
+<br /><br />
+ If any of these validation requirements is not met, the program MUST put out an error message(s) warning the user of incorrect inputs.  (In such a case, preferably the program would then stop, and proceed no futher.  However, you can allow the program to just proceed, provided that the user has been warned to ignore the output, and, has been told to start over by refreshing the Web page.  Another alternative would be to have the program loop until they DO put in correct inputs.)
+
+<br /><br />
+The heading above the output table MUST also be modified so that it no longer says 'Item Inventory Records With Stock Amounts 100 or More' but rather <b>includes the user-entered upper</b> and <b>lower range boundary numbers</b>.  See the suggested wording in the example for this heading (but with the lower and upper range boundaries reflecting the numbers the user input for any given run, of course).  The exact wording of the heading is your choice, so long as the upper and lower range boundary numbers input by the user are included within it.
+
+ </p>
+
+<h3>&nbsp;</h3>  <p style="padding: 0em 1em 0em 2em;">Be sure to make a &quot;version&quot; plan for yourself before beginning this project Part 3. </p></blockquote>
+
+
+
+
+<ul>
+<li>Project Notes:
+<ul>
+<li>Make no program modifications without first having done a complete plan for what you will be doing.</li><li>Draw a number line to help visualize the situation with your test cases.</li><li>  Draw the structure chart of the program,  and look to see if any new 'modules' (functions) should be added to the program, and if so, draw a new, enhanced structure chart.</li><li>  Proceed with modifying the program using 'versions'.  Before doing any modifications whatever, have a complete 'version plan' written down, telling yourself exactly what each version will have the program accomplish that wasn't being accomplished by the previous version. Test each version to make sure it is accomplishing what you planned for it to accomplish, before going ahead with the next version. </li>
+<li>Be sure to thoughly test the validation of the inputs by the viewer,  to make sure your program is successfully defending itself against any and all invalid values keyed in by the viewer.  <i style="background-color: #fffbc6">Programs that do not successfully defend against invalid inputs will be considered to be producing incorrect output, and will receive <b>zero (0)</b> points.</i> </li><li> For validation of each of the two entered numbers, be sure to check that the viewer has entered at least one keystroke (see the string object's length property from Learning Unit 1).  Then make sure that it passes the isNaN() function or in some other way, such as use of regular expressions, make sure they have entered a numeric value.  Note that while item stock amounts are whole numbers, if the user wanted to input a value with a decimal portion, while odd, it does not have to be rejected (although you may do so, if you wish).  Only after ensuring that numbers have in fact been entered should the program then compare the two entered numbers, to make sure the second one is equal to or greater than, the first one.  Remember:  This validation is critical for this program: <i style="background-color: #fffbc6">Programs that do not successfully defend against invalid inputs will be considered to be producing incorrect output, and will receive <b>zero (0)</b> points.</i>  </li><li>In your test cases, be sure to include one in which the specified range will capture no item inventory records at all, one with upper and lower boundaries being the same number (which is permitted), one that captures a half dozen or so item inventory records, and one that shows the error messages for invalid inputs.</li></ul>
+</li>
+</ul>
+
+
+
+
+
+<h3>Program Test Plan</h3>
+
+
+<ul>
+<li>For this Part 3, the Test Plan will be written in the JavaScript library file itself in comments &nbsp;[i.e. not in this HTML file.]</li>
+</ul>
+
+
+
+
+<h3>5. JavaScript Output</h3>
+
+<blockquote>
+  <p>The example output immediately below shows what the output would look like from the properly modified program if the viewer had entered (via, say, a prompt) the number <b>10</b> as a lower boundary, and a <b>20</b> as the upper boundary.  Note the entered numbers are displayed as part of the title above the table.  Also note that the record information in the resulting table is in order by item number, since that is the order of the records within the Item Inventory file. Your modified code must continue to follow the course coding standards.</p>
+  
+</blockquote>
+<br />
+
+<h3 style="margin-bottom: 2em;">Example Output &nbsp;<span style="font-size: .7em; font-style: italic; font-weight: 500;">(Note: In this example, the viewer entered <b>10</b> as the first number, and <b>20</b> as the second number)</span></h3>
+
+<div style="margin-left:50px; margin-right:50px; background-color:lightgray; color:darkred;">
+  <h3>
+    Item Inventory Records with Stock Amounts of 10 through 20</h3>
+  <table>
+    <tbody><tr>
+        <th>
+          Item Number<br />
+        </th>
+        <th>
+          Item Description<br />
+        </th>
+         <th>
+          Item Stock Amount<br />
+        </th>
+      </tr>
+      <tr>
+        <td>
+          201<br />
+        </td>
+        <td>
+          Gadgets<br />
+        </td>
+        <td>
+          17<br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          203<br />
+        </td>
+        <td>
+          Toggles<br />
+        </td>
+        <td>
+          12<br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          206<br />
+        </td>
+        <td>
+          Fidgets<br />
+        </td>
+        <td>
+          20<br />
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          207<br />
+        </td>
+        <td>
+          Fiddles<br />
+        </td>
+        <td>
+          19<br />
+        </td>
+      </tr>
+   
+      <tr>
+        <td>
+          208<br />
+        </td>
+        <td>
+          Faddles<br />
+        </td>
+        <td>
+          10<br />
+        </td>
+      </tr>
+
+     <tr>
+        <td>
+          Number Recs Selected<br />
+        </td>
+        <td>5<br />
+        </td>
+      </tr>
+     <tr>
+        <td>
+          Total Number Records<br />
+        </td>
+        <td>
+         17<br />
+        </td>
+      </tr>
+     
+     </tbody><br />
+  </table><br />
+  
+</div>
+<br /><br />
+
+<h3><strong>Project 5 - Part 3 Output:</strong></h3>
+
+<div class="output" id="outputDiv">
+
+<!-- 
+     NOTE: The table element (just below) to hold the results is hard-coded in the html.  For this program,
+     the JavaScript program does NOT have to insert either the opening nor the closing table tags.
+-->
+
+<h3 id="headingAboveTable"></h3>
+
+<form id="rangeForm"
+      action="project5Part3.html#"
+      onSubmit="return project5Part3();">
+  Display item inventory records with stock amounts
+  <br />
+  between
+  <input type="text"
+         id="lowerBoundary"
+         name="lowerBoundary"
+         placeholder="(min)" />
+  and
+  <input type="text"
+         id="upperBoundary"
+         name="upperBoundary"
+         placeholder="(max)" />
+  .
+  <br />
+  <input type="submit"
+         id="submit"
+         name="submit"
+         value="Show Me the Items!" />
+</form>
+
+<p id="errorMessage"></p>
+<table id="tableForResults">
+
+</table>
+
+
+</div>
+
+
+
+
+
+
+
+<p><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

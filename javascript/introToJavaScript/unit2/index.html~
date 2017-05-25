@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Learning Unit 2  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen, print" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushCss.js"></script>
+  <script type="text/javascript" src="resources/shBrushJava.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 2</a>
+                    <img src="resources/arrow_right_small.png" />Learning Unit 2</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Welcome to Learning Unit 2 - All About Operators</h1>
+
+
+<h3>Student Information</h3>
+
+<blockquote><p>This is <strong>Learning Unit</strong> 2 for:</p></blockquote>
+
+
+<ul>
+<li>Name: <strong>Your name goes here!</strong></li>
+<li>Section: <strong>Your section days and times here!</strong></li>
+<li>Email: <strong>Your email address goes here!</strong></li>
+</ul>
+
+
+
+<h3>Project 2</h3>
+
+
+<ul>
+<li>Here are the <a href="project/project-2.html">project 2</a> specifications.</li>
+<li><a href="javascriptCodingStandards.html">JavaScript Coding Standards for 152-119</a></li>
+</ul>
+
+
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step, 3rd Edition</strong>
+ &nbsp;&nbsp;[the optional book from the Bookstore]<ul>
+<li>Chapter 5 - Using Operators and Expressions</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Unit Learning Activities</h3>
+
+<blockquote><p><em>Here are the learning activities for unit 2.</em></p></blockquote>
+
+
+<ol>
+<li><a href="firebugIntro.html">When Things Go Wrong - Introducing Firebug</a>
+<ul>
+<li><a href="demos/demo-whatsWrong.html">Demo: What's Wrong?</a></li>
+<li><a href="firebugIntro.html#panel">Using Firebug's Panel</a></li>
+<li><a href="labs/lab-01-enableFirebug.html">Lab 1: Enabling Firebug</a></li>
+<li><a href="demos/demo-firebugErrors.html">Demo: Firebug Errors</a></li>
+<li><a href="labs/lab-02-learningFirebugMessages.html">Lab 2: Learning Firebug Error Messages</a></li>
+</ul>
+</li>
+<li><a href="simpleAssignment.html">Simple Assignment Operator</a>
+<ul>
+<li> <a href="labs/lab-03-simpleAssignment.html">Lab 3: Simple Assignment</a>
+<ul>
+<li><a href="labs/exercises-3.html">Lab 3 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="addSubtractOperators.html">Operators That Add and Subtract</a>
+<ul>
+<li><a href="labs/lab-04-additiveOperators.html">Lab 4: Additive Operators</a>
+<ul>
+<li><a href="labs/exercises-4.html">Lab 4 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="multiplyDivideOperators.html">Operators That Multiply and Divide</a>
+<ul>
+<li><a href="labs/lab-05-multiplicativeOperators.html">Lab 5: Multiplicative Operators</a>
+<ul>
+<li><a href="labs/exercises-5.html">Lab 5 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="equalityOperators.html">Operators That Test for Equality</a>
+<ul>
+<li><a href="labs/lab-06-testingEquality.html">Lab 6: Testing For Equality</a>
+<ul>
+<li><a href="labs/exercises-6.html">Lab 6 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="relationshipOperators.html">Operators That Test Relationships</a>
+<ul>
+<li><a href="labs/lab-07-relationshipOperators.html">Lab 7: Relationship Operators</a>
+<ul>
+<li><a href="labs/exercises-7.html">Lab 7 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="unaryOperators.html">Unary Operators</a>
+<ul>
+<li><a href="labs/lab-08-unaryOperators.html">Lab 8: Unary Operators</a></li>
+</ul>
+</li>
+<li><a href="moreOperators.html">More Assignment Operators</a>
+<ul>
+<li><a href="labs/lab-09-compoundAssignmentOperators.html">Lab 9: Compound Assignment Operators</a>
+<ul>
+<li><a href="labs/exercises-9.html">Lab 9 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="operatorPrecedence.html">Operator Precedence</a>
+<ul>
+<li><a href="labs/lab-10-operatorPrecedence.html">Lab 10: Operator Precedence</a></li>
+</ul>
+</li>
+</ol>
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

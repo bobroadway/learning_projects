@@ -1,0 +1,401 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Process Three Characters - Two Functions  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/example4_5.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />Process Three Characters - Two Functions</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Example: Process Three Characters - Three Versions: One, Two, and Four Functions</h1>
+
+<h4>File: unit4/example4_5.html</h4>
+
+<h3>1. Problem Statement</h3>
+
+<blockquote><p>Design a program that will prompt a terminal operator for three characters, accept those characters as input, sort them into ascending sequence and output them to the screen. The program is to continue to read characters until 'XXX','XXX','XXX' is entered.<br /><br />
+<span style="color: red; font-weight: 800;">Remember:</span> a program should always be thought of as consisting of a <b>set</b> of functions. <br /><br /> 
+In this example, initially the set consists of only a single function. Then, a revised version is presented, with the sorting statements pulled out of the main function and placed into a sub-function, just to illustrate the mechanics, as it were, of working with a function called by a main function. Finally, a better still version is presented, now consisting of four functions. <br /><br />(Also, see the handout regarding this example 4.5).</p></blockquote>
+
+<h3>2. Program Planning Lists</h3>
+
+
+<ul>
+<li>The Planning Lists.  If the program is just <em>one</em> function, as it is in Version 1, we definitely do the usual Planning LIsts.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+The List of Input Variables:
+    character1
+    character2
+    character3
+
+The List of Output Variables:
+    character1
+    character2
+    character3
+
+The Process Checklist:
+    prompt for characters
+    accept three characters
+    sort three characters
+    output three characters
+
+*/
+]]></script></li>
+</ul>
+
+
+<h3>The Program OverView Statement:</h3>
+<pre class="blackGreen">
+
+1. Overall, this program processes data about:  Characters
+
+2. Overall, this program obtains its input from:   the viewer
+
+3. Overall, this program produces as output:  A sorted list of the entered characters
+
+4. Overall, this program delivers this output to:   the Web page
+
+</pre>
+
+
+
+<h3>3. Initial Program - One Function (Version 1)</h3>
+
+
+<ul>
+<li>Here's the program that we want to break up with functions.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function processThreeCharactersVersion1() {
+    var character1;
+    var character2;
+    var character3;
+    var swap;
+    
+    character1 = prompt("Enter blah one character (1/3) "
+                + "or 'XXX' to quit.");
+    character2 = prompt("Enter one character (2/3) "
+                + "or 'XXX' to quit.");
+    character3 = prompt("Enter one character (3/3) "
+                + "or 'XXX' to quit.");
+
+    while (character1 !== "XXX" 
+            && character2 !== "XXX" 
+            && character3 !== "XXX") {
+
+        if (character1 > character2) {
+            swap = character1;
+            character1 = character2;
+            character2 = swap;
+        }
+     
+        if (character2 > character3) {
+            swap = character2;
+            character2 = character3;
+            character3 = swap;
+        }
+
+        if (character1 > character2) {
+            swap = character1;
+            character1 = character2;
+            character2 = swap;
+        }
+
+        document.write("character1: " + character1 + "<br />");
+        document.write("character2: " + character2 + "<br />");
+        document.write("character3: " + character3 + "<br />");
+        
+        character1 = prompt("Enter one character (1/3) "
+                    + "or 'XXX' to quit.");
+        character2 = prompt("Enter one character (2/3) "
+                    + "or 'XXX' to quit.");
+        character3 = prompt("Enter one character (3/3) "
+                    + "or 'XXX' to quit."); 
+    }
+	  
+}
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+    //processThreeCharactersVersion1();</script> 
+</pre>
+
+
+
+
+<ul>
+<li>That's a bit clumsy, time for surgery.</li>
+</ul>
+
+
+
+<h3>4. First Breakup (Version 2 - Now two functions in the set)</h3>
+
+
+<ul>
+<li>One good way to simplify this would be to reduce the size of the loop. Keeping loop code small is always a good idea. When it's small we can better see errors and follow the logic.</li>
+<li>We're going to just take the <code>if</code> statements and put them into another algorithm and replace them with a call to the new function.</li>
+<li>We'll also have to take the variables and make them global.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Global Variables
+var character1;
+var character2;
+var character3;
+var swap;
+
+/*
+    This function sorts the three global variables.
+*/
+function sortThreeCharacters() {
+    
+    if (character1 > character2) {
+        swap = character1;
+        character1 = character2;
+        character2 = swap;
+    }
+    if (character2 > character3) {
+        swap = character2;
+        character2 = character3;
+        character3 = swap;
+    }
+    if (character1 > character2) {
+        swap = character1;
+        character1 = character2;
+        character2 = swap;
+    }
+}
+
+/*
+    The program starts with this function.
+*/
+function processThreeCharactersVersion2() {
+    
+    character1 = prompt("Enter one character (1/3) " 
+            + "or 'XXX' to quit.");
+    character2 = prompt("Enter one character (2/3) " 
+            + "or 'XXX' to quit.");
+    character3 = prompt("Enter one character (3/3) " 
+            + "or 'XXX' to quit.");
+    
+    while (!(character1 === 'XXX' 
+            && character2 === 'XXX' 
+            && character1 === 'XXX')) {
+        
+        sortThreeCharacters();  // <-- Here's the function call
+        
+        document.write("character1: " + character1 + "<br />");
+        document.write("character2: " + character2 + "<br />");
+        document.write("character3: " + character3 + "<br />");
+        
+        character1 = prompt("Enter one character (1/3) " 
+                + "or 'XXX' to quit.");
+        character2 = prompt("Enter one character (2/3) " 
+                + "or 'XXX' to quit.");
+        character3 = prompt("Enter one character (3/3) " 
+                + "or 'XXX' to quit.");
+    }
+    
+}
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+    //processThreeCharactersVersion1();</script> 
+</pre>
+
+
+
+<h3>5. Now a much better version! (Version 3 - Now four functions in the set) - See also the handout re this Version 3</h3>
+
+
+<ul>
+<li>What could be better?</li>
+<li>First, we need to <strong><span class="caps">DRY</span></strong> <span style="font-size:small;color:red;">(Don't Repeat Yourself!)</span> up this program! There is duplicated code that will go in its own function.</li>
+<li>Also, it's a really good idea to have our mainline function not have very much lower-level code, if any. So, let's take out everything and replace it with function calls.</li>
+<li>Here's the new program.</li>
+<li><strong>Here's the code:</strong><br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Declare the variables that all the 
+// functions will need to share.
+var character1;     // Note this is a Global variable
+var character2;     // Note this is a Global variable
+var character3;     // Note this is a Global variable
+var swap;           // Note this is a Global variable
+
+/*
+    The purpose of this function is to sort the three
+	characters that were entered by the viewer.
+*/
+function sortThreeCharacters() {
+    
+    if (character1 > character2) {
+        swap = character1;
+        character1 = character2;
+        character2 = swap;
+    }
+    
+    if (character2 > character3) {
+        swap = character2;
+        character2 = character3;
+        character3 = swap;
+    }
+    
+    if (character1 > character2) {
+        swap = character1;
+        character1 = character2;
+        character2 = swap;
+    }
+}
+
+/*
+    The purpose of this function is to obtain three
+	characters from the viewer.	
+*/
+function readThreeCharacters() {
+    
+    character1 = prompt("Enter one character (1 of /3) " 
+            + "or 'XXX' to quit.");
+    character2 = prompt("Enter one character (2 of 3) " 
+            + "or 'XXX' to quit.");
+    character3 = prompt("Enter one character (3 of 3) " 
+            + "or 'XXX' to quit.");    
+
+}
+
+
+/*
+    The purpose of this function is to display the three
+	characters on the Web page.
+*/
+function printThreeCharacters() {
+    
+    document.write("character1: " + character1 + "<br />");
+    document.write("character2: " + character2 + "<br />");
+    document.write("character3: " + character3 + "<br />");
+
+}
+
+/*
+  The purpose of this main function is to coordinate the overall 
+  processing required to repeated read, sort, and display
+  three characters input by the viewer.
+
+*/
+function processThreeCharactersVersion3() {
+    
+    readThreeCharacters();
+    
+    while (!(character1 === 'XXX' 
+            && character2 === 'XXX' 
+            && character3 === 'XXX')) {
+        sortThreeCharacters();
+        printThreeCharacters();
+        readThreeCharacters();
+    }
+	
+}
+]]></script></li>
+</ul>
+
+
+
+
+<ul>
+<li>Here's the output (once the function call for version 3 is uncommented).  Try it if you wish to run the version 3 of the program.</li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+    // REMOVE the two slashes on the next line to run Version 3
+    //processThreeCharactersVersion3();</script> 
+</pre>
+
+
+
+
+
+<ul>
+<li>Much better! We don't have any code being duplicated.</li>
+<li>We also had a bonus. Did you notice that the function <strong>sortThreeCharacters()</strong> looked exactly the same in both versions? That's because they are the same function! I didn't have to write a new version, the first version was in the file and I just used it again.</li>
+<li>Look at all the functions. Each one looks very simple. What it does is easy to grasp. This is what we're after-- each function doing just one task. It is far easier to later do maintenance to a program (set of functions) when the program has been nicely divided up into a well-planned set of functions.</li>
+<li>If, when writing a program, we find that a function does too much then we can make more functions (i.e. divide the function into two or more functions).&nbsp; One clue that a function may be doing more than just one task is the the name of the function has the word &quot;and&quot; it. Another clue is that the function seems to have become very long, with so many lines of code that one can no longer easily grasp what it does.</li>
+<li><strong>Note:</strong> The functions are declared <strong>before</strong> they are called. (Think of the JavaScript interpreter as always starting the the top of the JavaScript file, and scanning downward to locate any given function being called. It should have scanned down past any function being called before it encounters a call to that function.)  &nbsp;And note that this means that the main function must <em>always</em> be placed at the <em>bottom</em> of the JavaScript file.  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

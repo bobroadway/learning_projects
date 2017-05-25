@@ -1,0 +1,328 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Repetition  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/repetition.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />Repetition</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Repetition</h1>
+
+<h4>File: unit4/repetition.html</h4>
+
+<blockquote><p>Repetition is the last of three main computer concepts that we're learning. Sequence, Selection, and now Repetition.</p></blockquote>
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 6: Controlling Flow with Conditionals and Loops (pages 114-124)</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Repetition means Looping</h3>
+
+<blockquote><p>In programming we always use a loop when we want our program to repeat something.</p></blockquote>
+
+
+<ul>
+<li>What if you want to have a piece of code that does the same thing 5 times?<br />
+<div><br />
+<div style="float:right;margin-right:20px;"><br />
+  <img src="resources/loopingIntro.jpg" alt="" height="259" width="218" /><br />
+</div><br />
+<div style="width:70%;float:left"><br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Five statements
+
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+]]></script></li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Five statements
+
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    document.write("Here's a line of output.<br />");
+    
+// -->
+//]]>
+</script>
+</pre>
+
+
+</div>
+</div>
+
+
+<ul>
+<li style="clear:both">That really doesn't seem like a good idea. What if you wanted more statements that were the same? What if you didn't know how many statements you wanted?</li>
+<li>Maybe some magic?</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/magicLoops.jpg" alt="" height="373" width="859" /><br />
+</div>
+
+
+<ul>
+<li>Well, we don't need a magic cloud, we have looping.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    It's not magic
+*/
+function nonMagic() {
+// A non-magical way to run that statement five times
+    
+    // Declare Constants
+    var ZERO = 0;
+    var FIVE = 5;
+    
+    // Declare Variables
+    var loopCounter;
+    
+    // Assign initial values to variables
+    loopCounter = ZERO;
+    
+    // Here's the real magic cloud
+    while (loopCounter < FIVE) {
+        document.write("Here's a line of output.<br />");
+        loopCounter++;
+    }
+}
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+nonMagic();
+</script>
+</pre>
+
+
+
+
+<ul>
+<li>That's interesting, it looks like the number of times the statement will be run is only dependent on a single number: <code>5</code>.</li>
+<li>If we change that number it will run that many times.</li>
+<li>This is looping.</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/basicLoop.jpg" alt="" height="488" width="645" /><br />
+</div>
+
+<h3 style="clear:both;">Another Demo</h3>
+
+<canvas id="repetitionCanvas" width='727' height='558'></canvas><br />
+<div style="margin-left:25px;">
+<form name="basicLoopingForm" method="put" action="repetition.html#"
+  onsubmit="return false;" id="basicLoopingFormId">
+
+    <input type="button" 
+           name="forwardOne" 
+           onclick="nextFrame()" 
+           value="Next" 
+    /> 
+    <input type="button" 
+           name="resetDemo" 
+           onclick="resetFrames()" 
+           value="Reset" 
+    />
+
+</form>
+</div>
+
+
+<h3 style="clear:both">Looping Structures</h3>
+
+
+<ul>
+<li>We have two main looping structures that we're going to learn in this course.
+<ul>
+<li>Leading Decision Loop</li>
+<li>Counted Loop</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Leading Decision Loop</h3>
+
+<blockquote><p>Make the decision first.</p></blockquote>
+
+
+<ul>
+<li>We saw this code earlier in the semester<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// while loop
+
+    while (condition generates a Boolean true) {
+        // do the statements in here
+    }
+]]></script></li>
+<li>What we didn't emphasize is that <code>(condition)</code> is tested first, before the code inside the loop is run. If the condition is true then the code is run. </li>
+<li>After all the statements in the loop are run then <code>(condition)</code> is tested again. If it is still true then the code in the loop is run again. </li>
+<li>Then the condition is tested again and we loop, until <code>(condition)</code> has changed to not being true.</li>
+</ul>
+
+
+
+<h3>Counted Loop</h3>
+
+<blockquote><p>Repeat ten times.</p></blockquote>
+
+
+<ul>
+<li>The concept of counted looping is simple, you do something a specified number of times. There are different ways to specify the number. Here's the first way in code using a <code>while</code> loop:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Looping a fixed number of times
+    
+    // Declare Constants
+    var ZERO = 0;
+    var TEN = 10;
+    
+    // Declare Variables
+    var loopCounter;
+    
+    // Assign initial values to variables
+    loopCounter = ZERO;
+    
+    while (loopCounter < TEN) {
+        // statement block here
+        
+        // add 1 to counter at the end of the loop
+        loopCounter++;
+    }
+]]></script></li>
+<li>We create a variable and initialize it to 0.</li>
+<li>We start the loop by testing our variable against the number of times we want to loop. In this case we want to loop 10 times.</li>
+<li>Then we run the statement block, this will be our working code.</li>
+<li>At the end of the loop we have to add 1 to our "counter" variable. If this step is forgotten our loop will run forever.</li>
+<li>But, this is not most common use of the <code>while</code> loop in programming. It is better suited for loops where we don't know how many times it's going to run. For a counted loop in JavaScript we usually use this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// JavaScript "for" loop
+
+    // Declare Constants
+    var ZERO = 0;
+    var TEN = 10;
+
+    var loopCounter;
+    
+    for (loopCounter = ZERO; loopCounter < TEN; loopCounter++) {
+        // statement block here
+    }
+]]></script></li>
+<li>This does exactly the same thing as the previous <code>while</code> loop. However, managing the loop counter is built in, you can't forget to have the counter variable or it won't run.</li>
+<li>We'll come back to this loop in more detail later but here are basics of how it works.
+<ul>
+<li>The <code>for</code> has three parts in between the parentheses, intialization, test, increment. </li>
+<li>(<code>loopCounter = 0;</code> loopCounter &lt; 10; loopCounter++) - First the counter variable is set to zero. This happens only once before the loops starts.</li>
+<li>(loopCounter = 0; <code>loopCounter &lt; 10;</code> loopCounter++) - This middle part     is the test, it's just the same as inside a <code>while</code> loops parentheses.</li>
+<li>(loopCounter = 0; loopCounter &lt; 10; <code>loopCounter++</code>) - At the end is the increment step. This is run <strong>after</strong> the loop statements are run.</li>
+</ul>
+</li>
+<li>This loop is more concise and is preferred when we know how many times a loop should be run.</li>
+</ul>
+
+
+
+<h3>Some Labs to keep your blood flowing</h3>
+
+<blockquote><p><em>The best writing is rewriting.</em> <strong>-E. B. White</strong></p></blockquote>
+
+
+<ul>
+<li><a href="labs/lab03firstWhileLoop.html">Lab 3: Your First While Loop</a></li>
+<li><a href="labs/lab04firstForLoop.html">Lab 4: Your First For Loop</a></li>
+</ul>
+
+
+
+
+<script language="JavaScript" type="text/javascript">makeLoopingDemo();</script>
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

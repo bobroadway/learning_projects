@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 5, Part 1 - Find Unique Zip Codes  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/project5Part1.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 5</a>
+                <img src="../resources/arrow_right_small.png" />Project 5, Part 1 - Find Unique Zip Codes          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 5, Part 1 - Find Unique Zip Codes</h1>
+
+<h4>File: unit5/project/project5Part1.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<h3>Specifications</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+<li>Read the following problem statement and complete all 5 steps in the development process.</li>
+</ul>
+
+
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that will find all the <strong>unique zip codes</strong> in the <strong>Zip Code Study Records</strong>. The program must access the record set and extract the unique zip codes and store them. Then output the unique zip codes from storage and display them as an ordered or unordered list of the unique codes (on the Web page). Note: This must not be just a comma-delimited "dump" of the codes, but rather it must use the 'ol' or 'ul' HTML elements. &nbsp; The program <strong>must</strong> use modules for all identifiable tasks.<br /><br/>NOTE: The program may not have any zip code values hard-coded within the program, as was permitted in Learning Unit 4.  This LU5 program has to function correctly without knowing in advance how many unique zip codes exist in the record set, nor what the values of these unique zip codes are. Rather, the program must make one pass through the records in the file, using array storage to collect zip code values.  Any arrays used in this program must be empty at the time the program begins to run.</p>
+
+<p>NOTE:  The term 'unique' can mean different things in English depending on the context. Make sure you understand what the phrase 'unique zip codes' means for this application.&nbsp;  Example: The following set of zip codes (53703, 53702, 53708, 53702) has three unique zip codes. &nbsp;Example: The followiing set of zip codes (53711, 53711, 53711, 53705, 53705) has two unique zip codes. &nbsp; Example: The following set of zip codes (53708, 53708, 53708) has one unique zip code.</p><br />
+
+<p>NOTE: The program must be set up using <b>at least two</b> other modules (i.e. sub-functions) in addition to the mainline controller module (function). Remember to follow the course standards on functions.</p><br /></blockquote>
+
+
+
+
+<ul>
+<li>Project Notes:
+<ul>
+<li>Use the <a href="../zipCodeStudyRecords.html">Zip Code Study Records</a> for the data.  &nbsp;NOTE: The sample program illustrating accessing the Zip Code Study Records contains an IF statement that stops the looping after only 25 records have been read. That IF is merely illustrative of how one could temporarily work with a small subset of a large file, for purposes of initial testing. Naturally, that IF would later be removed before placing a program into production. Thus, this Part 1 Project program must work with <em>all</em> of the records in the file, and <em>not</em> just the first 25 records.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<h3>The Program Test Plan</h3>
+
+
+<ul>
+<li>The Test Plan will be written in the JavaScript file in comments. [I.e. not in the HTML file.]</li>
+</ul>
+
+
+
+<h3><span style="color:red;"><span class="caps">Lab Exercise</span>!</span></h3>
+
+
+<ul>
+<li>To earn points on this project, also output the count of each zip code. For each zip code you will need to count the occurrences and store the value in something <span style="font-size: small;color:gray;">(Maybe a parallel array?)</span></li>
+<li>If the is attempted, the output must be displayed as a table with two columns, one for each zip code, and one for the number of times that zip code occurs in the record set.</li>
+</ul>
+
+
+
+
+
+
+<h3>5. JavaScript Output</h3>
+
+<blockquote>
+  <p>Write the JavaScript code based on everything you've done. Your code must follow the course coding standards. You should add good comments about the different parts of your solution. The output should be inserted within the output div tag in this <span class="caps">HTML </span>page. Make sure that every JavaScript function has its comment above it--see course standards..</p></blockquote>
+
+
+<h3>Project 5 - Part 1 Output:</h3>
+
+<div id="outputDiv" class="output">
+</div>
+
+
+<script language="JavaScript" type="text/javascript">
+    project5Part1();
+</script>
+
+
+<p><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

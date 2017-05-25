@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Student Enrollment Records  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/studentEnrollmentRecords.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Student Enrollment Records</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Student Enrollment Records</h1>
+
+<h4>File: unit5/studentEnrollmentRecords.html</h4>
+
+<blockquote><p>This page describes the student enrollment records and documents usage.</p></blockquote>
+
+<h3>Student Enrollment Records Layout</h3>
+
+
+<ul>
+<li>Student Enrollment record layout:</li>
+</ul>
+
+
+
+<table style="text-align:left; margin-left: 4em;" cellspacing="0"><tr><th>Field 1</th><th>Field 2</th><th>Field 3</th><th>Field 4</th><th>Field 5</th><th>Field 6</th><th>Field 7</th><th>Field 8</th><th>Field 9</th></tr><tr><td>Student Number</td><td>Student Name</td><td>Address</td><td>Zip Code</td><td>Gender</td><td>Faculty/Student</td><td>Attendance</td><td>Age</td><td>Course Number</td></tr></table>
+
+<h3>Using the Student Enrollment Records</h3>
+
+
+<ul>
+<li>The records are made available to your programs with this function:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// The open function
+    openStudentEnrollmentRecords();
+]]></script></li>
+<li>The function returns the records so you need to store them in a variable:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Record set variable
+    var studentRecords;
+    
+    studentRecords = openStudentEnrollmentRecords();
+]]></script></li>
+<li>After the openStudentEnrollmentRecords() function has been run you have access to the first record's data. You will retrieve each part of one record with a different function. Here are the functions:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Field functions
+    studentRecords.getStudentNumber();
+    studentRecords.getStudentName();
+    studentRecords.getStudentAddress();
+    studentRecords.getStudentZipCode();
+    studentRecords.getStudentGender();
+    studentRecords.getFacultyStudentStatus();
+    studentRecords.getStudentAttendance();
+    studentRecords.getStudentAge();
+    studentRecords.getStudentCourseNumber();
+]]></script></li>
+<li>Notice that you need to have "studentRecords." in front of each of the functions.</li>
+<li>When you want to read the next record you use the following function. It will make the next record available and you then use the above functions to retrieve the data. This function returns <code>true</code> if there was a next record and <code>false</code> if the end of the record set has been reached.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Read the next record or stop the loop
+    studentRecords.readNextRecord();
+]]></script></li>
+</ul>
+
+
+
+
+<h3>Example Usage</h3>
+
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This is the JavaScript code for 
+    "Student Enrolment Records" File: /unit5/studentEnrollmentRecords.html
+*/
+function studentEnrollmentRecords() {
+    
+    //Declare Constants
+    var EMPTY_STRING = "";
+    
+    // Declare Variables
+    var currentNumber;
+    var currentName;
+    var currentAddress;
+    var currentZipCode;
+    var currentGender;
+    var currentFacultyStudent;
+    var currentStudentAttendance;
+    var currentAge;
+    var currentCourseNumber;
+    var outputTable;
+    var outputString;
+    
+    var studentRecords;
+    
+    // Assign initial values to variables
+    outputString = EMPTY_STRING;
+    
+    // Get the HTML output table so we can add rows
+    outputTable = document.getElementById('outputTable');
+    
+    // Open the Student Enrollment Records and make them 
+    // available to the script
+    studentRecords = openStudentEnrollmentRecords();
+    
+    // Test to see if there is a next record and then output it
+    while (studentRecords.readNextRecord()) {
+        currentNumber            =  studentRecords.getStudentNumber();
+        currentName              =  studentRecords.getStudentName();
+        currentAddress           =  studentRecords.getStudentAddress();
+        currentZipCode           =  studentRecords.getStudentZipCode();
+        currentGender            =  studentRecords.getStudentGender();
+        currentFacultyStudent    =  studentRecords.getFacultyStudentStatus();
+        currentStudentAttendance =  studentRecords.getStudentAttendance();
+        currentAge               =  studentRecords.getStudentAge();  
+        currentCourseNumber      =  studentRecords.getStudentCourseNumber();
+
+        // Generate an HTML table row for this student
+        outputString += "<tr><td class=\"righttd\">" 
+                + currentNumber 
+                + "</td><td>" 
+                + currentName 
+                + "</td><td>" 
+                + currentAddress 
+                + "</td><td>" 
+                + currentZipCode 
+                + "</td><td class=\"centeredtd\">" 
+                + currentGender 
+                + "</td><td class=\"centeredtd\">" 
+                + currentFacultyStudent 
+                + "</td><td class=\"centeredtd\">"
+                 + currentStudentAttendance
+                + "</td><td class=\"righttd\">" 
+                + currentAge
+                + "</td><td class=\"righttd\">" 
+                + currentCourseNumber 
+                + "</td></tr>";
+    }
+    
+    // Append the generated rows to the HTML table
+    outputTable.innerHTML += outputString;
+}
+
+]]></script>
+
+<h3>Student Enrollment Records Data</h3>
+
+
+<ul>
+<li>Here is the entire Student Enrollment Records data set.</li>
+</ul>
+
+
+
+<div class="output">
+    <table id="outputTable">
+        <tr>
+            <th>Student<br />Number</th>
+            <th>Student<br />Name</th>
+            <th>Address</th>
+            <th>Zip<br />Code</th>
+            <th>Gender</th>
+            <th>Faculty/<br />Student</th>
+            <th>Attendance</th>
+            <th>Age</th>
+            <th>Course<br />Number</th>
+        </tr>
+    </table>
+</div>
+
+<script language="JavaScript" type="text/javascript">studentEnrollmentRecords();</script>
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

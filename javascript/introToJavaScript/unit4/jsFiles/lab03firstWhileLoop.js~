@@ -1,0 +1,12 @@
+/*
+    This is the JavaScript code for 
+    "Lab 3: Your First While Loop" 
+    File: /unit4/labs/lab03firstWhileLoop.html
+*/
+function lab03firstWhileLoop() {
+    // Your code goes in here.
+    
+    // Delete the following statement when you start your code.
+    document.write("The JavaScript file for this page is: "
+            + "\"/unit4/jsFiles/lab03firstWhileLoop.js\"");
+}

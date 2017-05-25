@@ -1,0 +1,189 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 5, Part 4 - User Entered Strings </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/project5Part4.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript Madison College 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 5</a>
+                <img src="../resources/arrow_right_small.png" />Project 5, Part 4 - User Entered Strings  <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 5, Part 4 - User Entered Strings</h1>
+
+<h4>File: unit5/project/project5Part4.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name:</li>
+<li>Section:</li>
+<li>Email:</li>
+</ul>
+
+
+
+<h3>Specifications</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+<li>Open the file <code>jsFile/project5Part4.js</code> in jEdit</li>
+<li>Your JavaScript code must go in the <code>jsFile/project5Part4.js</code> file.</li>
+<li>Read the following problem statement and begin by first planning very carefully what you will do to accomplish this task.  &nbsp;&nbsp;<i>Do nothing until you have made a plan</i>.</li>
+</ul>
+
+
+
+
+<h3>Problem Statement</h3>
+
+
+
+<blockquote>  
+
+<p>Begin by executing the program already present in the Part 4 JavaScript library file, a program that currently asks the user to enter any number of strings, one prompt() at a time, until the user keys in the string "quit". 
+
+<br /><br />
+Note that the program will only accept an <b>odd</b> number of strings, but there is no upper limit on the number of strings it will accept.  Nor are their any restrictions on what characters the user can key in for each string.<br /><br />
+
+Then, <b>modify the program</b>.  &nbsp;&nbsp;After the modification, the program must still do everything it currently does, but now it also must output the <b>"middle"</b> value keyed in by the user.  That is, the program must not only display the entered strings (just as is currently does), and number of strings entered  (just as it currently does), but it must now also put out the "middle" value entered.  And it must place this value into the heading line (which is already present in the program). &nbsp;Note: the word "quit" does NOT count as one of the entered strings. <br /><br />
+
+
+Note that the required new output is NOT the median of the values entered, but rather is simply the "middle" value
+ entered.  E.g. if the user keyed in say:<br /><br />
+&nbsp;&nbsp;&nbsp;&bull;bottle<br />
+&nbsp;&nbsp;&nbsp;&bull;catch<br /> 
+&nbsp;&nbsp;&nbsp;&bull;zweeter<br />
+&nbsp;&nbsp;&nbsp;&bull;bat<br />
+&nbsp;&nbsp;&nbsp;&bull;zebras<br />
+<br />
+then the "middle" valued keyed would be the content of the third slot of the array, namely "zweeter".  <br /><br />The program must continue to have no other inputs than just the set of strings keyed in by the user (and the "quit" string of course).  And it must continue to have the ability to work with any (odd) number of strings.
+</p>
+
+</blockquote>
+
+
+
+<ul>
+<li>Project Notes:
+<ul>
+<li>Make no program modifications without first having done a complete plan for what you will be doing.</li>
+<li>Read about the &nbsp;Math.floor()&nbsp; function as it applies to a mathematical result that has a decimal portion. This could be very handy for this project Part 4.</li>
+
+<li>  Proceed with modifying the program using 'versions'. Test each version to make sure it is accomplishing what you planned for it to accomplish, before going ahead with the next version.  As is often the case, the &nbsp;alert() &nbsp;method will be handy for verifying that a version is working properly.</li> 
+<li>In your test cases, be sure to include one in which the user has entered say three strings, as well as one in which the user has entered say 17 or some other larger number of strings.</li>
+</ul>
+
+</ul>
+
+
+
+
+
+<h3>Program Test Plan</h3>
+
+
+<ul>
+<li>For this Part 4, the Test Plan will be written in the JavaScript library file itself in comments &nbsp;[i.e. not in this HTML file.]</li>
+</ul>
+
+
+
+
+
+
+
+
+<br /><br />
+
+<h3><strong>Project 5 - Part 4 Output:</strong></h3>
+
+<div class="output" id="outputDiv">
+
+<h2>The User Entered Strings</h2>
+
+
+
+<!-- 
+     NOTE: The unordered list element tags (just below) to hold the results are  hard-coded in the html.  For this program,
+     the JavaScript program does NOT have to insert either the opening nor the closing unordered list tags.
+-->
+
+<ol id="listToDisplayEnteredStrings">
+
+</ol>
+
+
+<h3 id="headingForNumber">&nbsp;The  number of strings entered for this run was: &nbsp;</h3>
+
+<h3 id="headingForMiddleSlotContent">&nbsp;The content of the slot halfway through the array: &nbsp;</h3>
+
+
+</div>
+
+
+
+<script language="JavaScript" type="text/javascript">project5Part4();</script>
+
+
+
+
+
+
+
+<p><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

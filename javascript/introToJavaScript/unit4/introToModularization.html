@@ -1,0 +1,470 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Introduction to Modularization Using Functions  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/introToModularization.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />Introduction to Modularization Using Functions</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Introduction to Modularization Using Functions</h1>
+
+<h4>File: unit4/introToModularization.html</h4>
+
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 7 - Working with Functions</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Getting Complicated</h3>
+
+
+<ul>
+<li>When we have too much information, too many files, too many things, we humans tend to organize them.</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/cubbyHoles.jpg" alt="" height="800" width="534" /><br />
+</div>
+
+
+<ul>
+<li>We've been doing it for a long time</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/Wooden_file_cabinet.JPG" alt="" height="600" width="450" /><br />
+</div>
+
+
+<ul>
+<li>Computers let us handle more information but we still need to have a way to keep track of it all.</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/macDirStructure.jpg" alt="" height="707" width="803" /><br />
+</div>
+
+
+<ul>
+<li>We have many schemes for doing this</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/winDirStructure.png" alt="" height="601" width="798" /><br />
+</div>
+
+
+<ul>
+<li>We even do it with us!</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/Cubicle_land.jpg" alt="" height="600" width="800" /><br />
+</div>
+
+
+<ul>
+<li>And we also have to organize software. Our programs just get too big.</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/classDiagramSketch.JPG" alt="" height="496" width="676" /><br />
+</div>
+
+
+<ul>
+<li>The thing that we have too much of in programming is complexity. We'll start learning how to program more complex problems by learning about&nbsp; <code>Modularization and Functions</code>.</li>
+</ul>
+
+
+
+<h3>Modularization</h3>
+
+
+<ul>
+<li>The process is to break up our code into different parts. We've already been doing that. Here's a Planning Lists from an example back when the program was just one block of code:</li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    character1
+    character2
+    character3
+
+The List of Output Variables:
+    character1
+    character2
+    character3
+
+The Process Checklist:
+    Define all variable
+    prompt user for three individual characters
+    Sort the three characters into ascending order
+    Output three characters in ascending order
+
+</pre>
+
+
+
+
+<ul>
+<li>For Learning Units 1 - 3, by identifying the processes as we  start designing a program, we can divide the program up into different sections as we later code it.. </li>
+<li>But, what if a program is so complex that it would have a <strong>lot </strong>of processing steps? What if it's so big a process that it really has its own set of subprocesses? That would be difficult to manage, and later, modify, if it was written as just one large program.</li>
+<li>The solution is to break our porgrams  down to smaller and smaller parts until they are all manageable. Each process or subprocess will have its own set of processing steps, and, when written later, its own program code. In JavaScript we will  do this with&nbsp; <code>functions</code>.</li>
+</ul>
+
+
+
+
+<div class="define">mod&#8226;u&#8226;lar</div><br />
+<div class="define2">adjective</div><br />
+<div class="define3">1. employing or involving a module or modules as the basis of design or construction : modular housing units.</div>
+
+
+<h3>The Modularization Process</h3>
+
+
+<ul>
+<li>Here are the general principles about modules or functions.
+<ul>
+<li>A module (in JavaScript, remember this is a&nbsp; <code> function</code>) should be focused on a task, that is, just one task. &nbsp;It should include only the operations that do <em>that</em> task. Modules (in JavaScript, functions) are in effect, like specialists.</li>
+<li>The name of a module (in JavaScript, a function) should describe the work that the module (function) will do. Always start the name of a function that you create with a <b>verb</b> and then have a few nouns (and an adjective is often good too.) Examples:
+  <ul>
+<li><code>printPageHeadings</code> </li>
+<li><code>calculateSalesTax</code> </li>
+<li><code>validateInputDate</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h2>The Mainline (aka Main aka Controller) Module (Function)</h2>
+
+
+<ul>
+<li>All programs will have one module (function) that controls the operation of the whole program. These were typically called the <code>Mainline Module</code> in the beginnings of modular programming. These days in our Object Oriented world they are more likely called <b>Main </b>functions aka<b> Controllers</b>.</li>
+<li><code>Main</code> functions (aka <code>Controllers</code>) run the show--they tie all the other modules together. They should be easy to read and their logic should be very clear. We'll see many examples.  Just remember that the terms &quot;main&quot; and "mainline" and "controller" are just terms for the same thing--different authors simply use different terms.  In these learning materials, these terms will be used interchangeably.</li>
+</ul>
+
+
+
+<h3>The Benefits of Modular Design</h3>
+
+
+<ul>
+<li><strong>Ease of understanding.</strong> Each module (function) should perform just one task.</li>
+<li><strong>Reusable code.</strong> Modules used in one program can sometimes also be used in other programs.</li>
+<li><strong>Don't Repeat Yourself!</strong> Using modules can help to avoid code duplication. This is called the <strong><span class="caps">&quot;DRY&quot;</span></strong> principle and is a very strong convention among modern programmers.</li>
+<li><strong>Efficiency of Maintenance.</strong> Each module should be self-contained and have little or no effect on other modules within the program. This lets us make future changes to  programs in less time and with less worry that we are adding new bugs to the code.</li>
+<li><strong>Object Orientation.</strong> Modularization is a big step towards Object Orientation. You could think of OO as modularization taken to a higher level. All modern programming languages and methodologies now use this new paradigm. </li>
+</ul>
+
+
+
+<h3>JavaScript Functions</h3>
+
+
+<ul>
+<li>When we have broken the to-be-written application down into reasonable tasks,  we write our JavaScript program in the form of  <code>functions</code>. In fact, from now on, when you hear the phrase &quot;JavaScript program&quot; you should think &quot;set of functions.&quot; A program from now on will always consist of a set of functions, functions coordinated from the Main/Mainline/Controller function.</li>
+<li>As we start to see now in unit 4, our functions will be physically located in external files. In the very simplest case, there is only function in the set, i.e.  we would have  just one function in the JavaScript file. But this would rare to have a set of functons consist of only one function in the set. Thus, in actual real-world applications,  we would have  lots of functions in a single JavaScript file. (That's why some authors refer to JavaScript files as &quot;JavaScript <em>library</em> files,&quot; although the word &quot;library&quot; can imply a JavaScript file that contains &quot;common&quot; functions, i.e. functions used by more than just one program.)</li>
+<li>Here's a simple function. <br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This is a function. We will be writing lots of these. 
+    Your excellent code goes in functions from now on.
+*/
+function justADemo () {
+    
+    // Declare variables
+    var ...
+}
+]]></script></li>
+<li>Here's a bigger picture with some finer details.</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/jsFunctions.jpg" alt="" height="608" width="681" /><br />
+</div>
+
+<h3>How Functions Work</h3>
+
+
+<ul>
+<li>Here's a sample to illustrate how functions work in JavaScript. Here's the code:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This function is being called
+    by the theMainline function below.
+*/
+function justCallMe () {
+    // Declare variables
+    var name;
+    
+    name = "Ethel";
+    
+    document.write("Hello, " + name + ".<br />");
+}
+
+/*
+    This function will run some code,
+    call a function and let the function
+    run its code and then run some more code.
+*/
+function theMainline() {
+    // Declare variables
+    var name;
+    name = "Fred";
+    
+    document.write("Hello, " + name + ".<br />");
+    
+    //Here's the function call!
+    justCallMe();
+    
+    document.write("All done!");
+}
+]]></script></li>
+</ul>
+
+
+
+
+<ul>
+<li>Here's the output:</li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+     theMainline();
+</script>
+</pre>
+
+
+
+
+<ul>
+<li>Does something seem odd to you? Do the functions look like they are in the right order? Well, they are. A new and strong convention among professional JavaScript programmers is that functions should be declared <strong>before</strong> they are called. This is in our newly updated course coding standards right <a href="javascriptCodingStandards.html#part7">here</a>.</li>
+</ul>
+
+
+
+
+<ul>
+<li>How did that work?</li>
+<li>The program starts in <code>theMainline()</code> function. When it gets to this line it does something different.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+//Here's the function call!
+    justCallMe();
+]]></script></li>
+<li>Because of the parentheses, <code>()</code>, it will look for a function with that name. It first looks in the file that it is in right now. And there it is!<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function justCallMe () {
+    // Declare variables
+    var name;
+    
+    name = "Ethel";
+    
+    document.write("Hello, " + name + ".<br />");
+}
+]]></script></li>
+<li>The JavaScript engine will suspend the first function and jump to the called function. It will run all the code in that function and go back up to the first one. Then it will continue on where it left off.</li>
+<li>Let's see this in action:
+<ul>
+<li><a href="functionCalls.html">Function Calls</a></li>
+</ul>
+</li>
+<li>Of course, now we do a lab!
+<ul>
+<li><a href="labs/lab12firstFunctionCall.html">Lab 12: Calling Functions in JavaScript</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>A First Look at Variable Scope</h3>
+
+<div class="define">scope</div><br />
+<div class="define2">noun</div><br />
+<div class="define3">1. the extent of the area or subject matter that something deals with or to which it is relevant.<br />: we widened the scope of our investigation | such questions go well beyond the scope of this book.</div><br />
+<div class="define2">Thesaurus:</div><br />
+<div class="define3">the scope of the investigation, <span class="caps">EXTENT, </span>range, breadth, width, reach, sweep, purview, span, horizon; area, sphere, field, realm, compass, orbit, ambit, terms/field of reference, jurisdiction; confine, limit; gamut.</div>
+
+
+<h4>Naming Conflicts</h4>
+
+
+<ul>
+<li>It's sometimes hard to come up with good variables names for your projects. However, having clear, well thought-out variable names (and function names) is crucial for the long-term success of an application. Remember, as a software developer, you will have to return to the application again and again over the years, to accomplish enhancements.</li>
+<li>In the early days of computer programming two limitations made naming very hard. First, early programming languages set the maximum length of a variable name to very small--limits of six or eight characters were typical. Then, when we made a variable we had to make sure that the names we picked were not the same as any other names in programs at our site.</li>
+<li>This resulted in variable names like these. The first three letters were an abbreviation for the overall system and the rest were an abbreviation of what it was. Can you see what they are?
+<ul>
+<li><code>TCSTLTAX</code> </li>
+<li><code>MMSTRSRC</code> </li>
+<li><code>CDPPNAME</code> </li>
+</ul>
+</li>
+<li>All this because programs could see all the variables!</li>
+</ul>
+
+
+
+<h4>Variable Scope to the Rescue!</h4>
+
+
+<ul>
+<li>There is a solution to this in all modern languages. Today there is more than one scope for variables. Let's first talk about the scope where variables are available everywhere.</li>
+<li><strong style="color:#8B0000;font-size:large;">Global Scope</strong>  
+<ul>
+<li><em>Variables that exist throughout an entire JavaScript file are called <code>Global Variables</code>. Their values can be changed anywhere in the code and even by other functions.</em></li>
+</ul>
+</li>
+<li>Here's a demo of how this works
+<ul>
+<li><a href="globalScope.html">Global Scope Demo</a></li>
+</ul>
+</li>
+<li>And here's the lab for this.
+<ul>
+<li><a href="labs/lab13globalScope.html">Lab 13: Global Scope</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<h3>The Steps in Modularization</h3>
+
+<h4>Here are some basic steps in the process of modularizing an application.</h4>
+
+
+<ol>
+<li>Define the overall problem by dividing it into its three components: input, output, and processing. This is what we have already been doing. The only difference is that we are now typically thinking of the <em>processes</em> as modules (functions)..</li>
+<li>Group the processes into subtasks or functions to determine the modules that will make up the program. Remember that a module is dedicated to the performance of a single task. Not all activities need to be identified at this point. We may add more subtasks as we develop the modules later.</li>
+<li>Establish the logic of the main controlling module (function) using  pseudocode. Typically, this top module (function) should contain some initial processing before the loop, some processing within the loop, and some final processing after exiting the loop. It should contain calls to the major processing modules of the program, and should be easy to read and understand. (Note: Physically this top function is placed as the last function in the JavaScript file, even though on a strucuture chart is drawn at the top of the chart.)</li>
+<li>Develop the pseudocode for each successive module in the main controlling module.</li>
+</ol>
+
+
+<br />
+
+
+
+<h4>Let's See The Whole Process in Action</h4>
+<ul>
+<li>When our programs start getting too big we need to make some changes. This example goes through the process of modularization right through the JavaScript
+  <ul>
+<li><a href="example4_5.html">Example 4.5 Process Three Characters - Two and Four Functions</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<h4>Let's go through the steps one more time.</h4>
+
+
+<ul>
+<li><a href="example4_6.html">Example 4.6 Gas Supply Billing</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<p><br /><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

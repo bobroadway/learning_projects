@@ -1,0 +1,227 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    JavaScript Coding Standards  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen, print" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushCss.js"></script>
+  <script type="text/javascript" src="resources/shBrushJava.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 1</a>
+                    <img src="resources/arrow_right_small.png" />JavaScript Coding Standards</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+        <div id="main" style="border-top:1px solid black;">
+          <h1><span style="font-size: .9em;">(Initial)</span> JavaScript Coding Standards for 152-119</h1>
+
+<blockquote><p>Here are the initial coding standards for Learning Units 1 and 2 for this course. (The standards will later be expanded for subsequent Learning Units.) <br /><br /><strong>Your projects and labs will be graded partially on conformance to these standards.</strong>  </p></blockquote>
+
+<blockquote><p>One of the most important aspects of modern programming is <strong>readability</strong>. To be able to read code written by other people and understand it has become much more important than having condensed, optimal code. Modern programming languages can optimize your code better than you can. So, the number one criteria for the way we write is for other human beings to read it. These standards are about <strong>readability</strong>, thus enhancing the maintainability your code when making future changes to it.</p></blockquote>
+
+<h3>1. Indentation</h3>
+
+<blockquote><p>The unit of indentation of JavaScript source code will be <strong>four (4) spaces</strong>.   This can be done by simply pressing the space bar four times. The course editor (jEdit) has been configured so that when you press the tab key it will insert 4 spaces instead of a tab character. Keep this setting.  However, if you use another text editor make sure you are not inserting tab characters into your code.<br /><br />If a line of code is too long to fit on one line of the text editor (see the Line Length standard below), the continuation of the line must be indented in by <strong>eight (8) spaces</strong> to visually emphasize that this line is continued.</p></blockquote>
+
+<h3>2. Line Length</h3>
+
+<blockquote><p>Avoid making any line of JavaScript code more than 80 characters. This improves readability. Sometimes this can't be avoided but when possible it is required to have 80 or fewer characters in a line of code. The course editor has been configured to show a vertical line at column 80 to help you with this standard:</p></blockquote>
+
+<div style="text-align: center;">
+  <img src="resources/column80.jpg" alt="" height="354" width="877" /><br />
+</div>
+
+<h3>3. Comments</h3>
+
+<blockquote><p><em>Good documentation will be required in your labs and projects files. Here is a minimal list of what the instructor will be looking for. Quality counts!</em></p></blockquote>
+
+
+<ol>
+<li>The student's name, section, and email at the top of lab and project files.</li>
+<li>A comment line at the start of each section within a program.  These section comment lines must begin with a verb.
+</li>
+</ol>
+
+
+
+<h3>4. Variable Declarations</h3>
+
+<blockquote><p><em>Good variable naming and usage is very important when learning to program computers. Here is a list of the rules for variables:</em></p></blockquote>
+
+
+<ol>
+<li>Variable names must follow the naming conventions outlined in the <em>Naming Conventions</em> standard below.</li>
+<li>All variables must be declared before they are used. Many programming languages require this as part of their syntax. However, JavaScript does not require this so you need do this intentionally.</li>
+<li>All <strong><code>var</code></strong> statements must be at the top of your JavaScript code (and later,functions), <em>before any other statements.</em></li>
+<li>Every variable must be declared on its own line.  That is, one <strong><code>var</code></strong> statement per line, and only one variable declared on each <strong><code>var</code></strong> statement.</li>
+</ol>
+
+
+
+<h3>5. Naming Conventions</h3>
+
+<blockquote><p><em>How things are named in a computer program is very important. In the early days of programming names were very short and cryptic to save on <span class="caps">RAM </span>usage. You may have seen variables with names like "i", "fnme", and "cal_prc". These days our computers all have lots and lots of <span class="caps">RAM </span>and we can stop this old confusing habit. Here are the course rules for naming things:</em></p></blockquote>
+
+
+<ol>
+<li>Names must bee created with the 26 upper and lower case letters (A..Z, a..z) and the 10 digits (0..9).</li>
+<li>Do not use the underscore "_", the dollar sign "$", or slashes "/ \" in variable names. (<span style="font-size: .9em">Note: Later on, we will have a different naming standard for constants, which will involve the use of the underscore "-".</span>)</li>
+<li>Variables must start with a lower case letter.</li>
+<li>Abbreviations must be avoided--use complete words instead.  What does "cal_prc" mean? Calculate Price? Calculate Percentage? California Practice? Calender Pricing? What does "temp" mean?  Temporary?  Temperature? Temporary Employee? Names need to be very clear, for others and for you. You won't remember your own cryptic names in the future when you return to make enhancements to your code.</li>
+<li>Names that have more than one word (and most should) must use the "camel case" convention. The name starts with a lower case letter and then each new word in the name starts with an upper case letter, with no spaces between the words. Examples:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Good Names
+
+    var firstName;
+    var totalPrice;
+    var totalPriceForRedWidgets;
+    var customerCodeForNewNonUsRetailCustomer; // do programmers 
+                                              // really do this?
+    // yes, we do
+]]></script></li>
+</ol>
+
+
+
+<h3>6. Semicolons</h3>
+
+<ul>
+<li>Semicolons are used in JavaScript to terminate a statement. Most of the time they are not strictly required by JavaScript. However, they are required in a few places in JavaScript, so as a course standard (and one that is also a convention in the industry), the use of semicolons at the end of simple statements is required.</li>
+<li>Examples<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Use of semicolons
+
+    var firstName = "Fred";     // note that var statements must end with semicolon
+    document.write(firstName);
+    
+    discountTotal += 100;
+	
+	flowerOne = temporaryFlowerHolder; 
+]]></script></li>
+</ul>
+
+
+
+
+<h3>7. Statements</h3>
+
+<blockquote><p><em>The way we write statements is critical for code that is readable and easy to understand. Here is how we're going to write JavaScript statements.</em></p></blockquote>
+
+<h4>Simple Statements</h4>
+
+
+<ul>
+<li>As emphasized just above, every simple statement must end with a semicolon.</li>
+<li>Every simple statement must be on its own line. This code will work but it fails the course standards in a couple of ways:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// WRONG WAY!
+
+    var name = "Fred"; var city = "Madison";
+
+    document.write(name + ", " + city)
+
+]]></script></li>
+<li>On <strong>line 3</strong> there are <em>two</em> statements. JavaScript doesn't care but your instructor and future professional teammates will.</li>
+<li>On <strong>line 5</strong> the statement is missing the semicolon at the end. JavaScript won't remind you to put them there. You will just have to get in the habit.</li>
+<li>Here's the correct version:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Right way!
+
+    var name = "Fred";
+    var city = "Madison";
+    
+    document.write(name + ", " + city);
+
+]]></script></li>
+</ul>
+
+
+
+
+<h3>8. Whitespace</h3>
+
+<blockquote><p><em>Whitespace greatly improves the readability of code. Here are the course standards for whitespace.</em></p></blockquote>
+
+
+<ul>
+<li>Use blank lines liberally--your code shouldn't be all bunched together.</li>
+
+<li>After each section of your program, leave a blank line. &nbsp;(As mentioned earlier, each section of a program should begin with a comment line.)</li>
+<li>Most operators must have a space on either side.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Operator spacing
+
+    var firstName = "Fred";
+    var errorCount = 0;
+    
+    errorCount += 3;
+	
+	enteredNumbersSum = numberOne + numberTwo; 
+      
+	// Note: The three exceptions to this rule are for the dot "." ,
+	// the "++", and the "--" operators. 
+	
+	loopCounter++;                 // no space around the ++
+	loopCounter--;                 // no space around the --
+	document.write("Hi Parent");   // no space around the dot
+	  
+]]></script></li>
+<li>A space should follow every comma ","</li>
+
+</ul>
+
+
+
+<p><br /><br /><br /></p>        </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+
+    </div>
+  </div>
+</body>
+</html>

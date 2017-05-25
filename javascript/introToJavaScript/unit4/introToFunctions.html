@@ -1,0 +1,295 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    A Quick Introduction to Functions  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/introToFunctions.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />A Quick Introduction to Functions</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>A Quick Introduction to Functions</h1>
+
+<h4>File: unit4/introToFunctions.html</h4>
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 7, Page 125</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>It's Moving Day!</h3>
+
+<blockquote><p>We're moving on. We liked it in our old place but it got to be too cramped. We want space.</p></blockquote>
+
+
+<ul>
+<li>We're going to move our JavaScript code out of our <span class="caps">HTML </span>files. This is done with functions. </li>
+<li>Functions are just a bunch of JavaScript code that is collected together in a location and given a name.  </li><li>Functions are normally named using one or more words (in camel case), with the first word being a <em>verb.</em>  But there is nothing in the software that enforces this--this is merely a convention among programmers. And in fact, for this course, the main function being invoked from between the script tags in the HTML document is <em>not</em> named beginning with a verb.  Rather, in this course,the name of the main function reflects the name of the js "library" file that holds it.</li>
+<li>We could also have functions embedded in our <span class="caps">HTML </span>pages but that is not the industry standard. JavaScript code should go into a different file that is just JavaScript code.</li>
+<li>However, if we want to move JavaScript out of <span class="caps">HTML </span>we have to use functions.</li>
+<li>Here's some JavaScript code that is like we've been learning.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Before
+    var subTotalPrice = 54.99;   // pretend this entered via prompt
+    var DISCOUNT_LIMIT = 49.95;
+    var DISCOUNT = 0.05;
+    var totalPrice;
+    
+    if (subTotalPrice < DISCOUNT_LIMIT) {
+        totalPrice = subTotalPrice;
+        document.write("Total: " + totalPrice);
+    } else {
+        totalPrice = subTotalPrice - (subTotalPrice * DISCOUNT);
+        document.write("Total with discount: " + totalPrice);
+    }
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Before
+    var subTotalPrice = 54.99;    // pretend this entered via prompt
+    var DISCOUNT_LIMIT = 49.95;
+    var DISCOUNT = 0.05;
+    var totalPrice;
+
+    if (subTotalPrice < DISCOUNT_LIMIT) {
+        totalPrice = subTotalPrice;
+        document.write("Total: " + totalPrice);
+    } else {
+        totalPrice = subTotalPrice - (subTotalPrice * DISCOUNT);
+        document.write("Total with discount: " + totalPrice);
+    }
+    
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<ul>
+<li>To make this a function we add just two lines of code, one before and one after.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function myNewShinyFunction() {  // <-- This line before...
+    var subTotalPrice = 54.99;    // pretend this entered via prompt
+    var DISCOUNT_LIMIT = 49.95;
+    var DISCOUNT = 0.05;
+    var totalPrice;
+    
+    if (subTotalPrice < DISCOUNT_LIMIT) {
+        totalPrice = subTotalPrice;
+        document.write("Total: " + totalPrice);
+    } else {
+        totalPrice = subTotalPrice - (subTotalPrice * DISCOUNT);
+        document.write("Total with discount: " + totalPrice);
+    }
+}  // <-- This line after!
+]]></script></li>
+<li>That's it, it's a function! This is what makes it a function:
+<ol>
+<li>The key word <code>function</code>.</li>
+<li>Followed by the name of the function.</li>
+<li>Followed by a set of parentheses with no space between the name and the left parentheses. (We'll put stuff in those parentheses later.)</li>
+<li>Followed by a space and a left curly-brace.</li>
+<li>Then comes the JavaScript code starting on the next line.</li>
+<li>And finally, a right curly-brace on its own line.</li>
+</ol>
+</li>
+</ul>
+
+
+
+<h3>Moving the <code>function</code> </h3>
+
+
+<ul>
+<li>Once we have a function we can move it to another file. Here are the steps.
+<ol>
+<li>We create a new text file, it can go anywhere but we want it close and part of our web site. We'll put them here:<br />
+<div style="text-align: center;"><br />
+  <img src="resources/javascriptFiles.png" alt="" height="219" width="360" /><br />
+</div></li>
+<li>I've done that for you for this unit. Let's take a look in there. There's a bunch of files that end in <code>.js</code> (for JavaScript). There's one for each page, project part, and lab. Here's what the one for this page looks like:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This is the JavaScript code for 
+    "A Quick Introduction to Functions" 
+    File: /unit4/introToFunctions.html
+*/
+function introToFunctions() {
+    // Your code goes in here.
+    document.write("The JavaScript file for this page is: " 
+            + "\"/unit4/jsFiles/introToFunctions.js\"");
+}
+]]></script></li>
+</ol>
+</li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+     
+</script>
+</pre>
+
+
+
+<h3>Getting the function to work</h3>
+
+
+<ul>
+<li>Uh, why isn't that output above showing? Well, here is that spot in this <span class="caps">HTML </span>file where we would normally put our JavaScript code:</li>
+</ul>
+
+
+
+
+<pre name="code" class="Xml">
+<script language="JavaScript" type="text/javascript">
+     
+</script>
+</pre>
+
+
+
+
+<ul>
+<li>It's empty, in order for our JavaScript code to work we have to do something called <code>calling</code> the function. It's also called <code>invoking</code> the function. Whatever we call it we need to make the code run. We do it like this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Calling a function
+    introToFunctions();
+]]></script></li>
+</ul>
+
+
+
+
+<ul>
+<li>Look at the function listing above. It has this line:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function introToFunctions() {
+]]></script></li>
+<li>The name of the function is <code>introToFunctions</code>, it's the same as the name of the page we reading. It doesn't have to be that name, it can be any valid JavaScript name. In our course coding standards we'll use the same approach we use for variable names. </li>
+<li>We have to use the name of our function when we call it. And it has to be spelled exactly the same as it is in the file.</li>
+<li>Now I'll add this line to this file. I'll be back in a few minutes...</li>
+<li>There's the output!<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<pre class="output">
+&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;
+     introToFunctions();
+&lt;/script&gt;
+&lt;/pre&gt;
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+     introToFunctions();
+</script>
+</pre>
+
+
+
+<h3>One last thing, the <code>&lt;head&gt;</code> tag.</h3>
+
+
+<ul>
+<li>Is that it? Not quite, we have to do one more thing. We have to tell the browser where the file with the JavaScript is located.</li>
+<li>Use the Firefox "View-&gt;Page Source" menu item and view the top of the file we're looking at right now. You should see this line:<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+&lt;script src=&quot;jsFiles/introToFunctions.js&quot; 
+        language=&quot;javascript&quot; 
+        type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+]]></script></li>
+<li>That line in the <code>&lt;head&gt;</code> tag lets the browser know where to look for the file containing the function. It is also a <code>&lt;script&gt;</code> tag but this one just refers to a file. When the browser sees a JavaScript function call it looks for the function on the page. If it can't find it there then it looks for all the pages referred to by tags like this. It works a lot like a css file. All the files in this unit have this script tag in the head tag already. You don't need to do anything here.</li>
+</ul>
+
+
+
+<h3>And then?</h3>
+
+<blockquote><p><em>No amount of experimentation can ever prove me right; a single experiment can prove me wrong.</em> <strong>-Albert Einstein</strong></p></blockquote>
+
+
+<ul>
+<li><a href="labs/lab01movingJavaScript.html">Lab 1: Moving your JavaScript</a> (You did expect this, right?)</li>
+</ul>
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

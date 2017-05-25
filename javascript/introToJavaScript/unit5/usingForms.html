@@ -1,0 +1,357 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Beginning to Use Forms with JavaScript  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/usingForms.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Beginning to Use Forms with JavaScript</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Beginning to Use Forms with JavaScript</h1>
+
+<h4>File: unit5/usingForms.html</h4>
+
+
+<ul>
+<li><em>No more prompt?</em></li>
+</ul>
+
+
+
+<h3>No More <code>prompt()</code>!</h3>
+
+
+<ul>
+<li>We're going to start using forms instead of the <code>prompt()</code> dialog box. We want to start doing more <span class="caps">HTML </span>based programming.</li>
+<li>The <code>prompt()</code> function is even being downplayed by many people. Even Internet Explorer 7 disables it by default. </li>
+<li>Here's a little example application to demonstrate the whole process.</li>
+</ul>
+
+
+
+<div class="output" style="width:18em;">
+  <form id="greetingFormId" action="usingForms.html#" onsubmit="return greetUser();">
+    <label class="formLabel" 
+           for="firstNameId">First Name:<br />
+    </label><input id="firstNameId" 
+                   name="firstName"><br style="clear:left;" />
+    <label class="formLabel" 
+           for="lastNameId">Last Name:<br />
+    </label><input id="lastNameId" 
+                   name="lastName"><br style="clear:left;" />
+    <label class="formLabel" 
+           for="ageId">Age:<br />
+    </label><input name="age"><br style="clear:left;" />
+    <input type="submit" 
+           name="runExample" 
+           value="Enter" 
+           class="formSubmit"
+    />
+    <input type="button" 
+           name="resetExample" 
+           value="Reset" 
+           class="formSubmit"
+           onclick="return resetGreetingForm();"
+    />
+  </form>
+</div>
+        <br />
+<div id="greetOutputId" class="output" style="width:18em;">
+</div>
+
+<h3> Let's look at the <span class="caps">HTML </span>first:</h3>
+
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<form id="greetingFormId" action="usingForms.html#" onsubmit="return greetUser();">
+  <label class="formLabel" 
+          for="firstNameId">First Name:
+  </label><input id="firstNameId" 
+                  name="firstName"><br style="clear:left;" />
+  <label class="formLabel" 
+          for="lastNameId">Last Name:
+  </label><input id="lastNameId" 
+                  name="lastName"><br style="clear:left;" />
+  <label class="formLabel" 
+          for="ageId">Age:
+  </label><input name="age"><br style="clear:left;" />
+  <input type="submit" 
+          name="runExample" 
+          value="Enter" 
+          class="formSubmit"
+  />
+  <input type="button" 
+          name="resetExample" 
+          value="Reset" 
+          class="formSubmit"
+          onclick="return resetGreetingForm();"
+  />
+</form>
+]]></script>
+
+
+<ul>
+<li><strong>Line 1:</strong> The <code>form</code> tag.
+<ul>
+<li>It should have an <code>id</code> attribute. </li>
+<li>The <code>action</code> attribute value is <strong>#</strong> which means that the form will not be submitted to the server.</li>
+<li>The <code>onsubmit</code> attribute is what makes JavaScript handle the form. The <code>return</code> statement determines if the page will refresh or not.</li>
+<li>The <code>greetUser();</code> function is in the attached JavaScript file and is the function that will be run when the <strong>Enter</strong> button is pressed.</li>
+</ul>
+</li>
+<li><strong>Lines 2-3:</strong> A label tag styled with <span class="caps">CSS.</span></li>
+<li><strong>Lines 4-5:</strong> Here's an input tag.
+<ul>
+<li>The tag should have an <code>id</code> attribute and a <code>name</code> attribute.</li>
+<li>The <code>&lt;br /&gt;</code> tag with <code>clear:left;</code> lets the next element start on the next line.</li>
+</ul>
+</li>
+<li><strong>Lines 6-12:</strong> More labels, inputs, and br tags for the form fields.</li>
+<li><strong>Lines 13-17:</strong> Here's the <code>submit</code> button. When the button is clicked, the form will not be submitted normally--instead the function <code>greetUser()</code> will be called (and nothing is sent to any server.)  &nbsp;[Remember from the HTML course that this onsubmit event hander is placed <i>not</i> with the input tag for this element, but rather up on the opening form element tag.  See line 1 of the program above.]</li>
+<li><strong>Lines 18-23:</strong> This is a button that says <strong>Reset</strong> on it.  &nbsp;But note that this is a type=&quot; button&quot;, &nbsp;not a type=&quot;reset&quot;. &nbsp;It needs a script associated with it in order for anything to happen. &nbsp; And it does have a script associated with it.  &nbsp;When this button is clicked the function <code>resetGreetingForm()</code> will be run. </li>
+</ul>
+
+
+
+<h3>The Key Parts of the <span class="caps">HTML</span></h3>
+
+
+<ul>
+<li>In the <code>&lt;form&gt;</code> tag this attribute shuts off the normal submission of the form. We don't want the browser to try to contact the server. We want our JavaScript code to be called instead.<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+action="#"
+]]></script></li>
+<li>This attribute is the heart of the whole form handling. We need the form to not cause a page refresh. The <code>return</code> statement gets the value returned by the function and returns it to the JavaScript engine. The function needs to send <code>false</code> if it does not want the page to refresh or <code>true</code> if the page should refresh. The word <code>onsubmit</code> is an <strong>Event Handler</strong> in JavaScript and is what causes the function to be called when a normal <strong>submit</strong> is pressed.<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+onsubmit="return greetUser();"
+]]></script></li>
+<li>The input tags need to have <code>id</code> attributes set with a unique value. Then <code>name</code> attribute is also required if the form will be submitted normally by the JavaScript function. In this example the form fields will be access using the name attribute.<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<input id="firstNameId"   
+       name="firstName">
+]]></script></li>
+<li>The <code>submit</code> button is just a normal <span class="caps">HTML </span>submit button. JavaScript will take over when this button is clicked.<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<input type="submit"   
+        name="runExample"   
+        value="Enter"   
+        class="formSubmit"  
+/>  
+]]></script></li>
+<li>The <code>reset</code> button is not a real reset button. It is a generic button that will call the function <code>resetGreetingForm()</code> when it is pressed. This way, our JavaScript code can reset the form and the output tags.<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<input type="button"   
+        name="resetExample"   
+        value="Reset"   
+        class="formSubmit"  
+        onclick="return resetGreetingForm();"  
+/>
+]]></script></li>
+</ul>
+
+
+
+<h3>The JavaScript code</h3>
+
+
+<ul>
+<li>Here&#39;s the main function that will handle the submit button click.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function greetUser() {
+    // Declare Variables
+    var output;
+    var form;
+    var firstName;
+    var lastName;
+    var age;
+    
+    // Get the output and form objects
+    output = document.getElementById('greetOutputId');
+    form   = document.getElementById('greetingFormId');
+    
+    // Get the values from the form fields
+    firstName = form.firstName.value;
+    lastName  = form.lastName.value;
+    age       = form.age.value;
+    
+    // Output the results
+    output.innerHTML = "<h4>" + firstName + " " 
+            + lastName  + " is " + age + "!</h4>";
+    
+    form.firstName.focus();
+    form.firstName.select();
+    return false;
+}
+]]></script></li>
+<li><strong>Lines 1-7:</strong> Start the function and declare variables.</li>
+<li><strong>Lines 10-11:</strong> Get the output element and the form. You have to use exactly the same ids that you put in the <span class="caps">HTML.</span> This is one of very few places where I recommend a <code>copy and paste</code>.</li>
+<li><strong>Lines 14-16:</strong> We are getting the individual values from the entered text fields. 
+<ul>
+<li>The word <code>form</code> is our variable we declared earlier.</li>
+<li>The words <code>firstName</code>, <code>lastName</code>, and <code>age</code>  are the <code>name</code> attributes on the <code>input</code> tags. These also have to be exactly the same, including case.</li>
+<li>The word <code>value</code> is a JavaScript keyword that returns what was entered by the user in the text box.</li>
+</ul>
+</li>
+<li><strong>Lines 19-20:</strong> Using the <code>innerHTML</code> property to set the contents of the output <code>div</code> tag. In this case we are adding an <code>&lt;h4&gt;</code> tag.</li>
+<li><strong>Line 22:</strong> Set the focus of the page to the <code>firstName</code> field.</li>
+<li><strong>Line 23:</strong> Select the contents of the <code>firstName</code> field.</li>
+<li><strong>Line 24:</strong> Return <code>false</code> to the <code>onsubmit</code> so that the browser won't refresh the page.</li>
+</ul>
+
+
+
+<h3>The Key Parts of the JavaScript</h3>
+
+
+<ul>
+<li>It's essential to have the argument for the <code>getElementById()</code> call be the same, including case, in this following line. Many students lose untold hours of frustrating time by having a small spelling mistake here.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+output = document.getElementById('greetOutputId');
+]]></script></li>
+<li>What if you typed this?<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+output = document.getElementById('greetOutputid');
+]]></script></li>
+<li>That kind of mistake is sometimes very hard to see. You often need someone else to look at your code to see it. Again, I recommend that you copy and paste the id values from the <span class="caps">HTML </span>page to the JavaScript file.</li>
+<li>The following syntax might be new to you. It is a very handy shortcut for getting access to the values from the text fields on the form. There are other methods, too, but this is easy and appears clear.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+firstName = form.firstName.value;
+]]></script></li>
+<li>The "first" <code>firstName</code> is just a variable that we declared earlier.</li>
+</ul>
+
+
+
+
+<pre class="output">
+<code>firstName</code> = form.firstName.value;
+</pre>
+
+
+
+<ul>
+<li>The word <code>form</code> is the variable where we stored the form retrieved by the getElementById() function.</li>
+</ul>
+
+
+
+
+<pre class="output">
+firstName = <code>form</code>.firstName.value;
+</pre>
+
+
+
+<ul>
+<li>The "second" <code>firstName</code> is the exact value of the <code>name</code> attribute off the <code>input</code> tag. Here's another spot where you should copy and paste.</li>
+</ul>
+
+
+
+
+<pre class="output">
+firstName = form.<code>firstName</code>.value;
+</pre>
+
+
+
+<ul>
+<li>The JavaScript keyword <code>value</code> will return the string that was entered by the user into the <code>input</code> tag.</li>
+</ul>
+
+
+
+
+<pre class="output">
+firstName = form.firstName.<code>value</code>;
+</pre>
+
+
+
+<ul>
+<li>Finally, the value <code>false</code> is returned to the calling function so that the browser won't refresh the page and wipe out our output.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+return false;
+]]></script></li>
+</ul>
+
+
+
+<h3>A Picture is Worth...</h3>
+
+<div style="text-align: center;">
+  <img src="resources/FormsAndJavaScript.jpg" alt="" height="654" width="932" /><br />
+</div>
+
+<h3>A Lab is "called" for here, I think.</h3>
+
+
+<ul>
+<li><a href="labs/lab06formsAndJavaScript.html">Lab 6: Using Forms with JavaScript</a>
+<ul>
+<li><a href="labs/exercises-6.html">Lab 6 Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

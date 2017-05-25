@@ -1,0 +1,218 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 1 Part 3  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushBash.js"></script>
+  <script type="text/javascript" src="../resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="../resources/shBrushCSharp.js"></script>
+  <script type="text/javascript" src="../resources/shBrushCss.js"></script>
+  <script type="text/javascript" src="../resources/shBrushDelphi.js"></script>
+  <script type="text/javascript" src="../resources/shBrushDiff.js"></script>
+  <script type="text/javascript" src="../resources/shBrushGroovy.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJava.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushObjectiveC.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPhp.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPython.js"></script>
+  <script type="text/javascript" src="../resources/shBrushRuby.js"></script>
+  <script type="text/javascript" src="../resources/shBrushScala.js"></script>
+  <script type="text/javascript" src="../resources/shBrushSql.js"></script>
+  <script type="text/javascript" src="../resources/shBrushVb.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+          <p class="heading">
+            <span style="float:left;"><a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 1</a>
+                  <img src="../resources/arrow_right_small.png" />Project 1 Part 3</span><span id="dataSpanID" style="float:right;"></span>
+          </p>
+        </div>
+        <div id="main" style="border-top:1px solid black;">
+        <h1>Project 1 - Part 3</h1>
+
+<h4>File: /unit1/project/project1Part3.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: TuTh 12:30</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+<h3>Specifications</h3>
+
+<ul>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ul>
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that prompts for the names of two (2) flowers and stores them. The program then displays the entered names from storage with labels. The names are then swapped in their storage locations, the first name is put in the second one's storage and the second name is put in the first one's storage. The names are then displayed again from storage with labels.</p></blockquote>
+
+<blockquote><p><strong style="color:red;">NOTE:</strong> No more than three variables are allowed for this part. You must output the two variables in the same order for the "Strings as entered" output and the "Switched strings" section. You can't just output each variable in reverse order. You actually need to swap the data from one variable into the other. 
+<br /><br /> 
+Imagine two glasses of liquids, one blue, one green.
+The task is to interchange the liquids from the two glasses. Obviously, to accomplish this, the liquid currently in one of the glasses, say Glass #1, has to have its contents set aside into a third glass. Then, the contents of Glass #2 can be poured into Glass #1. At that point, now Glass #2 is empty, and can have the contents of the third glass poured into it (Glass #2). Thus, the contents of the two glasses are interchanged.
+With variables in a programming language, the same kind of thing must be done for this Project Part 3. The "move" between two variables is accomplished via the assign operator (=). And the third temp variable is needed so that the content of the first variable can be safely stored outside of itself, so that when the content of the second variable is moved into the first variable (thus erasing its previous content), that 
+content remains available to be moved into the second variable.
+
+</p></blockquote>
+
+
+
+<h3>The Program Planning Lists</h3>
+
+
+
+<ul>
+<li>In the following pre tag, write the first two of the three planning lists.&nbsp; For this project part, the Process Checklist has already been written for you. </li>
+</ul>
+
+
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    flowerOne
+    flowerTwo
+
+The List of Output Variables:
+    flowerOne
+    flowerTwo
+
+The Process Checklist:
+<br/>&nbsp;&nbsp;&nbsp;Define all variables<br />&nbsp;&nbsp;&nbsp;Prompt user for first flower name<br />&nbsp;&nbsp;&nbsp;Prompt user for a second flower name<br />&nbsp;&nbsp;&nbsp;Display the entered flower names on the Web page<br />&nbsp;&nbsp;&nbsp;Swap the flower names into each others variables<br />&nbsp;&nbsp;&nbsp;Display the flower names again on the Web page<br /> </pre>
+
+
+
+
+
+<h3>5. JavaScript Output</h3>
+
+
+
+<blockquote><p>Write the JavaScript code based on everything you've done. Your code must follow the course coding standards.</p></blockquote>
+
+
+<ul>
+<li><strong>Sample Output:</strong><br />
+<br /><em>You don't have to name your variables the same as in this sample, in fact it would be better if you didn't.</em></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+Strings as entered:
+  variableOne: Rose
+  variableTwo: Daisy
+
+Switched strings:
+  variableOne: Daisy
+  variableTwo: Rose
+</pre>
+
+
+
+<ul>
+<li><strong>Project 1 - Part 3 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// YOUR CODE STARTS AFTER THIS LINE:
+
+    // Define all variables
+    var flowerOne;
+    var flowerTwo;
+    var flowerSwap;
+    
+    // Prompt user for flower names
+    flowerOne = prompt("Name a flower:");
+    flowerTwo = prompt("Name another flower:");   
+    
+    // Display the entered flower names on the Web page
+    document.write("Strings as entered:\n");
+    document.write("  variableOne: " + flowerOne + "\n");
+    document.write("  variableTwo: " + flowerTwo + "\n\n");
+    
+    // Swap the flower names into each others variables
+    flowerSwap = flowerOne;
+    flowerOne = flowerTwo;
+    flowerTwo = flowerSwap;
+    
+    // Display the flower names again on the Web page
+    document.write("Switched strings:\n");
+    document.write("  variableOne: " + flowerOne + "\n");
+    document.write("  variableTwo: " + flowerTwo);
+ 
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<p><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,611 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+    <title>
+      Nested if Statements    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+    <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+    <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+    <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+    <script src="resources/nestedIfs.js" language="javascript" type="text/javascript"> </script>
+    <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+    <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+    <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+    <script type="text/javascript" src="resources/shBrushXml.js"></script>
+    <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+    <script type="text/javascript">
+      SyntaxHighlighter.all();
+    </script>
+
+  </head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 3</a>
+                    <img src="resources/arrow_right_small.png" />Nested if Statements</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Nested if Statements</h1>
+
+
+<h3>Readings</h3>
+
+
+<ul>
+<li>JavaScript Step by Step
+<ul>
+<li>Chapter 6 - Controlling Flow with Conditionals and Loops (pages 107 - 111)</li>
+</ul>
+</li>
+</ul>
+
+
+
+<div style="text-align: center;">
+  <img src="resources/800px-7babushkadolls.jpg" alt="" height="600" width="800" /><br />
+</div>
+
+<h3>Nested <code>if/else</code> Statements</h3>
+
+
+<ul>
+<li>What if you want to answer more than one question in a series? Or you want to test a variable for one of many options? We frequently have situations like this in programs. Here's some code snippets that illustrates a common problem<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Nested if statements
+    
+    if (choice1 === 'A') {
+        if (choice2 === 2) {
+            if (choice3 === "Blue") {
+                //Do a really important task!
+            }
+        }
+    }
+]]></script></li>
+<li>This is the same as using multiple logical <span class="caps">AND </span>(<code>&amp;&amp;</code>) expressions. But, with one important difference, we can use <code>else</code> statements, too.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Nested if statements with else statements
+
+    if (choice1 === 'A') {
+        if (choice2 === 2) {
+            if (choice3 === 'X') {
+                if (choice4 === "Blue") {
+                    // All true
+                }
+                else {
+                    // 'A', 2, 'X' are true but not "Blue"
+                }
+            }
+            else {
+                // 'A', 2 are true but not 'X'
+            }
+        }
+        else {
+            // 'A' is true but not 2
+        }
+    }
+    else {
+        // 'A' is not true
+    }
+    
+    
+]]></script></li>
+<li>How's this look? A bit complicated? It can get worse...<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Deeply nested if statements
+
+    if (true) {
+        if (true) {
+            if (true) {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+            else {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+        }
+        else {
+            if (true) {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+            else {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+        }
+    }
+    else {
+        if (true) {
+            if (true) {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+            else {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+        }
+        else {
+            if (true) {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+            else {
+                if (true) {
+                    //do something
+                }
+                else {
+                    //do something
+                }
+            }
+        }
+    }
+]]></script></li>
+<li>But, this kind of coding is not that typical. Over time programmers have figured out that this is very fragile and you never really know if it works right. We now have lots of ways to avoid this type of monster.</li>
+<li>We'll start with some basic patterns of <code>nesting our logic</code>.</li>
+</ul>
+
+
+
+<h3>Linear Nested <code>if</code> Statements</h3>
+
+
+<ul>
+<li>The linear nested if statement allows us to do many things like testing one variable for many options, and range testing. It uses a new key concept in programming: <code>else if</code>.</li>
+<li>Here's how it's used.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// if/else if
+
+    if (<boolean expression>) {
+        // code
+    } else if (<boolean expression>) {
+        // code
+    }
+]]></script></li>
+<li>Very frequently, we will also have an <code>else</code> statement at the end.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// if/else if/else
+
+    if (<boolean expression>) {
+        // code
+    } else if (<boolean expression>) {
+        // code
+    } else {
+        // default code if nothing is true
+    }
+]]></script></li>
+</ul>
+
+
+
+<canvas id="ifElseIfImage" width='816' height='608'></canvas><br />
+<div style="margin-left:25px;">
+<form name="nestedIfElseIfForm" method="put" action="nestedIfs.html#"
+  onsubmit="return false;" id="nestedIfElseIfFormId">
+
+    <input type="button" 
+           name="forwardOne" 
+           onclick="nextFrame()" 
+           value="Next" 
+    /> 
+    <input type="button" 
+           name="resetDemo" 
+           onclick="resetFrames()" 
+           value="Reset" 
+    />
+
+</form>
+</div>
+
+
+<ul>
+<li>Here's a larger example. We have a choice variable and the user is asked to make a selection from a list. Doing this with deeply nested if/else statements is ugly! So most languages have better ways. This is usually called the "if, else if, else if, else" pattern among programmers. It looks like this.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// One variable, many choices
+
+    var choice = "G";
+    
+    if (choice === "A") {
+        document.write("The choice was A");
+    } else if (choice === "B") {
+        document.write("The choice was B");
+    } else if (choice === "C") {
+        document.write("The choice was C");
+    } else if (choice === "D") {
+        document.write("The choice was D");
+    } else if (choice === "E") {
+        document.write("The choice was E");
+    } else if (choice === "F") {
+        document.write("The choice was F");
+    } else if (choice === "G") {
+        document.write("The choice was G");
+    } else {
+        document.write("The choice was none of the above");
+    }
+    
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// One variable, many choices
+    var choice = "G";
+    
+    if (choice === "A") {
+        document.write("The choice was A");
+    } 
+    else if (choice === "B") {
+        document.write("The choice was B");
+    } else if (choice === "C") {
+        document.write("The choice was C");
+    } else if (choice === "D") {
+        document.write("The choice was D");
+    } else if (choice === "E") {
+        document.write("The choice was E");
+    } else if (choice === "F") {
+        document.write("The choice was F");
+    } else if (choice === "G") {
+        document.write("The choice was G");
+    } else {
+        document.write("The choice was none of the above");
+    }
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<ul>
+<li>This is a very useful and commonly used structure. The above code replaces what's below and does exactly the same work. Which would you rather do?<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Long version. Yuck!
+
+    if (choice === "A") {
+        document.write("The choice was A");
+    } 
+    else {
+        if (choice === "B") {
+            document.write("The choice was B");
+        } else {
+            if (choice === "C") {
+                document.write("The choice was C");
+            } else {
+                if (choice === "D") {
+                    document.write("The choice was D");
+                } else {
+                    if (choice === "E") {
+                        document.write("The choice was E");
+                    } else {
+                        if (choice === "F") {
+                            document.write("The choice was F");
+                        } else {
+                            if (choice === "G") {
+                                document.write("The choice was G");
+                            } else {
+                                document.write("The choice was none");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+]]></script></li>
+</ul>
+
+
+
+<h3>Testing Different Conditions With <code>if/else</code> structures.</h3>
+
+
+<ul>
+<li>Sometimes we just have to nest <code>if/else</code> statements as it won't work any other way. We try to limit it and make it concise.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Nested ifs
+
+    var state;
+    var county;
+    var city;
+    
+    //state = prompt("What State do you live in?");
+    
+    if (state === "WI") {
+        county = prompt("What county do you live in?");
+        if (county === "Dane") {
+            city = prompt("What city in Dane county do you live in?");
+            if (city === "Madison") {
+                document.write("Madison is a nice place");
+            } else {
+                document.write("There are other cities in Dane County?");
+            }
+        } else {
+            city = prompt("What city do you live in?");
+            if (city === "Milwaukee") {
+                document.write("That's too big for me.");
+            } else {
+                document.write("I don't know much about that city.");
+            }
+        }
+    } else {
+        document.write("Goodbye!");
+    }
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Nested ifs
+
+    var state;
+    var county;
+    var city;
+    
+    //state = prompt("What State do you live in?");
+    
+    if (state === "WI") {
+        //county = prompt("What county do you live in?");
+        if (county === "Dane") {
+            //city = prompt("What city in Dane county do you live in?");
+            if (city === "Madison") {
+                document.write("Madison is a nice place");
+            } else {
+                document.write("There are other cities in Dane County?");
+            }
+        } else {
+            //city = prompt("What city do you live in?");
+            if (city === "Milwaukee") {
+                document.write("That's too big for me.");
+            } else {
+                document.write("I don't know much about that city.");
+            }
+        }
+    } else {
+        document.write("Goodbye!");
+    }
+// -->
+//]]>
+</script>
+</pre>
+
+<p> </p>
+
+
+<ul>
+<li>If we limit the complexity we can manage.</li>
+</ul>
+
+
+
+<h3>Range Testing</h3>
+
+<blockquote><p>We frequently need to test to see if a value is within a range. The technique to solve this combines nested <code>if/else</code> with multiple booleans.</p></blockquote>
+
+
+<ul>
+<li>Pick a number between 1 and 10<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Range Testing
+
+    var number;
+    
+    //number = prompt("Pick a number between 1 and 10");
+    
+    number = Number(number);
+    
+    if (number >= 1 && number <= 10) {
+        document.write("You got it right: " + number);
+    } else {
+        document.write("Your entry was out of range.");
+    }
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Range Testing
+
+    var number;
+    
+    //number = prompt("Pick a number between 1 and 10");
+    
+    number = Number(number);
+    
+    if (number >= 1 && number <= 10) {
+        document.write("You got it right: " + number);
+    } else {
+        document.write("Your entry was out of range.");
+    }
+    
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+
+<ul>
+<li>Using this technique we can pick from multiple ranges.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Multiple ranges
+
+    var number;
+    
+    //number =  prompt("Pick a number between 1 and 50");
+    
+    number = Number(number);
+    
+    if (number < 0) {
+        document.write("That number is negative, I don't do negative.");
+    } else if (number >= 0 && number <= 10) {
+        document.write(number + " is between 1 and 10");
+    } else if (number > 10 && number <= 20) {
+        document.write(number + " is between 10 and 20");
+    } else if (number > 20 && number <= 30) {
+        document.write(number + " is between 20 and 30");
+    } else if (number > 30 && number <= 40) {
+        document.write(number + " is between 20 and 30");
+    } else if (number > 40 && number <= 50) {
+        document.write(number + " is between 40 and 50");
+    } else {
+        document.write(number + " is bigger than 50.");
+    }
+
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+// Multiple ranges
+
+    var number;
+    
+    //number =  prompt("Pick a number between 1 and 50");
+    
+    number = Number(number);
+    
+    if (number < 0) {
+        document.write("That number is negative, I don't do negative.");
+    } else if (number >= 0 && number <= 10) {
+        document.write(number + " is between 0 and 10");
+    } else if (number > 10 && number <= 20) {
+        document.write(number + " is between 10 and 20");
+    } else if (number > 20 && number <= 30) {
+        document.write(number + " is between 20 and 30");
+    } else if (number > 30 && number <= 40) {
+        document.write(number + " is between 20 and 30");
+    } else if (number > 40 && number <= 50) {
+        document.write(number + " is between 40 and 50");
+    } else {
+        document.write(number + " is bigger than 50.");
+        //document.write("<span style=\"color:purple;\">test</span>");
+    }
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<h3>Full Example</h3>
+
+
+<ul>
+<li>Here's an example that's not in the book: <a href="example-3-2.html">Full Example: Process Customer Record</a></li>
+</ul>
+
+
+
+<h3>And here's the lab</h3>
+
+
+<ul>
+<li><em>Anyone who has never made a mistake has never tried anything new.</em> -Albert Einstein</li>
+</ul>
+
+
+
+
+<ul>
+<li><a href="labs/lab-05-nestedIfs.html">Lab 5: Nested Ifs</a>
+<ul>
+<li><a href="labs/exercises-5.html">Lab 5 Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<script language="JavaScript" type="text/javascript">makeNestedIfElseIfDemo();</script>
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

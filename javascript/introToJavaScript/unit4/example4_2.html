@@ -1,0 +1,198 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    An Example From the Book  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/example4_2.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />An Example From the Book</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Example 4_2: Print Examination Scores</h1>
+
+<h4>File: unit4/example4_2.html</h4>
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program to read and print a series of names and exam scores for students enrolled in a mathematics course. The class average is to be calculated and printed at the end of the report. Scores can range from 0 to 100. Read all scores from the Student Exam Records set.<br /><br /><span style="color: red; font-weight: 800;">Remember:</span> a program should always be thought of as consisting of a <b>set</b> of functions.  However, in this simple case, just to illustrate the basics of working with a function, here the set consists of only a single function. Most real programs will consist of a set of functions with a main (aka mainline aka controller) function, and one or more subfunctions.</p></blockquote>
+
+<h3>Program Planning Lists</h3>
+
+
+<ul>
+<li>When the entire program (set of functions) consists of just a single function, one can easily still write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    studentName
+    studentScore
+
+The List of Output Variables:
+    studentName
+    studentScore
+    averageScore
+
+The Process Checklist:
+    Read student record
+    Print student record
+    Calculate average score
+    Print average score
+
+</pre>
+
+<h3>The Program OverView Statement:</h3>
+<pre class="blackGreen">
+
+1. Overall, this program processes data about:  Students
+
+2. Overall, this program obtains its input from:    a file
+
+3. Overall, this program produces as output: Student names and exam scores
+
+4. Overall, this program delivers this output to:   the Web page
+
+</pre>
+<h3>The Test Plan</h3>
+
+<blockquote><p>Create a test plan for the algorithm.</p></blockquote>
+
+
+
+<pre class="blackGreen">
+VARIABLES: studentScore
+
+TEST CASE 1:
+
+    INPUT VALUES: all records
+
+    EXPECTED RESULT: average: 89
+    
+</pre>
+
+
+
+<h3>5. JavaScript Output</h3>
+
+<blockquote><p>Write the JavaScript code based on everything you've done.</p></blockquote>
+
+
+<ul>
+<li><strong>Here's the code:</strong><br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This is the JavaScript code for 
+    "Print Examination Scores" File: /unit4/example4_2.html
+*/
+function example4_2() {
+
+    // Declare Constants
+    var ZERO = 0;
+    
+    // Declare variables
+    var studentName;
+    var studentScore;
+    var totalStudents = ZERO;
+    var totalScore = ZERO;
+    var averageScore;
+    var records;
+    
+    // Open the Student Exam Record set
+    records = openStudentExamRecords();
+    
+    // Loop through the records
+    while (records.readNextRecord()) {
+        totalStudents++;
+        studentName = records.getStudentName();
+        studentScore = records.getStudentScore();
+        totalScore += studentScore;
+        document.write(studentName + ":\t" + studentScore + "<br />");
+    }
+    
+    // Calculate and print the average if there 
+    // were students in the record set
+    if (totalStudents > ZERO) {
+        averageScore = totalScore / totalStudents;
+        document.write("<br />The average score is: " + averageScore);
+    }
+}
+]]></script></li>
+</ul>
+
+
+
+
+<ul>
+<li><strong>Here's the output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+    example4_2();
+</script>
+</pre>
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

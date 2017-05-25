@@ -1,0 +1,318 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Lab 2 Exercises  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 3</a>
+                <img src="../resources/arrow_right_small.png" />Lab 2 Exercises          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Lab 2 Exercises</h1>
+
+<h4>File: /unit3/labs/exercises-2.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Th/Th 12:30 - 2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+
+
+<h2>Exercise Part 1</h2>
+
+<div class="noprint">
+
+
+<ol>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ol>
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that asks a user to enter two numbers. If the first number is bigger than the second number then output a statement show the number and indicating that the first is bigger. If the second number is bigger then output a statement that indicates that. <span class="caps">NOTE</span>: Use only if statements.</p></blockquote>
+
+</div>
+
+<h3>The Program Planning Lists</h3>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    numberOne
+    numberTwo
+
+The List of Output Variables:
+    outputMessage
+
+The Process Checklist:
+    Declare Variables
+    Assignments Section
+    Comparisons
+    Display Output
+
+</pre>
+
+
+
+<div class="noprint">
+
+
+<ul>
+<li><strong>Sample Part 2 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+The number 10 is bigger than 5.
+</pre>
+
+
+
+<ul>
+<li><strong>OR</strong></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+The number 4 is smaller than 5.
+</pre>
+
+
+
+</div>
+
+
+<h3>Your Part 1 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 1: YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var numberOne;
+    var numberTwo;
+    var outputMessage;
+    
+    // Assignments Section
+    numberOne = Number(prompt("Enter the first number:"));
+    numberTwo = Number(prompt("Enter the second number:"));
+    
+    // Comparisons
+    if (numberOne > numberTwo) {
+        outputMessage = "The number " + numberOne + " is bigger than " + numberTwo;
+    }
+    else if (numberTwo > numberOne) {
+        outputMessage = "The number " + numberOne + " is smaller than " + numberTwo;
+    } else {
+        outputMessage = "Those are both the same number!";
+    }
+    
+    // Display Output
+    document.write(outputMessage);
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+
+<h2>Exercise Part 2</h2>
+
+<div class="noprint">
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that asks a user to enter a string. If the entered string is equal to the string, "Hello", then output, "Hello is the right word." If the user does not enter the right word then output, "Please try again."</p></blockquote>
+
+<blockquote><p><span class="caps">NOTES</span>: Use only if statements. Use variables for the input and the word, "Hello".</p></blockquote>
+
+
+<ul>
+<li><strong>Sample Part 2 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+Hello is the right word.
+</pre>
+
+
+
+<ul>
+<li><strong>OR</strong></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+Please try again
+</pre>
+
+
+
+</div>
+
+<h3>The Program Planning Lists</h3>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    enteredWord
+
+The List of Output Variables:
+    outputMessage
+
+The Process Checklist:
+    Declare Variables
+    Prompt for Word
+    Compare enteredWord to "Hello"
+    Display outputMessage
+
+</pre>
+
+
+
+
+<h3>Your Part 2 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 2: YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var enteredWord;
+    var outputMessage;
+    
+    // Prompt for Word
+    enteredWord = prompt("Enter a word:");
+    
+    // Compare enteredWord to "Hello"
+    if (enteredWord === "Hello") {
+        outputMessage = "Hello is the right word.";
+    } else {
+        outputMessage = "Please try again.";
+    }
+        
+    // Display outputMessage
+    document.write(outputMessage);
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<div class="noprint">
+
+<h3>Submitting your work</h3>
+
+
+<ul>
+<li>Exercises are due the first class session of the following week of school.</li>
+<li>Print out your exercise and place it on the instructor's table at the beginning of class.</li>
+</ul>
+
+
+
+</div>
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Lab 6: A Simple Start With Student Enrollment Records  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/lab06simpleEnrollment.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 4</a>
+                <img src="../resources/arrow_right_small.png" />Lab 6: A Simple Start With Student Enrollment Records          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Lab 6: A Simple Start With Student Enrollment Records</h1>
+
+<h4>File: unit4/labs/lab06simpleEnrollment.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name:</li>
+<li>Section:</li>
+<li>Email:</li>
+</ul>
+
+
+
+<h3>Lab Steps</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit.</li>
+<li>Add your name, section, and email.</li>
+<li>Open the file <code>/unit4/jsFiles/lab06simpleEnrollment.js</code> in jEdit</li>
+<li>Refer to <a href="../studentEnrollmentRecords.html">this page</a> for an example showing the details about accessing the Student Enrollment Records Set. (Note that there exists such a sample code page within Learning Unit 4 for each of the records sets.)</li>
+<li>Create a JavaScript program in the lab JavaScript file that displays student enrollment data on the web page.</li>
+<li>As shown in the example, use the function <code>openStudentEnrollmentRecords()</code> to open this record set.</li>
+<li>For the JavaScript program you are writing, display just the student number and the student name. As shown in the example program, you will need to use these functions:
+  <ul>
+<li><code>getStudentNumber()</code></li>
+<li><code>getStudentName()</code></li>
+</ul>
+</li>
+<li>Use the <code>readNextRecord()</code> function as the loop conditional.</li>
+<li>Study the looping code in lab 5 as another example of looping to read records from files in this course.</li>
+<li>Display the data as shown in the Example Output below. &nbsp;<strong>Note</strong>: Show the two requested fields for <em>all</em> records in the file, and not  just the  few shown in  the example output below:</li>
+</ul>
+
+
+
+<h3>Example Output</h3>
+
+
+
+<pre class="blackGreen">
+101 Joe Coyne
+102 Fred Hensen
+103 Ethel Roselle
+104 Barney Curry
+...
+</pre>
+
+
+
+<h3>Your Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+    lab06simpleEnrollment();
+</script>
+</pre>
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

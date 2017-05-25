@@ -1,0 +1,12 @@
+/*
+    This is the JavaScript code for 
+    "Lab 1: Working With innerHTML" 
+    File: /unit5/labs/lab01innerHTML.html
+*/
+function lab01innerHTML() {
+    // Your code goes in here.
+    
+    document.write("The JavaScript file for this page is: "
+            + "\"/unit5/jsFiles/lab01innerHTML.js\". Why isn't this formatted " 
+            + "like other labs?");
+}

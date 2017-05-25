@@ -1,0 +1,287 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 3 - Part 3  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJava.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 3</a>
+                <img src="../resources/arrow_right_small.png" />Project 3 - Part 3          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 3 - Part 3</h1>
+
+<h4>File: unit3/project/project3Part3.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email:bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<h3>Specifications</h3>
+
+
+<ul>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ul>
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that calculates the price of a hotel room based on three factors. First, how many will be in one room: 1-2, 3-4, or 5-6? No more than six are allowed in a room. &nbsp;Second, are the guests members of <span class="caps">AAA</span>? &nbsp;Third, do they want a room with a view?  The rate is calculated as follows:</p></blockquote>
+
+
+<ul>
+<li>Basic room rate is:
+<ul>
+<li>1-2 people = $50/night</li>
+<li>3-4 people = $60/night</li>
+<li>5-6 people = $70/night</li>
+</ul>
+</li>
+<li>There is a discount for <span class="caps">AAA </span>members off of the basic room rate per night:
+<ul>
+<li>1-2 people = 15%</li>
+<li>3-4 people = 10%</li>
+<li>5-6 people =  5%</li>
+</ul>
+</li>
+<li>A room with a view costs 10% more per night after all other calculations are performed.</li>
+</ul>
+
+
+
+<blockquote>
+  <p>The program should prompt the user for all the inputs, perform the calculations and output the total cost per night. It is suggested to use at least some nested if/else structures to calculate the cost. &nbsp;Use the toFIxed(2) method to display the total cost per night rounded to the usual two decimal places (i.e. cents).   </p></blockquote>
+
+<h3>Program Planning Lists</h3>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    numberOfPeople
+    memberOfAAA
+    viewWanted
+
+The List of Output Variables:
+    finalCost
+
+The Process Checklist:
+    Declare Constants
+    Declare Variables
+    Prompt for numberOfPeople, AAA membership, and if they want a view
+    Calculations section
+    Display Output
+
+</pre>
+
+
+
+<h3>The Test Plan</h3>
+
+
+<ul>
+<li>In the following pre tag, write test data. Note that the first test case has been done for you.</li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+TEST PLAN: 
+
+Test Case 1:
+    Inputs:  1  y  y (one person, and yes to both AAA and View)
+    
+    Expected Results:  Total cost per night is $46.75
+
+Test Case 2:
+    Inputs: 2 y n
+    
+    Expected Results: Total cost per night is $42.50
+
+Test Case 3:
+    Inputs: 3 n y
+    
+    Expected Results: Total cost per night is $66.00
+
+Test Case 4:
+    Inputs: 4 n n 
+    
+    Expected Results: Total cost per night is $60.00
+
+Test Case 5:
+    Inputs: 5 y y 
+    
+    Expected Results: Total cost per night is $73.15 
+
+</pre>
+
+
+
+
+<h3>JavaScript Program</h3>
+
+<blockquote><p>Write the JavaScript code based on everything you've done. Your code must follow the course coding standards. You should add good comments about the different parts of your solution.</p></blockquote>
+
+<h3>Sample Output:</h3>
+
+
+
+<pre class="blackGreen">
+Total cost per night is $50.00
+</pre>
+
+
+
+<h3>Project 3 - Part 3 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Constants
+    var ERROR_MESSAGE = "Invalid input(s), please try again. (F5)";
+    var VIEW_CHARGE = 1.10;
+    
+    // Declare Variables
+    var numberOfPeople;
+    var memberOfAAA;
+    var viewWanted;
+    var baseCost;
+    var memberDiscountPercent;
+    var memberDiscountAmount;
+    var finalCost;
+    
+    // Prompt for numberOfPeople, AAA membership, and if they want a view
+    numberOfPeople = Number(prompt("How many in your party?\n(No more than 6)"));
+    memberOfAAA = (prompt("Are you a AAA member?\n('y' or 'n')")).toLowerCase();
+    viewWanted = (prompt("Do you want a room with a view?\n('y' or 'n')")).toLowerCase();
+    if (memberOfAAA.length != 1 || viewWanted.length != 1) {
+        alert(ERROR_MESSAGE + "poop");
+    }
+    
+    // Assignments section, based on responses above
+    if (numberOfPeople === 1 || numberOfPeople === 2) {
+        baseCost = 50;
+        memberDiscountPercent = .15;
+    } else if (numberOfPeople === 3 || numberOfPeople === 4) {
+        baseCost = 60;
+        memberDiscountPercent = .1;
+    } else if (numberOfPeople === 5 || numberOfPeople === 6) {
+        baseCost = 70;
+        memberDiscountPercent = .05;
+    } else {
+        alert(ERROR_MESSAGE);
+    }
+    
+    memberDiscountAmount = baseCost * memberDiscountPercent;
+ 
+    // Calculations section, based on the conditionals 
+    if (memberOfAAA === "y") {
+        if (viewWanted === "y") {
+            finalCost = (baseCost - memberDiscountAmount) * VIEW_CHARGE;
+        } else if (viewWanted === "n") {
+            finalCost = baseCost - memberDiscountAmount;
+        } else {
+            alert(ERROR_MESSAGE);
+        }
+    } else if (memberOfAAA === "n") {
+        if (viewWanted === "y") {
+            finalCost = baseCost * VIEW_CHARGE;
+        } else if (viewWanted === "n") {
+            finalCost = baseCost;
+        } else {
+           alert(ERROR_MESSAGE);
+        }
+    } else {
+        alert(ERROR_MESSAGE);
+    } 
+    
+    // Display Output
+    document.write("Total cost per night is $" + finalCost.toFixed(2));
+ 
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

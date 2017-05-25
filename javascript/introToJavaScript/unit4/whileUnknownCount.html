@@ -1,0 +1,505 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    A while loop with unknown loop count  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/whileUnknownCount.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />A while loop with unknown loop count</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>A while loop with unknown loop count</h1>
+
+<h4>File: unit4/whileUnknownCount.html</h4>
+
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 6: Controlling Flow with Conditionals and Loops (pages 114-118)</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Unknown Loops with <code>while</code></h3>
+
+<blockquote><p><em>We don't know when we'll stops, it just depends.</em></p></blockquote>
+
+
+<ul>
+<li>When we code a loop that does not have a preset number of loops we need a way to stop the loop when it is done. There are two common approaches:
+<ol>
+<li>Loop until some predetermined value is read, like "quit".</li>
+<li>Loop and read data until the end of the data.</li>
+</ol>
+</li>
+</ul>
+
+
+
+<h3>Stop On A Sentinel</h3>
+
+<p><span class="define">sen&#8226;ti&#8226;nel</span></p>
+
+<p><span class="define2">noun</span></p>
+
+<p><br /></p>
+
+<p><span class="define3">1. a soldier or guard whose job is to stand and keep watch.</span><br />
+<span class="define4">&#8226; figurative something that appears to be standing guard or keeping watch.</span></p>
+
+<p></em></p>
+
+
+<ul>
+<li>The term <strong>sentinel</strong> in programming means a special value that a program is looking for to take certain actions. Here are some examples.
+<ul>
+<li>A program that asks a user for words until the entered word is, "quit".</li>
+<li>A program that reads records from a file until it reaches a customer number that is 999999.</li>
+<li>A program that performs security scans on a hard drive every half hour until midnight, it then outputs a report for the previous day and starts over.</li>
+</ul>
+</li>
+<li>Here's an example that I will uncomment to make work:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This function is in file /unit4/whileUnknowCount.js
+    It loops until the user enters "quit"
+*/
+function askForNumbers() {
+    
+    // Declare Constants
+    var ZERO = 0;
+    var QUIT_CODE = "quit";
+    
+    // Declare Variables
+    var number;
+    var total;
+    
+    // Assign initial values for variables
+    total = ZERO;
+    
+    while (number !== QUIT_CODE) {
+        number = prompt("Enter a number or \"quit\"");
+        if (number !== QUIT_CODE) {           
+            number = Number(number);
+            total += number;
+            document.write("You entered: " + number + "<br />");
+        }
+    }
+    document.write("Your total is: " + total + "<br />Goodbye!");
+}
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+     //askForNumbers();
+</script>
+</pre>
+
+
+
+<h3>A Sentinel in the data</h3>
+
+
+<ul>
+<li>Sometimes a sentinel is just part of the data as in this example (Hang on, I have to uncomment it.)<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This function is in file /unit4/whileUnknowCount.js
+    It loops until the user enters 5
+*/
+function lookForFive() {
+    
+    // Declare Constants
+    var ONE = 1;
+    var QUIT_CODE = "5";
+    
+    // Declare Variables
+    var number;
+    var counter;
+    
+    // Assign initial values for variables
+    counter = ONE;
+
+    while (number !== QUIT_CODE) {
+        number = prompt("Enter the number " + counter);
+        document.write("You entered " + number + "<br />");
+        counter++;
+    }
+    document.write("Bye, bye!");
+}
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+     //lookForFive();
+</script>
+</pre>
+
+
+
+<h3>Comparison to Stop a Loop</h3>
+
+
+
+<ul>
+<li>Frequently, we need to compare two values to determine if we stop a loop<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    Stopping a loop with a comparison
+*/
+function comparison() {
+    
+    // Declare Constants
+    var ZERO = 0;
+    var ONE_HUNDRED = 100;
+    
+    // Declare Variables
+    var firstNumber;
+    var enteredNumber;
+    
+    // Assign initial values for variables
+    firstNumber = ONE_HUNDRED;
+    enteredNumber = ZERO;
+    
+    while (firstNumber > enteredNumber) {
+        enteredNumber = prompt("Enter a Number Less than 100");
+        enteredNumber = Number(enteredNumber);
+        document.write("Entered Number: " + enteredNumber + "<br />");
+    }
+}
+]]></script></li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//comparison();
+</script>
+</pre>
+
+
+
+<ul>
+<li>It works with characters, too.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    Stopping a loop by comparing characters
+*/
+function comparisonCharacters() {
+    
+    // Declare Constants
+    var QUIT_CODE = "Z";
+    
+    // Declare Variables
+    var enteredCharactered;
+    
+    enteredCharactered = prompt("Enter a letter that is less than 'Z'");
+    
+    while (enteredCharactered < QUIT_CODE) {
+        document.write(enteredCharactered + " is less than " + QUIT_CODE 
+                + "<br />");
+        enteredCharactered = prompt("Enter a letter that is less than 'Z'");
+    }
+    
+    document.write(enteredCharactered + " is bigger than " + QUIT_CODE);    
+}
+]]></script></li>
+</ul>
+
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//comparisonCharacters();
+</script>
+</pre>
+
+
+
+<h3>The End is Near</h3>
+
+<blockquote><p>Read until we're done.</p></blockquote>
+
+
+<ul>
+<li>Our programs read data from sources like files and database tables.</li>
+<li>We usually need to read until we've read everything. </li>
+<li>Sentinels are not used as much as they used to be. Modern languages are better equipped to loop until we're done.</li>
+<li>Here's a detailed example using the Student Exam Records set. Here is the entire data set:</li>
+</ul>
+
+
+
+<table>
+    <tr><td>"Bill Smith"</td><td>78</td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td></tr>
+</table>
+
+
+<ul>
+<li>In our Record Set system for the course we know that in order to read these records we first need to do this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Accessing the records
+    var records;
+    
+    records = openStudentExamRecords();
+]]></script></li>
+<li>This function gives us access to the records set but not to the first record. You could think of it as pointing to the spot before the first record. Like this:</li>
+</ul>
+
+
+
+<table>
+    <tr><td></td><td></td><td><img src="resources/arrow_left_small.png" alt="" height="20" width="20" style="vertical-align: bottom;" />  Current record</td></tr>
+    <tr><td>"Bill Smith"</td><td>78</td><td></td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td></tr>
+</table>
+
+
+<ul>
+<li>Next we call this function at the top of a <code>while</code> loop, which will cause the first record to be available.
+<ul>
+<li><code>records.readNextRecord();</code></li>
+</ul>
+</li>
+</ul>
+
+
+
+<table>
+    <tr><td>"Bill Smith"</td><td>78</td><td><img src="resources/arrow_left_small.png" alt="" height="20" width="20" style="vertical-align: bottom;" /> Current record</td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td></tr>
+</table>
+
+
+<ul>
+<li>Then within the loop we use functions that start with "get" to read each field of the record. For this record set we use:
+<ul>
+<li><code>records.getStudentName();</code> </li>
+<li><code>records.getStudentScore();</code> </li>
+</ul>
+</li>
+<li>Because the current record is the first one, these functions return:
+<ul>
+<li>Student Name: <code>Bill Smith</code> </li>
+<li>Student Score: <code>78</code> </li>
+</ul>
+</li>
+<li>The next step is to move to the next record. The <code>while</code> loop starts again with this function.
+<ul>
+<li><code>records.readNextRecord();</code></li>
+</ul>
+</li>
+<li>If there is another record this function moves our current record to the next one.</li>
+</ul>
+
+
+
+<table>
+    <tr><td>"Bill Smith"</td><td>78</td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td><td><img src="resources/arrow_left_small.png" alt="" height="20" width="20" style="vertical-align: bottom;" />  Current record</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td></tr>
+</table>
+
+
+<ul>
+<li>Then "get" functions will now retrieve:
+<ul>
+<li>Student Name: <code>Sue Johnson</code> </li>
+<li>Student Score: <code>89</code> </li>
+</ul>
+</li>
+<li>Then the loop starts over with <code>records.readNextRecord();</code> and moves our current record forward.</li>
+</ul>
+
+
+
+<table>
+    <tr><td>"Bill Smith"</td><td>78</td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td><td><img src="resources/arrow_left_small.png" alt="" height="20" width="20" style="vertical-align: bottom;" />  Current record</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td></tr>
+</table>
+
+
+<ul>
+<li>We continue to move the current record and read the data from the current record until we get here:</li>
+</ul>
+
+
+
+<table>
+    <tr><td>"Bill Smith"</td><td>78</td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td><td> <img src="resources/arrow_left_small.png" alt="" height="20" width="20" style="vertical-align: bottom;" /> Current record</td></tr>
+</table>
+
+
+<ul>
+<li>Now with the next call to <code>records.readNextRecord();</code> something different happens. When there are no more records to read this function will return <code>false</code> and the loop will stop. </li>
+</ul>
+
+
+
+<table>
+    <tr><td>"Bill Smith"</td><td>78</td></tr>
+    <tr><td>"Sue Johnson"</td><td>89</td></tr>
+    <tr><td>"Jill Green"</td><td>99</td></tr>
+    <tr><td>"Steve Brown"</td><td>83</td></tr>
+    <tr><td>"Nancy Brown"</td><td>95</td></tr>
+    <tr><td>"Tom Little"</td><td>90</td><td></td></tr>
+    <tr><td><code>return false;</code></td><td></td><td> <img src="resources/arrow_left_small.png" alt="" height="20" width="20" style="vertical-align: bottom;" /> Current record</td></tr>
+</table>
+
+
+
+<h3>Quick Example</h3>
+
+
+<ul>
+<li>Here's what this looks like in a very small program. All the looping elements are here.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function quickExamScoresExample() {
+    var results;
+    
+    results = openStudentExamRecords();
+    
+    while (results.readNextRecord()) {
+        document.write(results.getStudentName() + ", " 
+                + results.getStudentScore() + "<br />");
+    }
+}
+]]></script></li>
+</ul>
+
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+     quickExamScoresExample();
+</script>
+</pre>
+
+
+
+<h3>Full Example</h3>
+
+
+<ul>
+<li>Here's a full example: <a href="example4_2.html">Print Examination Scores</a></li>
+</ul>
+
+
+
+<h3>The End is Labs, of course</h3>
+
+<blockquote><p><em>Everything should be made as simple as possible, but not simpler.</em> <strong>- Albert Einstein</strong></p></blockquote>
+
+
+<ul>
+<li><a href="labs/lab09unknownLoopCount.html">Lab 9: Unknown Loop Count</a>
+<ul>
+<li><a href="labs/exercises-9.html">Lab 9 Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,553 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Lab 5: Nested Ifs  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 3</a>
+                <img src="../resources/arrow_right_small.png" />Lab 5: Nested Ifs          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Lab 5: Nested Ifs</h1>
+
+<h4>File: unit3/labs/lab-05-nestedIfs.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Tu/Th 12:30-2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<h3>Lab Steps</h3>
+
+
+<ol>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ol>
+
+
+
+<h2>Part 1 problem statement</h2>
+
+<blockquote><p>Write a program that creates a greeting based on an entered code and a name. Prompt the user for his/her name and for a code of A, B, C, or D. Output one of the following greetings.  Note:  Use the length property of string objects to make sure the user has keyed at least one character into the text boxes presented by the prompt method--display an error message if they entered nothing in either of the prompt text boxes.</p></blockquote>
+
+<table style="text-align:left; margin-left: 4em;" cellspacing="0"><tr><td>Code</td><td>Greeting</td></tr><tr><td align="center"><strong>A</strong></td><td>Hello, &lt;user name&gt;, how are you?</td></tr><tr><td align="center"><strong>B</strong></td><td>Top of the morning to you, &lt;user name&gt;!</td></tr><tr><td align="center"><strong>C</strong></td><td>Hi, &lt;user name&gt;.</td></tr><tr><td align="center"><strong>D</strong></td><td>&lt;user name&gt; is here! Welcome!</td></tr></table>
+
+
+<ul>
+<li><strong>Note:</strong> Use a linear nested if statement (<code> if / else if / else</code> ) for this part.</li>
+</ul>
+
+
+
+<h3>Part 1 Program Planning Lists</h3>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    userName
+    userCode
+
+The List of Output Variables:
+    outputMessage
+
+The Process Checklist:
+    Declare Variables
+    Prompt for Name and Code
+    Analyze The Code to produce the appropriate greeting
+    Display Output
+
+</pre>
+
+
+
+
+<h3>Part 1 Test Plan</h3>
+
+
+
+<pre class="blackGreen">
+TEST PLAN:
+
+Test Case 1:
+    Inputs:
+    [no input]
+    
+    Expected Results:
+    Alert: "Input(s) invalid, please try again."
+
+Test Case 2:
+    Inputs:
+    Bo, A
+    
+    Expected Results:
+    Hello, Bo, how are you?
+
+Test Case 3:
+    Inputs:
+    Bo, c
+    
+    Expected Results:
+    Hi, Bo.
+
+</pre>
+
+
+
+<h3>Part 1 Example Output</h3>
+
+
+
+<pre class="blackGreen">
+Hello, Fred, how are you?
+</pre>
+
+
+
+
+<h3>Part 1 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 1 CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var userName;
+    var userCode;
+    var outputMessage;
+    
+    // Prompt for Name and Code
+    userName = prompt("What is your name?");
+    userCode = (prompt("Enter the code:\nA, B, C, or D")).toUpperCase();
+    if (userName.length < 1 || userCode.length < 1) {
+        alert("Input(s) invalid, please try again.");
+    }
+    
+    // Analyze The Code to produce the appropriate greeting
+    if (userCode === "A") {
+        outputMessage = "Hello, " + userName + ", how are you?";
+    } else if (userCode === "B") {
+        outputMessage = "Top of the morning to you, " + userName + "!";
+    } else if (userCode === "C") {
+        outputMessage = "Hi, " + userName + ".";
+    } else if (userCode === "D") {
+        outputMessage = userName + " is here! Welcome!";
+    } else {
+        outputMessage = "Too cool to pick one of my code letters, eh?"
+    }
+    
+    // Display Output
+    document.write(outputMessage);
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<h2>Part 2 problem statement</h2>
+
+<blockquote>
+  <p>Write a program that asks a user to enter his/her favorite ice cream from the choices of vanilla, chocolate, or strawberry. If they choose vanilla, then ask them if they would like <span class="caps">M&amp;M</span>s or Reese's Pieces on top. If they choose chocolate, then ask them if they want brownies or walnuts on top. If they choose strawberry, then ask them if they want pecans or almonds on top. Finally, output what they've chosen.</p>
+  <p>Note that for this Part 2, the program has been already partially coded for you. If you wish to delete this partial coding, and write the program using an alternative approach, that is fine.</p>
+  <p>&nbsp;</p>
+  <p>Note: For this Part 2, the codes that the user will key in for the prompts are not specified in this Problem statement. You will be choosing those. A one-letter code witll be most convenient for the user--just be sure to tell the user on the prompt message what code they should key in for each of the possible choices.  (Also, you will have to decide if your program will accept both an upper and lower case code letter, or just one or the other.)</p>
+  <p>&nbsp;</p>
+  <p>Note: For this Part 2, the Program Planning Lists have been done for you. And a suggested version plan for implementation is also presented.</p>
+  <p>&nbsp;</p>
+</blockquote>
+
+
+<ul>
+<li><strong>Note:</strong> Use nested <code>if/else</code> statements for this part.</li>
+</ul>
+
+
+
+<h3>Part 2 Program Planning Lists</h3>
+
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    iceCreamFlavor
+    iceCreamTopping
+    whippedCreamWanted
+    cherryWanted
+
+The List of Output Variables:
+    iceCreamOrder
+
+The Process Checklist:
+    Define all constants
+    Define all variables
+    Ask user for ice cream and topping choices
+    Select choice message based on received choice codes
+    Display the choice message on the web page
+
+</pre>
+
+
+
+
+<h3>Part 2 Test Plan</h3>
+
+
+
+<pre class="blackGreen">
+TEST PLAN:
+
+Test Case 1:
+    Inputs: 
+    n
+    
+    Expected Results:
+    What? No ice cream for you!!
+
+Test Case 2:
+    Inputs:
+    v, r, n
+    
+    Expected Results:
+    You are having vanilla ice cream with Reese's Pieces. Enjoy!
+    
+Test Case 3:
+    Inputs:
+    c, b, y, y
+    
+    Expected Results:
+    You are having chocolate ice cream with brownies with whipped cream and a cherry on top. Enjoy!
+
+</pre>
+
+<h3>Part 2 Version Plan - <span style="font-size: .8em">Note: This is just one plan; it could be done in fewer versions also.</span> </h3>
+
+
+
+<pre class="blackGreen">
+Version zero:
+
+   The program will have VAR statements for constants and
+   variables, and, an alert() method to test if the flow
+   of control successfully enters the program.
+
+Version 1:
+    
+   Next, the program's final section will be completed, testing
+   to ensure that it is successfully writing the choice message
+   for this user.  To test this, the variable holding the choice
+   message will be temporarily just assigned some test content, 
+   such as &quot;this is a test message.&quot;
+
+Version 2:
+    
+   Next, the program will ask the user for his/her ice cream choice 
+   via use of the prompt() method.  To test this, temporarily insert
+   an alert() method right after the prompt to see what is in the
+   variable holding the ice cream choice.
+   
+Version 3:
+    
+   Next, the program will now interrogate the ice cream choice
+   variable via a linerarly nested IF.  To test if this IF is 
+   working properly, temporarily place an alert() method with an
+   approriate message into each of the conditionally executed
+   blocks.  Don't forget to have an "else net" at the end to 
+   catch the case of "none of the above," i.e. the user entered
+   an invalid code.
+   
+Version 4a:
+    
+   Next, the program will include asking the user for his/her topping 
+   choice, based on his/her ice cream choice.  Initially, do this just
+   for the vanilla ice cream choice. To test this, temporarily insert
+   an alert() method after the prompt to see what is in the variable
+   holding the topping choice.
+
+Version 4b:
+    
+   When the program is properly asking the user for a topping choice
+   for vanilla, now add in this logic for the other two ice cream
+   choices.  And again, temporarily use the alert() method to verify
+   that the variable holding the topping choice is properly receiving
+   the choice code.  
+
+Version 5a:
+
+   Now interrogate the ice cream choice and the topping choice to assign
+   the appropriate message (see constants) into the 'choceMessageForThisUser'
+   variable.  Do this first just for one combination, starting with a 
+   vanilla choice and a M&Ms choice.  Place an "else net" on thie IF to
+   catch the case of none of the abovve.  (Note:  we haven't done any
+   validation on the topping choice codes--in effect, we are doing that now
+   in this section of the program.)
+   
+Version 5b:
+
+   Now add in the first of the "else IFs" to the conditional, so that the
+   program now will handle vanilla ice cream, and both of the topping 
+   choices.  
+   
+Version 5c:
+
+   Now add in more "else IFs" to the conditional, so that the
+   program now will handle chocolate ice cream, and both of the topping 
+   choices.  
+   
+   
+Version 5d:
+
+   Now add in more "else IFs" to the conditional, so that the
+   program now will handle strawberry ice cream, and both of the topping 
+   choices.  
+   
+Version 6:
+
+   Check the program for conformance with coding standards.  Make any corrections,
+   and thoroughly re-test.
+
+   
+Version 7:
+
+   Check the program for comments.  Are they grammatically correct?  Are there enough
+   that you will be able to quickly understand the program when later work orders
+   come through requesting changes to the program?  Ask yourself: Am I willing to 
+   have my professional reputation rest on this program, when in the near future
+   other members of my project team review what I have done?
+</pre>
+
+
+
+
+<h3>Part 2 Example Output</h3>
+
+
+
+<pre class="blackGreen">
+You are having vanilla ice cream with Reese's Pieces. Enjoy!
+</pre>
+<pre class="blackGreen">
+You are having chocolate ice cream with walnuts. Enjoy!
+</pre>
+
+
+
+<h3>Part 2 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 2 CODE STARTS AFTER THIS LINE:
+////////////////////////////////////////////////////////////////////////////////
+/*
+// Define all constants
+
+var CHOICES_MESSAGE_01 = "You are having vanilla ice cream with M&Ms. Enjoy!";
+var CHOICES_MESSAGE_02 = "You are having vanilla ice cream with Reese's Pieces. Enjoy!"; 
+var CHOICES_MESSAGE_03 = "You are having chocolate ice cream with brownies. Enjoy!"; 
+var CHOICES_MESSAGE_04 = "You are having chocolate ice cream with walnuts. Enjoy!"; 
+var CHOICES_MESSAGE_05 = "You are having strawberry ice cream with pecans. Enjoy!"; 
+var CHOICES_MESSAGE_06 = "You are having strawberry ice cream with almonds. Enjoy!"; 
+
+// Define all variables
+
+var userIceCreamChoice;       // this variable will receive the code keyed by the user
+var userToppingChoice;        // this variable will receive the code keyed by the user
+var choiceMessageForThisUser; // this variable will be assigned one of the six messaages
+
+// Ask user for ice cream and topping choices
+
+// Select choice message based on received choice codes
+
+// Display the choice message on the web page
+*/
+////////////////////////////////////////////////////////////////////////////////
+
+// REALLY START YOUR CODE HERE
+
+    // Constants Declared
+    var VANILLA_ICECREAM = "v";
+    var CHOCOLATE_ICECREAM = "c";
+    var MM_TOPPING = "m";
+    var REESES_TOPPING = "r";
+    var BROWNIES_TOPPING = "b";
+    var OREOS_TOPPING = "o";
+    var YES = "y";
+    var NO = "n";
+    
+    // Variables Declared
+    var iceCreamOrder;
+    var iceCreamFlavor;
+    var iceCreamTopping;
+    var whippedCreamWanted;
+    var cherryWanted;
+    
+    // Start building ice cream order
+    iceCreamOrder = "You are having ";
+    
+    // Prompt for flavor of icecream
+    iceCreamFlavor = (prompt("Would you like vanilla or chocolate ice cream?\n"
+        + "('" + VANILLA_ICECREAM + "' or '" + CHOCOLATE_ICECREAM + "')")).toLowerCase();
+        
+    if (iceCreamFlavor === VANILLA_ICECREAM) {
+        iceCreamOrder += "vanilla ice cream";       
+        // Prompt for topping
+        iceCreamTopping = (prompt("Would you like M&Ms or Reese's Pieces for your topping?\n"
+            + "('" + MM_TOPPING + "' or '" + REESES_TOPPING + "')")).toLowerCase();
+        
+        if (iceCreamTopping === MM_TOPPING) {
+            iceCreamOrder += " with M&Ms";
+        } else if (iceCreamTopping === REESES_TOPPING) {
+            iceCreamOrder += " with Reese's Pieces";
+        } else {
+            iceCreamOrder += " with no toppings";
+        }  
+        
+    } else if (iceCreamFlavor === CHOCOLATE_ICECREAM) {
+        iceCreamOrder += "chocolate ice cream";       
+        // Prompt for topping
+        iceCreamTopping = (prompt("Would you like Brownies or Oreos Pieces for your topping?\n"
+            + "('" + BROWNIES_TOPPING + "' or '" + OREOS_TOPPING + "')")).toLowerCase();
+
+        if (iceCreamTopping === BROWNIES_TOPPING) {
+            iceCreamOrder += " with brownies";
+        } else if (iceCreamTopping === OREOS_TOPPING) {
+            iceCreamOrder += " with Oreos";
+        } else {
+            iceCreamOrder += " with no toppings";
+        } 
+        
+    } else {
+        iceCreamOrder = "What? No ice cream for you!!";    
+    }
+    
+    // Prompt for whipped cream
+    if (iceCreamFlavor === CHOCOLATE_ICECREAM || iceCreamFlavor === VANILLA_ICECREAM) {
+        whippedCreamWanted = (prompt("Would you like whipped cream?\n"
+            + "('" + YES + "' or '" + NO + "')")).toLowerCase();
+            
+        if (whippedCreamWanted === YES) {
+            iceCreamOrder += " with whipped cream";
+            // Prompt for cherry
+            cherryWanted = (prompt("Would you like a cherry on top?\n"
+                + "('" + YES + "' or '" + NO + "')")).toLowerCase();
+            if (cherryWanted === YES) {
+                iceCreamOrder += " and a cherry on top. Enjoy!";
+            } else if (cherryWanted === NO) {
+                iceCreamOrder += ". Enjoy!";
+            }           
+        } else if (whippedCreamWanted === NO) {
+            iceCreamOrder += ". Enjoy!";
+        }        
+    }        
+        
+    // Display Output
+    document.write(iceCreamOrder);
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<h3>Lab Exercise</h3>
+
+
+<ul>
+<li>Here is the exercise that goes with this lab. If you choose to do this exercise, have the output printed and ready to turn in on the first day of class next week.
+<ul>
+<li><a href="exercises-5.html">Lab 5 Exercise</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

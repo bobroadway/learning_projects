@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Project 4  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="../jsFiles/project4.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../resources/clipboard.swf';
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 4</a>
+                <img src="../resources/arrow_right_small.png" />Project 4          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Project 4</h1>
+
+<blockquote><p>I love deadlines. I like the whooshing sound they make as they fly by. - Douglas Adams</p></blockquote>
+
+
+<h4>Student</h4>
+
+
+<ul>
+<li>Name:</li>
+<li>Section:</li>
+<li>Email:</li>
+</ul>
+
+
+
+<h3>General Project Information</h3>
+
+
+<ul>
+<li>The project consists of four parts. Each part has it's own page and specifications.</li>
+<li>The course projects are not group projects. You need to do you own work completely. </li>
+<li>If you need help on a project you should first ask your instructor. Each instructor will have their own procedure for getting help from them. </li>
+<li>You may talk to classmates but do not share code in any electronic or physical form. Conversations with classmates about projects should be general and not contain details about solutions. </li>
+<li>Don't sit down at a classmate's computer and type into their project. </li>
+<li>Don't ask classmates for their projects. </li>
+<li>Be very careful when you print project files at <span class="caps">MATC.</span> When you print go to the printer immediately and retrieve your printouts.</li>
+<li>There is sample output shown for each part. </li>
+<li>The instructor reserves the right to modify the project specifications in writing or verbally at any time. Non-attendance will not be an acceptable excuse for not completing the correct and final specifications. Changing specifications is a very real part of the IT experience.</li>
+<li>All code should be passed through the jsLint software, as an aid in catching course coding standards. see below.</li>
+</ul>
+
+
+
+<h3 style="color:red;">Important Note</h3>
+
+<blockquote><p>All projects must be complete and function according to the specifications before they will be graded.  Be sure to ask questions about the meaning of specifications--in the world of IT, specifications are never completely free from the possibility of misunderstandings.<br /><br /> There is no partial credit given for incomplete projects.  Remember that if an incomplete project is submitted you will find a zero (0) in Blackboard and a message in Blackboard regarding which project parts are producing incorrect output. Review the syllabus and the "<i>Getting Started . . .</i>" booklet for the procedure for resubmitting an incomplete project once it has been corrected.</p></blockquote>
+
+<h3>Course Coding Standards</h3>
+
+<blockquote><p>With this project we will be looking more carefully at compliance with the course coding standards. Make sure that all parts of the project are good! Here's a link to them: <a href="../javascriptCodingStandards.html">JavaScript Coding Standards for 152-119</a></p></blockquote>
+
+<h3>jsLint</h3>
+
+<blockquote><p>All parts of the project should be verified by the site <a href="http://www.jslint.com/">jsLint</a> to help in finding standards violations. The required settings are found <a href="../jsLintUsage.html">here</a>. Any part of the project that doesn't pass standards requirement will be losing a number of points in this and the next Learning Unit, since those standards should now be understood. Note that Record Set processing is not known to jsLint, and any error messages regardng those functions should be ignored.  For example, for a Record Set you will see something like this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+  Problem at line 130 character 19: 'openZipCodeStudyRecordSet' is undefined.
+
+  var records = openZipCodeStudyRecordSet();
+]]></script></p></blockquote>
+
+<blockquote><p>If that is the only problem that jsLint finds that will be considered a pass of jsLint.  Remember that jsLint may or may not catch all of the course coding standards.  You must still check over the source code manually to doublecheck that all course coding standards have been met.</p></blockquote>
+
+
+<h3>Project Pages</h3>
+
+<h4>Part 1</h4>
+
+
+<ul>
+<li>We'll start off with debugging a program again. You can never have too much practice.
+<ul>
+<li><a href="project4Part1.html">Project 4 - Part 1</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>Now on to some coding. 
+<ul>
+<li><a href="project4Part2.html">Project 4 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>Grade Report.
+<ul>
+<li><a href="project4Part3.html">Project 4 - Part 3</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<ul>
+<li>Just One More!
+<ul>
+<li><a href="project4Part4.html">Project 4 - Part 4</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Project Submission</h3>
+
+
+<ul>
+<li>The submission procedure is the same as for previous projects. Review the submission procedure in the course syllabus (and in the <i>"Getting Started . . ."</i>  booklet.)</li>
+</ul>
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

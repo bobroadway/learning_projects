@@ -1,0 +1,180 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Global Scope Demo  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/AC_QuickTime.js" language="javascript" type="text/javascript"> </script>
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/globalScope.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeErics.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 4</a>
+                    <img src="resources/arrow_right_small.png" />Global Scope Demo</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Global Scope Demo</h1>
+
+<h4>File: unit4/globalScope.html</h4>
+
+
+<ul>
+<li><em>Global Scope in action.</em></li>
+</ul>
+
+
+
+
+<h3>Here's the code:</h3>
+
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This is the file /unit4/jsFiles/globalScope.js
+*/
+
+/*
+    Variables declared outside of any functions
+    have global scope. They can be accessed and 
+    changed by any function in this entire file.
+    
+    Here are some variable declarations
+*/
+var firstName;
+var lastName;
+
+/*
+    This function will also set the same variables
+*/
+function addBarneyElement() {
+    // This function will also get the <ul> tag
+    // from the document.
+    var list;
+    
+    list = document.getElementById('demoList');
+    
+    // Set the global variables
+    firstName = "Barney";
+    lastName = "Rubble";
+    
+    // Output the name to the page by
+    // adding a list element to the <ul> tag
+    list.innerHTML += "<li>" + firstName + " " + lastName + "</li>";
+    
+}
+
+/*
+    This first function in the call order
+    will set the values of the two global 
+    variables and display their contents.
+    
+    (We are also writing the information to
+    the page differently. We'll be discussing
+    this soon.)
+*/
+function addFredElement() {
+    // Variables declared in here have "local scope"
+    // That's the next demo
+    
+    // Get the list on the page
+    var list;
+    
+    list = document.getElementById('demoList');
+    
+    // Set the global variables
+    firstName = "Fred";
+    lastName = "Flintstone";
+    
+    // Output the name to the page by
+    // adding a list element to the <ul> tag
+    list.innerHTML = "<li>" + firstName + " " + lastName + "</li>";
+    
+    // Now call another function
+    addBarneyElement();
+    
+    // Now add another item to the list to see 
+    // that firstName and lastName now hold.
+    list.innerHTML += "<li>" + firstName + " " + lastName + "</li>";
+       
+}
+]]></script>
+
+<h3>Output:</h3>
+
+<div class="output">
+  <ul id = "demoList"><script language="JavaScript" type="text/javascript">addFredElement();</script></ul>
+</div>
+
+<h3>What Happened?</h3>
+
+
+<ul>
+<li><strong>Lines 12 and 13:</strong> These variables have <code>Global Scope</code>, they're available to every function in the file. Functions can read and write to them.</li>
+<li><strong>Line 44:</strong> The start of the first called function, this one is being called from the <span class="caps">HTML </span>page.</li>
+<li><strong>Lines 49 and 51:</strong> "What? We haven't see this before!" That's correct, we are going to start using a different way to add our output to the page. We will use a common technique that sits in between the <code>document.write()</code> function and full <code>DOM Manipulation</code> on the scale of good ways to dynamically change an <span class="caps">HTML </span>page. Don't worry, we'll go over this a lot. For now just realize that we can get access to the <span class="caps">HTML </span>elements on a page with JavaScript.</li>
+<li><strong>Lines 54 and 55:</strong> This will set the values of the global variables.</li>
+<li><strong>Line 59:</strong> Actually adds an <code>&lt;li&gt;</code> tag to the <code>&lt;ul&gt;</code>  tag that is already on the page.</li>
+<li><strong>Line 62:</strong> This is the function call to the other function in the file. The current function will be suspended and the program will continue running at the beginning of the called function.</li>
+<li><strong>Lines 21 and 23:</strong> This function also gets access to the list element on the page.</li>
+<li><strong>Lines 26 and 27:</strong> This code is changing the value of the global variables. It overwrites that the first function set in them.</li>
+<li><strong>Line 31:</strong> Here we are adding another <code>&lt;li&gt;</code> element to the <code>&lt;ul&gt;</code> tag. Notice the <code>+=</code>, we need this to not overwrite the other elements that have been added to the <code>&lt;ul&gt;</code> tag.</li>
+<li><strong>Line 62:</strong> Here we are, back at the spot where we suspended the first function. The function will start running again from the next statement after the function call.</li>
+<li><strong>Line 66:</strong> One final <code>&lt;li&gt;</code> tag will be add to the <code>&lt;ul&gt;</code> tag to see what is currently in the global variables.</li>
+</ul>
+
+
+
+
+
+
+
+
+<p><br /><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

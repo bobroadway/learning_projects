@@ -1,0 +1,12 @@
+/*
+    This is the JavaScript code for 
+    "Lab 4: Your First For Loop" 
+    File: /unit4/labs/lab04firstForLoop.html
+*/
+function lab04firstForLoop() {
+    // Your code goes in here.
+    
+    // Delete the following statement when you start your code.
+    document.write("The JavaScript file for this page is: "
+            + "\"/unit4/jsFiles/lab04firstForLoop.js\"");
+}

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Customer Gas Usage Records  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/customerGasUsageRecords.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Customer Gas Usage Records</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Customer Gas Usage Records</h1>
+
+<h4>File: unit5/customerGasUsageRecords.html</h4>
+
+<h3>Customer Gas Usage Records Layout</h3>
+
+
+<ul>
+<li>Customer Gas Usage Records layout:</li>
+</ul>
+
+
+
+<table style="text-align:left; margin-left: 4em;" cellspacing="0"><tr><th>Field 1</th><th>Field 2</th><th>Field 3</th><th>Field 4</th></tr><tr><td>Customer Number</td><td>Customer Name</td><td>Address</td><td>Gas Used</td></tr></table>
+
+<h3>Using the Customer Gas Usage Records</h3>
+
+
+<ul>
+<li>The records are made available to your programs with this function:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// The open function
+    openCustomerGasUsageRecords();
+]]></script></li>
+<li>The function returns the records so you need to store them in a variable:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Record set variable
+    var records;
+    
+    records = openCustomerGasUsageRecords();
+]]></script></li>
+<li>After the openCustomerGasUsageRecords() function has been run you have access to the first record&#39;s data. You will retrieve each part of one record with a different function. Here are the functions:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Field functions
+    records.getCustomerNumber();
+    records.getCustomerName();
+    records.getCustomerAddress();
+    records.getCustomerGasUsage();
+]]></script></li>
+<li>Notice that you need to have "records." in front of each of the functions.</li>
+<li>When you want to read the next record you use the following function. It will make the next record available and you then use the above functions to retrieve the data. This function returns <code>true</code> if there was a next record and <code>false</code> if the end of the record set has been reached.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Read the next record or stop the loop
+    studentRecords.readNextRecord();
+]]></script></li>
+</ul>
+
+
+
+<h3>Example Usage</h3>
+
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+/*
+    This is an example of using the
+    Customer Gas Usage Record Set
+*/
+function customerGasUsageDemo() {
+    
+    // Variable Declarations
+    var customerNumber;
+    var customerName;
+    var address;
+    var gasUsed;
+    var outputTable;
+    var records;
+    
+    // Get the HTML output table so we can add rows
+    outputTable = document.getElementById('outputTable');
+    
+    // Open the Customer Gas Usage Records and make them 
+    // available to the script
+    records = openCustomerGasUsageRecords();
+    
+    // Test to see if there is a next record and then output it
+    while (records.readNextRecord()) {
+        customerNumber    = records.getCustomerNumber();
+        customerName      = records.getCustomerName();
+        address           = records.getCustomerAddress();
+        gasUsed           = records.getCustomerGasUsage();
+        gasUsed           = gasUsed.toFixed(1);
+        
+        outputTable.innerHTML += "<tr><td class=\"righttd\">" 
+                + customerNumber 
+                + "</td><td>" 
+                + customerName 
+                + "</td><td>" 
+                + address 
+                + "</td><td class=\"righttd\">" 
+                + gasUsed + "</td></tr>";
+    }
+}
+]]></script>
+
+
+<div class="output">
+    <table id="outputTable">
+        <tr>
+            <th>Customer<br />Number</th>
+            <th>Customer<br />Name</th>
+            <th>Address</th>
+            <th>Gas<br />Used</th>
+        </tr>
+    </table>
+</div>
+
+<script language="JavaScript" type="text/javascript">customerGasUsageDemo();</script>
+
+
+<p><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

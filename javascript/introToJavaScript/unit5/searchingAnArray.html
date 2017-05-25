@@ -1,0 +1,316 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Searching an Array  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/searchingAnArray.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Searching an Array</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Searching an Array</h1>
+
+<h4>File: unit5/searchingAnArray.html</h4>
+
+
+<ul>
+<li><em>Does the array contain a specific value?</em></li>
+</ul>
+
+
+
+<h3>Readings</h3>
+
+
+<ul>
+<li><strong>JavaScript Step by Step</strong>
+<ul>
+<li>Chapter 8 - Objects in JavaScript (Pages 145-150)</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>How do we know if an Array has a certain value?</h3>
+
+
+<ul>
+<li>Sometimes we need to search through an array to see if it contains a certain value. </li>
+<li>We solve this with a loop!<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+function searchingAnArray() {
+
+    var numbers;
+    var output;
+    var index;
+    var search;
+    var form;
+    var valueFound = false;
+    var outputString;
+
+    numbers = [4, 6, 7, 11, 13, 16, 18, 19, 20, 21, 23, 26, 29, 35, 
+            37, 38, 39, 41, 42, 45, 48, 51, 57, 58, 63, 66, 70, 72,
+            81, 88, 89, 90, 92, 93, 94, 95, 96];
+
+    form = document.getElementById('searchingAnArrayId1');
+
+    search = form.entry.value;
+
+    output = document.getElementById('outputList');
+
+    if (isNaN(search) || search === "") {
+        outputString = "<li>Not a number</li>";
+        output.innerHTML = outputString;
+        return false;
+    }
+
+    search = Number(search);
+
+    for (index = 0; index < numbers.length; index++) {
+        if (search === numbers[index]) {
+            valueFound = true;
+            break;
+        }
+    }
+
+    if (valueFound) {
+        outputString = "<li>The number " + search 
+                + " is in the array " + "and is in index " 
+                + index + "</li>";
+    } else {
+        outputString = "<li>The number " + search 
+                + " is not in the array </li>";
+    }
+
+
+    output.innerHTML = outputString;
+
+    return false;
+
+}
+]]></script></li>
+</ul>
+
+
+
+<div id="outputDiv" class="output">
+    <form id="searchingAnArrayId1" action="searchingAnArray.html#" onsubmit="return searchingAnArray();">
+        <p>
+            Number: <input id="numberId" name="entry" type="text" />
+        </p>
+        <p>
+            <input type="submit" 
+                   name="runExample" 
+                   value="Search" 
+            />
+        </p>
+    </form><br />
+
+  <ul id="outputList"></ul>
+</div>
+
+
+<ul>
+<li><strong>Lines 3-9:</strong> Declare the variables we'll need.</li>
+<li><strong>Lines 11-13:</strong> Create the array and populate it.</li>
+<li><strong>Lines 15-17:</strong> Get the entered value from the form.</li>
+<li><strong>Line 19:</strong> Get the output <span class="caps">HTML </span>element.</li>
+<li><strong>Lines 21-24:</strong> Checking for a number! Don't forget. Because we're in a function, we can output the message and <code>return false;</code>. Returning false means that the browser won't refresh the page.</li>
+<li><strong>Line 27:</strong> Convert to a number.</li>
+<li><strong>Lines 29-34:</strong> Here's the search. We just have to loop through the array until we find the value. If we do then we set a boolean variable to <code>true</code>. If we never find it then the variable remains <code>false</code>.</li>
+<li><strong>Lines 26-44</strong> If we found the entry in the array then set the output. If not then set a message.</li>
+<li><strong>Line 47:</strong> Send the output to the <span class="caps">HTML </span>display element.</li>
+<li><strong>Line 49:</strong> Returning false will prevent the browser from refreshing the page.</li>
+</ul>
+
+
+
+<p><a name="searchSteps"></a></p>
+
+<h3>The Steps in a Search</h3>
+
+<h4>Step 1. A loop.</h4>
+
+
+<ul>
+<li>We need a <code>for</code> loop that loops through the array.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Loop through the array
+
+    for (index = 0; index < numbers.length; index++) {
+        ...
+    }
+]]></script></li>
+</ul>
+
+
+
+<h4>Step 2. An <code>if</code> statement in the loop</h4>
+
+
+<ul>
+<li>Inside the loop we will have to have an <code>if</code> statement that compares the element in the array with the value we're searching for.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Compare search term with current array element
+
+        if (search === numbers[index]) {
+            ...
+        }
+]]></script></li>
+<li>The <code>search</code> term is what we're looking for.</li>
+<li>The <code>numbers[index]</code> will be one element in the array from the first to the last.</li>
+</ul>
+
+
+
+<h4>Step 3. A boolean variable</h4>
+
+
+<ul>
+<li>Next, we need a boolean variable that is set to <code>false</code>.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Declare the boolean variable
+
+    var valueFound = false;
+]]></script></li>
+<li>It has to start with <code>false</code> so if we don't find anything it will remain false.</li>
+</ul>
+
+
+
+<h4>Step 4. Set boolean to true in loop</h4>
+
+
+<ul>
+<li>If our search term is equal to the current element in the loop then we need to set the boolean to true.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Set boolean to true
+
+            valueFound = true;
+]]></script></li>
+<li>It's important to realize that we don't do anything else here. We're just determine if our search term is in the array. We'll do something about it later.</li>
+</ul>
+
+
+
+<h4>Step 5. Break!</h4>
+
+
+<ul>
+<li>If we did find something then we want to break out of the loop.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// stop the loop
+
+            break;
+]]></script></li>
+<li>This is important because we want to know where we found the element. The <code>index</code> variable will now be set to the right number. If we don't break the index will always be at the final number in the array.</li>
+</ul>
+
+
+
+<h4>Step 6. Do something if we found it.</h4>
+
+
+<ul>
+<li>If our search term was found we want to do something.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Did we find it?
+
+    if (valueFound) {
+        ...
+    }
+]]></script></li>
+<li>Here's where we do something with the results of the search. What we do will vary with the problem we're trying to solve.</li>
+<li>Sometimes we want to do something only if we <strong>don't</strong> find our search term. We can do that like this.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Do something if we didn't find the search term
+
+    if (!valueFound) {
+        ...
+    }
+]]></script></li>
+</ul>
+
+
+
+<h4>All or nothing!</h4>
+
+
+<ul>
+<li>All of the above are necessary for a search to work. If you leave out even <strong>one</strong> step it will be very hard to get this to work.</li>
+</ul>
+
+
+
+<h3>Got it? Good, here's a lab.</h3>
+
+
+<ul>
+<li><a href="labs/lab08searchAnArray.html">Lab 8: Search an Array</a>
+<ul>
+<li><a href="labs/exercises-8.html">Lab 8 Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<p><br /><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

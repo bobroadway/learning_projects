@@ -1,0 +1,371 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Lab 1 Exercises  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="../resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../resources/code.css" media="screen, print" />
+  <link href='../resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="../resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../resources/shCore.js"></script>
+  <script type="text/javascript" src="../resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="../resources/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="../resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>
+  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <p class="heading">
+          <a style="color:#999;font-weight:bold;" href="../index.html" /><img src="../resources/home_24.png" />Learning Unit 3</a>
+                <img src="../resources/arrow_right_small.png" />Lab 1 Exercises          <hr /> 
+        </p>
+      </div>
+      <div id="main">
+        <h1>Lab 1 Exercises</h1>
+
+<h4>File: /unit3/labs/exercises-1.html</h4>
+
+<h3>Student</h3>
+
+
+<ul>
+<li>Name: Bo Broadway</li>
+<li>Section: Th/Th 12:30 - 2:20</li>
+<li>Email: bbroadway@madisoncollege.edu</li>
+</ul>
+
+
+
+<div class="noprint">
+
+<h2>Exercise Part 1</h2>
+
+
+<ol>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ol>
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that asks a user to enter a number. The program will then output to the page several statements about the number: whether the number is even or odd, if the number is greater than 100 or less than 100, if the number is a negative number or a positive number, and if the number is the year of your birth.</p></blockquote>
+
+<blockquote><p><strong><span class="caps">NOTE</span>:</strong> Only use simple if statements, no else statements allowed.</p></blockquote>
+
+
+<ol>
+<li>Add code after the line: <code>// PART 1: YOUR CODE STARTS AFTER THIS LINE:</code> to complete the exercise.</li>
+</ol>
+
+
+
+
+
+<ul>
+<li><strong>Sample Part 1 Output:</strong></li>
+</ul>
+
+
+
+
+<pre class="blackGreen">
+The number 1980
+  - is an even number.
+  - is greater than 100.
+  - is a positive number.
+  - is not the year of my birth.
+</pre>
+
+
+
+</div>
+
+<h3>Your Part 1 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 1: YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var YEAR_OF_BIRTH = 1985;
+    var COMPARE_VALUE = 100;
+    var enteredNumber;
+    var outputMessage;
+    
+    // Prompt the user for a number
+    enteredNumber = Number(prompt("Pick a number, ANY number:"));
+    outputMessage = "The number " + enteredNumber;
+    
+    // Find if even or odd
+    if (enteredNumber % 2 === 0) {
+        outputMessage += "\n  - is an even number.";
+    } else {
+        outputMessage += "\n  - is an odd number.";
+    }
+    
+    // Find if greater or less than COMPARE_VALUE
+    if (enteredNumber > COMPARE_VALUE) {
+        outputMessage += "\n  - is greater than " + COMPARE_VALUE;
+    } 
+    else if (enteredNumber < COMPARE_VALUE) {
+        outputMessage += "\n  - is less than " + COMPARE_VALUE;
+    } else {
+        outputMessage += "\n  - is equal to " + COMPARE_VALUE;
+    }   
+ 
+    // Find if posiive or negative
+    if (enteredNumber >= 0) {
+        outputMessage += "\n  - is positive.";
+    } else {
+        outputMessage += "\n  - is negative.";
+    }
+    
+    // Find if equal to "my" birth year
+    if (enteredNumber === YEAR_OF_BIRTH) {
+        outputMessage += "\n  - is the year of my birth.";
+    } else {
+        outputMessage += "\n  - is not the year of my birth.";
+    }
+    
+    // Output
+    document.write(outputMessage);
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<div class="noprint">
+
+<h2>Exercise Part 2</h2>
+
+
+<ol>
+<li>Open this file in Firefox and jEdit</li>
+<li>Add your name, section, and email</li>
+</ol>
+
+
+
+<h3>Problem Statement</h3>
+
+<blockquote><p>Write a program that asks a user to enter a single word. The program will then output several facts about the word: if the length of the word is more than 10 letters, if the word is less than the word "Algebra" or not. If the word is greater than the word "Singularity" or not, and if the word starts with an uppercase letter or a lowercase letter.</p></blockquote>
+
+<h3>Part 2 Program Planning Lists</h3>
+
+
+<ul>
+<li>In the following pre tag, write the three planning lists based on the verbs and nouns you see in the problem statement.</li>
+</ul>
+
+
+
+</div>
+
+
+
+<pre class="blackGreen">
+The List of Input Variables:
+    enteredWord
+
+The List of Output Variables:
+    enteredWord
+    outputMessage
+
+The Process Checklist:
+    Declare Variables
+    Prompt User for Word
+    Comparisons section to build output message
+    Display complete output message
+
+</pre>
+
+
+
+<h3>Part 2 Test Plan</h3>
+
+
+
+<pre class="blackGreen">
+TEST PLAN:
+
+Test Case 1:
+    Inputs:
+    Bad
+    
+    Expected Results:
+    The word "Bad"
+      - is not more than 10 letters.
+      - is "greater than" the word Algebra
+      - is "less than" the word Singulatiry
+      - begins with an uppercase letter.
+
+Test Case 2:
+    Inputs:
+    establishment
+    
+    Expected Results:
+    The word "establishment"
+      - is more than 10 letters.
+      - is "greater than" the word Algebra
+      - is "greater than" the word Singulatiry
+      - begins with a lowercase letter.
+
+</pre>
+
+
+
+<div class="noprint">
+
+
+<ul>
+<li><strong>Sample Part 2 Output:</strong></li>
+</ul>
+
+
+
+
+
+<pre class="blackGreen">
+The word, &quot;existentialism&quot;
+  - has a length that is greater than 10.
+  - is not less than, &quot;Algebra&quot;.
+  - is greater than the word, &quot;Singularity&quot;.
+  - starts with a lowercase letter.
+</pre>
+
+
+
+</div>
+
+<h3>Your Part 2 Output:</h3>
+
+
+
+<pre class="output">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+<!-- 
+
+// PART 2: YOUR CODE STARTS AFTER THIS LINE:
+
+    // Declare Variables
+    var COMPARISON_WORD_1 = "Algebra";
+    var COMPARISON_WORD_2 = "Singularity";
+    var enteredWord;
+    var outputMessage;
+    
+    // Assignments
+    enteredWord = prompt("Enter a word, ANY word:");
+    outputMessage = "The word \"" + enteredWord + "\"";
+    
+    // Find if the word is more than 10 letters
+    if (enteredWord.length > 10) {
+        outputMessage += "\n  - is more than 10 letters.";
+    } else {
+        outputMessage += "\n  - is not more than 10 letters.";
+    }
+ 
+    // Find if the word is "less than" the word Algebra
+    // I took this to mean the literal comparison, not word length
+    if (enteredWord < COMPARISON_WORD_1) {
+        outputMessage += "\n  - is \"less than\" the word " + COMPARISON_WORD_1;
+    }
+    else if (enteredWord > COMPARISON_WORD_1) {
+        outputMessage += "\n  - is \"greater than\" the word " + COMPARISON_WORD_1;
+    } else {
+        outputMessage += "\n  - IS the word " + COMPARISON_WORD_1;
+    }
+    
+    // Find if the word is longer than the word Singularity
+    if (enteredWord > COMPARISON_WORD_2) {
+        outputMessage += "\n  - is \"greater than\" the word " + COMPARISON_WORD_2;
+    }
+    else if (enteredWord < COMPARISON_WORD_2) {
+        outputMessage += "\n  - is \"less than\" the word " + COMPARISON_WORD_2;
+    } else {
+        outputMessage += "\n  - IS the word " + COMPARISON_WORD_2;
+    }
+        
+    // Find if the word starts with an uppercase or lowercase letter
+    if (enteredWord >= "a") {
+        outputMessage += "\n  - begins with a lowercase letter.";
+    } else {
+        outputMessage += "\n  - begins with an uppercase letter.";
+    }
+    
+    // Display complete output message
+    document.write(outputMessage);
+
+// END OF YOUR CODE
+
+// -->
+//]]>
+</script>
+</pre>
+
+
+
+<div class="noprint">
+
+<h3>Submitting your work</h3>
+
+
+<ul>
+<li>Exercises are due the first class session of the following week of school.</li>
+<li>Print out your exercise and place it on the instructor's table at the beginning of class.</li>
+</ul>
+
+
+
+</div>
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>

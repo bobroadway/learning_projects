@@ -1,0 +1,217 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+  <title>
+    Starting to Integrate JavaScript and HTML  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="resources/css.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="resources/code.css" media="screen" />
+  <link href='resources/print_stylesheet.css' rel='stylesheet' type='text/css' media='print' />
+  <script src="resources/common.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/unitData.js" language="javascript" type="text/javascript"> </script>
+  <script src="jsFiles/firstInnerHTML.js" language="javascript" type="text/javascript"> </script>
+  <script type="text/javascript" src="../unit1/resources/shCore.js"></script>
+  <script type="text/javascript" src="resources/shBrushJScript.js"></script>
+  <script type="text/javascript" src="resources/shBrushPlain.js"></script>
+  <script type="text/javascript" src="resources/shBrushXml.js"></script>
+  <script type="text/javascript" src="resources/shBrushCpp.js"></script>
+  <script type="text/javascript" src="resources/shBrushObjectiveC.js"></script>
+  <link type="text/css" rel="stylesheet" href="resources/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/shThemeDefault.css"/>
+  <script type="text/javascript">
+    
+    SyntaxHighlighter.all();
+  </script>
+  
+</head>  <body>
+  <div id="center">
+    <div id="border">
+      <div id="logo" class="noprint">
+        Introduction
+        <br />
+        to Programming
+      </div>
+      <div style="font:1.3em geneva,arial,sans-serif;" class="noview">
+        Introduction to Programming with JavaScript MATC 152-119
+        <hr />
+      </div>
+      <div class="noprint">
+        <div class="noprint">
+            <p class="heading">
+              <span style="float:left;">
+                <a style="color:#999;font-weight:bold;" href="index.html" ><img src="resources/home_24.png" />Learning Unit 5</a>
+                    <img src="resources/arrow_right_small.png" />Starting to Integrate JavaScript and HTML</span><span id="dataSpanID" style="float:right;"></span>
+            </p>
+        </div>
+      </div>
+      <div id="main" style="border-top:1px solid black;">
+        <h1>Starting to Integrate JavaScript and <span class="caps">HTML</span></h1>
+
+<h4>File: unit5/firstInnerHTML.html</h4>
+
+
+<ul>
+<li>JavaScript was invented to be used in conjunction with web pages, &nbsp;with a major use being to <em>change</em> <span class="caps">HTML</span> <i>after</i> a web page is <i>fully rendered</i> on a user's screen. We're going to start learning how.</li>
+</ul>
+
+
+
+<ul>
+<li>We have seen some code like this in some of the previous demos:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Using innerHTML
+    list = document.getElementById('demoList');  Note: The variable 'list' now contains a reference to an ol (or ul)
+    list.innerHTML = "<li>" + firstName + " " 
+            + lastName + "</li>";
+    ...
+    detailTable.innerHTML += "<tr><td>" 
+                + customerNumber + "</td><td>" 
+                + customerName + "</td><td>" 
+                + address + "</td><td>"
+                + gasUsage + "</td><td>"
+                + amountOwed + "</td></tr>";
+]]></script></li>
+<li>Now we're going to look at these a little more closely. We'll start by looking at the model of the Document object, known as the <strong><span class="caps">DOM</span></strong>, for &quot;Document Object Model.&quot; The DOM shows the basic structure of an <span class="caps">HTML </span>document hierarchy. Web pages can have some of these or lots of these tags. In the <span class="caps">DOM </span>they are called <em>elements</em>, and within JavaScript, each one is considered to be an <i>object</i> with which JavaScript can work. These types of objects are therefore known, not surprisingly, as <i>element</i> objects. And, as objects, they have <i>properties</i> and <i>methods</i> associated with them.</li>
+</ul>
+
+
+
+<br /><div style="text-align: center;">
+  <img src="resources/DOM.jpg" alt="" height="538" width="900" /><br />
+</div>
+
+
+<ul>
+<li>Here's a simple <span class="caps">HTML </span>document:<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2>Hello, World!</h2>
+    </body>
+</html>
+]]></script></li>
+<li>As you have learned in your <span class="caps">HTML </span>course, we can add attributes to tags. The attribute we're interested for this unit is <strong>id</strong>. When we add a unique id to a tag, it is then very easy for JavaScript to find and manipulate that element.<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2 id="greeting">Hello, World!</h2>
+    </body>
+</html>
+]]></script></li>
+<li>When a browser renders a Web page, as indicated above, all the elements on the page are (automatically) organized into a hierarchy of element  <i>objects</i>. JavaScript can get access to these element objects and <i>change</i> them, even after the Web page is fully rendered in the screen being viewed by the user.&nbsp; JavaScript can also <i>add</i> new objects to the page, and thus cause the Web page being viewed by the user to change. We'll start by adding content to the tags/objects with our programs.</li>
+<li>We start by getting access to a specific tag with a known id.<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Getting access to an HTML element
+    var headerTag;
+    
+    headerTag = document.getElementById("greeting");
+]]></script></li>
+<li>In the above example, the JavaScript variable named <code>headerTag</code> is available to our program when the Web page first loads, but at that point it just refers to <i>undefined</i>.  &nbsp;However, after the JavaScript program executes, and the JavaScript assign statement just above has executed, the variable <code>headerTag</code> will then contain a reference to the &lt;h2&gt; element. Once we have captured a reference to the &lt;h2&gt; element, we can now have JavaScript work with this element. Remember that once a variable has been assigned to refer to something, we can then use the variable name as if it were that something.<br /><br /> 
+Note that unlike CSS, JavaScript cannot simply immediately use the id value of an element to work with it. &nbsp; Rather, JavaScript requires that the JavaScript method  <i>document.getElementById()</i> must be employed first to <i>generate a reference</i> to the element.  &nbsp;Only then, can other features of JavaScript work with it.  &nbsp;For example, element objects have a property known as <i>innerHTML</i>, which is a reference to whatever is currently coded between the opening and closing tags of a two-sided tag set.
+<li>Thus,we could completely replace whatever the current content is by employing the following assign statement:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Setting the HTML
+    headerTag.innerHTML = "This is new!";
+]]></script></li>
+<li>This will change the text inside of the h2 tag to this:<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2 id="greeting">This is new!</h2>
+    </body>
+</html>
+]]></script></li>
+<li>We can also add text to the text that is already there with a simple <code>+=</code> like this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Adding content
+    headerTag.innerHTML += " It's a great day.";
+]]></script></li>
+<li>Which will give us this:<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2 id="greeting">Hello, World! It's a great day.</h2>
+    </body>
+</html>
+]]></script></li>
+<li>We can even add new tags with this technique. Here's an unordered list with no list item tags:<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<ul id="testUl">
+</ul>
+]]></script></li>
+<li>Here's code that adds a couple of <code>&lt;li&gt;</code> tags to the list:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// Adding li tags
+    var myUlist;
+    
+    myUlist = document.getElementById("testUl");
+    
+    myUlist.innerHTML = "<li>first item</li>";
+    myUlist.innerHTML += "<li>second item</li>";
+]]></script></li>
+<li>The list will now be this:<br />
+<script type="syntaxhighlighter" class="brush: html"><![CDATA[
+<ul id="testUl">
+  <li>first item</li>
+  <li>second item</li>
+</ul>
+]]></script></li>
+<li><code>innerHTML</code> does cause the browser to refresh so you want to use it sparingly. The above code would be better like this:<br />
+<script type="syntaxhighlighter" class="brush: javascript"><![CDATA[
+// More efficient
+    var myUlist;
+    var items;
+    
+    myUlist = document.getElementById("testUl");
+    
+    items = "<li>first item</li>";
+    items += "<li>second item</li>";
+    
+    myUlist.innerHTML = items;
+]]></script></li>
+<li>Let's practice this a bit!
+<ul>
+<li><a href="labs/lab01innerHTML.html">Lab 1: Working With innerHTML</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+<p><br /><br /><br /></p>      </div>
+      <br /><br />
+<div id="footer"  class="noprint">
+  
+  <p class="footer">
+    <input type=button value="Back" onClick="history.go(-1)">
+    <a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.1</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/">Valid CSS</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp; Design by <a href=
+    "http://www.donutey.frihost.net">Donutey</a>
+  </p>
+</div>
+    </div>
+  </div>
+</body>
+</html>
