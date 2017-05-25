@@ -26,9 +26,9 @@ public ToDoListSeventeenMayTwentyFifth {
         ArrayList<CleanLaundry> closet      = new ArrayList<>(); // do laundry
         ArrayList<Possession>   possessions = new ArrayList<>(); // go shopping
         Bed                     bed         = new Bed("Queen");
-        Phone                   phone       = new Phone("Samsung Galaxy S7");
-        PackedBag               gymBag      = new PackedBag(false); // this.isPacked = false
         Person                  bo          = new Person(new LocalDate(1985, 2, 9); // Bo Broadway, Age 32
+        Phone                   phone;
+        PackedBag               gymBag;
         
         // shopping
         possessions.add(ToDo.buy("Shoes", "East Towne Mall")); // buy shoes
@@ -38,18 +38,18 @@ public ToDoListSeventeenMayTwentyFifth {
         // laundry
         CleanLaundry load = ToDo.doLaundry("Clothes"); // do clothes laundry
         if (load != null) {
-            foldLaundry(load, closet);
+            closet = foldLaundry(load, closet); // put clothes away
             bed.make(ToDo.doLaundry("Bed")); // do bed laundry
         }
         
         // prep for Tara
         for (Room room : rooms) {
-            ToDo.cleanRoom(room); // clean bedroom, clean bathroom, clean garage
+            room = ToDo.cleanRoom(room); // clean bedroom, clean bathroom, clean garage
         }
         
         // prep for trip
         ArrayList<String> phoneMusic = new ArrayList<>(Arrays.asList("Oblivion", "ChildOfLight", "Vocaloid"))
-        phone = ToDo.putMusicOnPhone(phone, phoneMusic); // add music to phone
+        phone = ToDo.putMusicOnPhone(new Phone("Samsung Galaxy S7"), phoneMusic); // add music to phone
         ArrayList<String> packItems = new ArrayList<>(Arrays.asList("Clothes", "Toiletries", "3DS", "Chargers"))
         gymBag = ToDo.packForTrip("OKC", packItems); // pack
         if (!bo.getIsClean()) {
@@ -57,36 +57,38 @@ public ToDoListSeventeenMayTwentyFifth {
         }
     }
     
-    public class ToDo {
+    public static class ToDo {
         // shopping
-        public Possession buy(String item, String location) {
+        public static Possession buy(String item, String location) {
             return new Possession(item + " from " + location);
         }
     
         // laundry
-        public CleanLaundry doLaundry(String type) {
+        public static CleanLaundry doLaundry(String type) {
             return new CleanLaundry(type).wash("All").dry("Bounce");
         }
-        public void foldLaundry(CleanLaundry load, ArrayList<ClosetItem> closet) {
+        public static ArrayList<CleanLaundry> foldLaundry(CleanLaundry load, ArrayList<CleanLaundry> closet) {
             closet.add(load.fold());
+            return closet;
         }
         
         // prep for trip
-        public Phone putMusicOnPhone(Phone phone, ArrayList<String> music) {
+        public static Phone putMusicOnPhone(Phone phone, ArrayList<String> music) {
             phone.addMusic(music);
             return phone;
         }
-        public PackedBag packForTrip(String destination, ArrayList<String> items) {
+        public static PackedBag packForTrip(String destination, ArrayList<String> items) {
             return new PackedBag(items).setDestination(destination);
         }
-        public Person shower(Person person) {
+        public static Person shower(Person person) {
             person.setClean(true);
             return person;
         }
         
         // prep for Tara
-        public void cleanRoom(Room room) {
+        public static Room cleanRoom(Room room) {
             room.setIsCluttered(false);
+            return room;
         }
     }
 }
